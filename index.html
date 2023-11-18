@@ -3,53 +3,202 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Ekerhorn Art</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Asap:wght@200&family=Handjet:wght@600&family=Noto+Sans+Adlam+Unjoined&family=Noto+Sans:wght@500&family=Roboto+Slab:wght@500&display=swap"
+      rel="stylesheet"
+    />
     <link href="./styles.css" rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/a8ed3d1b14.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="./script.js"></script>
   </head>
   <body>
-    <header>
-      <div class="container">
-        <h1>Ekerhorn Art</h1>
+    <nav id="header">
+      <ul class="nav-desktop">
+        <li>
+          <a href="#home" id="logo"
+            ><img src="./logga-ekerhorn.png" alt="Ekerhorn Art logo"
+          /></a>
+        </li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+
+        <li>
+          <a href="#contact" id="nav-cta" class="btn"><p>Contact Me</p></a>
+        </li>
+
+        <li>
+          <div class="hamb">
+            <span class="top"></span>
+            <span class="mid"></span>
+            <span class="bot"></span>
+          </div>
+        </li>
+      </ul>
+
+      <div class="sidebar">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+        </ul>
+
+        <ul>
+          <li>
+            <a href="https://www.facebook.com/"
+              ><i class="fa-brands fa-square-facebook"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://www.twitter.com/"
+              ><i class="fa-brands fa-twitter"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+          </li>
+        </ul>
       </div>
-      <nav>
-        <p>Home</p>
-        <p>About</p>
-        <p>Gallery</p>
-        <p>Events</p>
-        <p>Contact</p>
-      </nav>
-    </header>
+    </nav>
+
     <main>
       <section id="home">
         <div class="hero">
-          <div class="overlay"></div>
-        </div>
-        <div class="text-box">
-          <h3>Mattias Ekerhorn</h3>
-          <h2>An Artist of</h2>
-          <h2>Words & Color</h2>
-          <p>
-            Oil paintings and poems exploring identity, emotion, and beauty. A
-            fusion of visual and verbal expression. Discover a new unique vision
-            and style.
-          </p>
-          <button>Contact</button>
+          <div class="row">
+            <div class="column">
+              <a href="https://www.facebook.com/"
+                ><i class="fa-brands fa-square-facebook"></i
+              ></a>
+
+              <span></span>
+
+              <a href="https://www.twitter.com/"
+                ><i class="fa-brands fa-twitter"></i
+              ></a>
+
+              <span></span>
+
+              <a href="https://www.instagram.com/"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+            </div>
+
+            <div class="hero-text">
+              <h3>Mattias Ekerhorn</h3>
+              <h2>An Artist of</h2>
+              <h2>
+                <span>Words</span>
+                <span>& Color</span>
+              </h2>
+              <p>
+                Paintings and poems exploring identity, emotion, and beauty.
+                Discover a unique vision and style.
+              </p>
+              <div class="location">
+                <p>Currently in</p>
+                <i class="fa-solid fa-location-dot"></i>
+                <p>Gothenburg | Sweden</p>
+              </div>
+              <div class="cta">
+                <a href="#contact" class="btn">Contact Me</a>
+                <a href="#events" class="btn">Events</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="overlay">
+            <div class="mask"></div>
+            <div class="padding"></div>
+          </div>
         </div>
       </section>
 
-      <section class="about">
-        <h2>About</h2>
-        <p>
-          Welcome to the online gallery of Mattias Ekerhorn, a modern artist who
-          creates stunning oil paintings that explore the themes of identity,
-          emotion, and beauty. Each painting accompanied by a poem which reveals
-          the inspiration and meaning behind the artwork. Ekerhorn's work is a
-          fusion of visual and verbal expression, a dialogue between the artist
-          and the viewer. Discover his unique vision and style, and experience
-          the power and beauty of his art.
-        </p>
+      <section id="about">
+        <div class="center">
+          <h2>About</h2>
+          <p>
+            Welcome to my online gallery, where you will find a small sample of
+            my work.
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="text-box">
+            <h3>Hello There!</h3>
+            <p>
+              I am Mattias Ekerhorn, a modern artist who creates stunning
+              paintings which explore the themes of identity, emotion, and
+              beauty.
+            </p>
+          </div>
+
+          <div class="anchor">
+            <div class="profile-image"></div>
+          </div>
+        </div>
+
+        <div class="studio">
+          <div class="text-box">
+            <p>
+              Each painting is accompanied by a poem, revealing the inspiration
+              and meaning behind the artwork.
+            </p>
+          </div>
+        </div>
       </section>
+
+      <section>
+        <div id="events">
+          <h2 class="center">Events</h2>
+
+          <div class="triad">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <p class="center">View More</p>
+        </div>
+      </section>
+
+      <hr />
+
+      <section id="gallery">
+        <h2 class="center">Gallery</h2>
+        <div class="paintings">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="row">
+          <div class="form">
+            <h2>Contact Me</h2>
+          </div>
+          <img src="./window.jpg" alt="Window of Studio" />
+        </div>
+      </section>
+      <section class="map"></section>
+
+      <footer>
+        <p>Copyright &copy; 2023 Daniel Svensson</p>
+      </footer>
     </main>
   </body>
 </html>
