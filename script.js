@@ -14,16 +14,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const headerElement = document.getElementById("header");
     let scrollTop = window.scrollY || document.documentElement.scrollTop;
 
-    if (scrollTop === 0) {
+    if (scrollTop < 20) {
       headerElement.style.backgroundColor = "initial";
       headerElement.style.color = "initial";
-      headerElement.style.color = "white";
       headerElement.style.backgroundColor = "initial";
       headerElement.style.background =
         "linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))";
+      headerElement.style.boxShadow = "initial";
     } else {
-      headerElement.style.color = "white";
       headerElement.style.background = neutralBlack;
+      headerElement.style.boxShadow =
+        "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px";
     }
   });
 
@@ -36,5 +37,11 @@ document.addEventListener("DOMContentLoaded", function () {
     mobileNav.classList.toggle("active");
   });
 
-  // Whenever the width is smaller than 768px, close the mobile menu
+  // Whenever the width is smaller than 850px, close the mobile menu
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 850) {
+      hamburger.classList.remove("active");
+      mobileNav.classList.remove("active");
+    }
+  });
 });

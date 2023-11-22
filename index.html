@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Asap:wght@200&family=Handjet:wght@600&family=Noto+Sans+Adlam+Unjoined&family=Noto+Sans:wght@500&family=Roboto+Slab:wght@500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700&family=Work+Sans:wght@500&display=swap"
       rel="stylesheet"
     />
     <link href="./styles.css" rel="stylesheet" />
@@ -31,7 +31,7 @@
         <li><a href="#gallery">Gallery</a></li>
 
         <li>
-          <a href="#contact" id="nav-cta" class="btn"><p>Contact Me</p></a>
+          <a href="#contact" id="nav-cta" class="btn">Contact Me</a>
         </li>
 
         <li>
@@ -95,11 +95,11 @@
 
             <div class="hero-text">
               <h3>Mattias Ekerhorn</h3>
-              <h2>An Artist of</h2>
-              <h2>
+              <h1>An Artist of</h1>
+              <h1>
                 <span>Words</span>
                 <span>& Color</span>
-              </h2>
+              </h1>
               <p>
                 Paintings and poems exploring identity, emotion, and beauty.
                 Discover a unique vision and style.
@@ -110,35 +110,33 @@
                 <p>Gothenburg | Sweden</p>
               </div>
               <div class="cta">
-                <a href="#contact" class="btn">Contact Me</a>
-                <a href="#events" class="btn">Events</a>
+                <a href="#contact" class="btn wrapper">Contact Me</a>
+                <a href="#events" class="btn wrapper">Events</a>
               </div>
             </div>
           </div>
 
           <div class="overlay">
             <div class="mask"></div>
-            <div class="padding"></div>
+            <div class="padding">
+              <h2 id="about">About</h2>
+              <p>
+                Welcome to my online gallery, where you will find a small sample
+                of my work.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       <section id="about">
-        <div class="center">
-          <h2>About</h2>
-          <p>
-            Welcome to my online gallery, where you will find a small sample of
-            my work.
-          </p>
-        </div>
-
         <div class="row">
           <div class="anchor">
             <div class="profile-image"></div>
           </div>
 
           <div class="text-box">
-            <h3>Hello There!</h3>
+            <h4>Hello There!</h4>
             <p>
               I am Mattias Ekerhorn, a modern artist who creates stunning
               paintings which explore the themes of identity, emotion, and
@@ -189,6 +187,7 @@
       <section id="contact">
         <div class="contact-in">
           <div class="contact-map">
+            <!-- Google Maps
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2132.59276304478!2d11.971679199999999!3d57.6893985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464ff3404f96d5f5%3A0x568bad4381f766ec!2sEkerhorn%20Atelj%C3%A9!5e0!3m2!1ssv!2ses!4v1700405763257!5m2!1ssv!2ses"
               width="100%"
@@ -198,6 +197,7 @@
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
+            -->
           </div>
 
           <div class="contact-form">
@@ -224,9 +224,38 @@
       </section>
 
       <footer>
-        <a href="https://github.com/Amycus89"
-          >Copyright &copy; 2023 Daniel Svensson</a
-        >
+        <div class="mask"></div>
+        <ul>
+          <li>
+            <a href="https://www.facebook.com/"
+              ><i class="fa-brands fa-square-facebook"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://www.twitter.com/"
+              ><i class="fa-brands fa-twitter"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+          </li>
+        </ul>
+
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact Me</a></li>
+        </ul>
+
+        <div>
+          <a href="https://github.com/Amycus89"
+            >Copyright &copy; 2023 Daniel Svensson | All Rights Reserved</a
+          >
+        </div>
       </footer>
     </main>
   </body>
