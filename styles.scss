@@ -19,9 +19,9 @@ $neutral-black: #00040d;
   height: auto;
   width: 350px;
   z-index: 999;
-  background-color: rgba(0, 0, 0, 0.384);
+  background-color: rgba(0, 0, 0, 0.6);
+  //-webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
 
   ul {
@@ -371,7 +371,7 @@ p {
 
   .row {
     display: flex;
-    width: clamp(300px, 100%, 800px);
+    width: clamp(300px, 100%, 700px);
     margin-top: calc(8vw + 80px);
     margin-left: 0;
 
@@ -541,30 +541,135 @@ p {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 2.5em;
+    //gap: 5.5em;
     //flex-direction: row-reverse; //reverse
     background-color: $primary-light;
 
+    .anchor {
+      position: relative;
+      min-height: 600px;
+      min-width: 50%;
+      margin-bottom: 5.5em;
+
+      .profile-image {
+        position: absolute;
+        top: -4em;
+        right: -1em;
+        height: 900px;
+        width: 900px;
+        object-fit: cover;
+        background-color: $primary-normal;
+        mask-image: url("./15.png");
+        -webkit-mask-image: url("./15.png");
+        -webkit-mask-size: 100%;
+        -webkit-mask-repeat: no-repeat;
+
+        background-image: url("./profile.png");
+        background-size: 1800px;
+        background-position: 25% center;
+        background-repeat: no-repeat;
+      }
+    }
+
     .text-box {
-      width: clamp(400px, 40ch, 80%);
+      width: clamp(325px, 100%, 75ch);
       margin: 1em;
       z-index: 800;
 
       h4 {
         color: $sec-dark;
         font-family: "Merriweather", serif;
-        font-size: calc(22rem / 16);
+        font-size: calc(28rem / 16);
       }
 
       p {
         color: $primary-dark;
         line-height: 1.5;
+        margin-bottom: 2em;
       }
 
       .row {
+        width: 100%;
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
+        margin-top: 2em;
+        margin: 0;
+        gap: 1em;
+
+        .card {
+          display: flex;
+          flex-direction: column;
+          box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+          padding: 1em;
+          border-radius: 10px;
+          background-color: $neutral-light;
+          width: clamp(325px, 45%, 75ch);
+          min-height: 350px;
+
+          i,
+          h4 {
+            color: $primary-dark;
+            font-size: calc(22rem / 16);
+          }
+
+          h4 {
+            display: inline;
+          }
+
+          p {
+            margin-top: 0.5em;
+            color: $primary-dark;
+          }
+        }
+      }
+    }
+  }
+
+  .story {
+    .row {
+      background-color: $neutral-light;
+      width: 100%;
+
+      .text-box {
+        width: clamp(325px, 100%, 75ch);
+      }
+
+      &:first-child {
+        flex-direction: row-reverse;
+        .anchor {
+          border: 1px red solid;
+          min-height: 300px;
+
+          div {
+            position: absolute;
+            top: 0;
+            left: 25%;
+            min-width: 350px;
+            width: 25vw;
+            min-height: 350px;
+            height: 25vw;
+            background-image: url("./ahus.webp");
+            background-size: cover;
+            mask-image: url("./15.png");
+            -webkit-mask-image: url("./15.png");
+            -webkit-mask-size: 100%;
+            -webkit-mask-repeat: no-repeat;
+          }
+        }
+      }
+
+      &:nth-child(2) .anchor {
+        background-color: green;
+        min-height: 350px;
+      }
+
+      &:nth-child(3) {
+        flex-direction: row-reverse;
+        .anchor {
+          background-color: blue;
+          min-height: 400px;
+        }
       }
     }
   }
@@ -575,31 +680,6 @@ p {
   margin: 1em;
   .p {
     width: clamp(300px, 40ch, 80%);
-  }
-}
-
-.anchor {
-  position: relative;
-  height: 600px;
-  width: 900px;
-
-  .profile-image {
-    position: absolute;
-    top: -4em;
-    right: -1em;
-    height: 900px;
-    width: 900px;
-    object-fit: cover;
-    background-color: $primary-normal;
-    mask-image: url("./15.png");
-    -webkit-mask-image: url("./15.png");
-    -webkit-mask-size: 100%;
-    -webkit-mask-repeat: no-repeat;
-
-    background-image: url("./profile.png");
-    background-size: 1800px;
-    background-position: 25% center;
-    background-repeat: no-repeat;
   }
 }
 
@@ -624,10 +704,12 @@ p {
 
   p {
     color: $primary-light;
+    font-family: "Merriweather", serif;
+    font-style: italic;
     line-height: 1.5;
-    padding: 4em;
+    padding: 1em;
     text-align: center;
-    font-size: calc(20rem / 16);
+    font-size: calc(42rem / 16);
     border: 1px solid $accent-dark;
   }
 }
@@ -653,6 +735,7 @@ p {
   background-color: rgb(236, 236, 236);
   border: 1px solid $neutral-black;
   border-radius: 12px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 hr {
@@ -676,6 +759,7 @@ hr {
   background-color: rgb(236, 236, 236);
   border: 1px solid $neutral-black;
   border-radius: 12px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 #contact {
@@ -695,7 +779,7 @@ hr {
     padding: 10px;
     border-radius: 10px;
     background-color: $neutral-light;
-    box-shadow: 0 0 10px 0 $neutral-black; // Dark gray?
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
 
   .contact-map {
@@ -896,7 +980,6 @@ footer {
   }
 
   .hero .row .hero-text {
-    margin-left: 1.2em;
   }
 
   .studio p {
