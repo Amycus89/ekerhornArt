@@ -604,6 +604,7 @@ p {
         -webkit-mask-image: url("./15.png");
         -webkit-mask-size: 100%;
         -webkit-mask-repeat: no-repeat;
+        z-index: 799;
 
         background-image: url("./profile.png");
         background-size: 1800px;
@@ -635,54 +636,6 @@ p {
       p {
         color: $neutral-black;
         margin-bottom: 2em;
-      }
-    }
-  }
-
-  .story {
-    .row {
-      background-color: $neutral-50;
-      width: 100%;
-
-      .text-box {
-        width: clamp(325px, 100%, 75ch);
-      }
-
-      &:first-child {
-        flex-direction: row-reverse;
-        .anchor {
-          border: 1px red solid;
-          min-height: 300px;
-
-          div {
-            position: absolute;
-            top: 0;
-            left: 25%;
-            min-width: 350px;
-            width: 25vw;
-            min-height: 350px;
-            height: 25vw;
-            background-image: url("./ahus.webp");
-            background-size: cover;
-            mask-image: url("./15.png");
-            -webkit-mask-image: url("./15.png");
-            -webkit-mask-size: 100%;
-            -webkit-mask-repeat: no-repeat;
-          }
-        }
-      }
-
-      &:nth-child(2) .anchor {
-        background-color: green;
-        min-height: 350px;
-      }
-
-      &:nth-child(3) {
-        flex-direction: row-reverse;
-        .anchor {
-          background-color: blue;
-          min-height: 400px;
-        }
       }
     }
   }
@@ -727,58 +680,257 @@ p {
   }
 }
 
+.carousel {
+  min-height: 600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2em;
+  background-color: $neutral-50;
+  text-align: center;
+
+  h2 {
+    color: $primary-500;
+    font-family: "Work Sans", serif;
+    font-size: calc(36rem / 16);
+  }
+
+  p {
+    color: $neutral-black;
+  }
+
+  .carousel-track-container {
+    height: 600px;
+    width: 80%;
+    margin: 1em auto;
+    overflow: hidden;
+    border-radius: 12px;
+    position: relative;
+
+    .carousel-track {
+      list-style: none;
+      position: relative;
+      height: 100%;
+      position: relative;
+      transition: transform 350ms ease-in;
+
+      .carousel-slide {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .carousel-text {
+          color: $neutral-50;
+          font-family: "Work Sans", sans-serif;
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          padding: 1em;
+          // Make linear horizontal gradient background
+          background-image: linear-gradient(
+            to right bottom,
+            #051937de,
+            #051937b2,
+            #fffffe00,
+            #fffffe00
+          );
+
+          h5 {
+            font-size: calc(42rem / 16);
+          }
+        }
+      }
+    }
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); // Center vertically, moving 50% of own size up
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    background: $primary-50;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    padding: 0.5em;
+    z-index: 798;
+
+    &:first-of-type {
+      left: 40px;
+    }
+
+    &:last-of-type {
+      right: 40px;
+    }
+
+    i {
+      width: 12px;
+    }
+  }
+
+  .carousel-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    width: 100%;
+
+    .carousel-nav-btn {
+      width: 250px;
+      height: 154.5px;
+      border: 1px solid $neutral-black;
+      border-radius: 12px;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      transform: translateY(-50%);
+      cursor: pointer;
+      position: relative;
+      filter: brightness(0.8);
+      transition: 0.5s ease-in-out;
+
+      h6 {
+        color: $neutral-50;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        font-size: 1rem;
+        font-family: "Merriweather", serif;
+      }
+
+      &:first-of-type {
+        background-image: url(./frostdreams.jpg);
+        object-fit: cover;
+        background-position: center;
+      }
+
+      &:nth-of-type(2) {
+        background-image: url(./hero.webp);
+        object-fit: cover;
+        background-position: center;
+      }
+
+      &:last-of-type {
+        background-image: url(./window.jpg);
+        object-fit: cover;
+        background-position: center;
+      }
+    }
+
+    .carousel-nav-btn.current-slide {
+      //Selects any element with both classes
+      border: 2px solid $sec-600;
+      filter: none;
+    }
+  }
+}
+
 #gallery {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
-}
+  background-color: $neutral-black;
 
-#events {
-  background-color: $primary-900;
-  width: 100%;
-  min-height: 80vh;
+  h2 {
+    color: $primary-50;
+    padding-top: 2em;
+    font-family: "Work Sans", serif;
+    font-size: calc(36rem / 16);
+  }
 
-  .triad {
+  p {
+    color: $neutral-200;
+  }
+
+  .modal {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 12px;
+    padding: 1em;
+    border: none;
+    outline: none;
+
+    img {
+      width: 100%;
+      min-width: 230px;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    h4 {
+      font-family: "Merriweather", serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.5em;
+      color: $sec-500;
+    }
+
+    p {
+      color: $primary-900;
+    }
+  }
+
+  .paintings {
+    margin: 4rem;
+    width: 90%;
     display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 1fr;
-    gap: 2rem;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
+    justify-items: center;
+    align-items: center;
+  }
 
-    div {
-      width: 250px;
-      height: 154.5px;
-      background-color: rgb(236, 236, 236);
-      border: 1px solid $neutral-black;
-      border-radius: 12px;
-      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  .paintings > .open-modal {
+    width: 12em;
+    height: calc(12em * 1.618);
+    border: 2px solid $accent-600;
+    border-radius: 12px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s ease-in-out;
+    }
+
+    &:hover img {
+      //zoom in on image
+      transform: scale(1.1);
+    }
+
+    p {
+      position: absolute;
+      bottom: 0;
+      left: 0.5em;
+      transform: translateY(3rem);
+      color: $neutral-50;
+      transition: 0.5s ease-in-out;
+      font-family: "Merriweather", serif;
+      font-size: 1.2rem;
+      text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+    }
+
+    &:hover p {
+      transform: translateY(0);
     }
   }
 }
 
-hr {
-  width: 50%;
-  height: 1px;
-}
-
-.paintings {
-  margin: 4rem;
-  width: 90%;
-  display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
-  justify-items: center;
-  align-items: center;
-}
-
-.paintings > div {
-  width: 8em;
-  height: 5em;
-  background-color: rgb(236, 236, 236);
-  border: 1px solid $neutral-black;
-  border-radius: 12px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+.sold {
+  filter: grayscale(100%);
 }
 
 #contact {

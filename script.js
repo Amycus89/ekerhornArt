@@ -44,4 +44,103 @@ document.addEventListener("DOMContentLoaded", function () {
       mobileNav.classList.remove("active");
     }
   });
+
+  //Carousel
+  const track = document.querySelector(".carousel-track");
+  const slides = Array.from(track.children); // Makes an array of all items inside varialbe track
+  const nextButton = document.querySelector("#nextBtn");
+  const prevButton = document.querySelector("#prevBtn");
+  const dotsNav = document.querySelector(".carousel-nav");
+  const dots = Array.from(dotsNav.children);
+  //Find the amount of slides
+  const lastSlideIndex = slides.length - 1;
+
+  const slideWidth = slides[0].getBoundingClientRect().width;
+
+  // Arrange the slides next to one another
+  slides.forEach((slide, index) => {
+    slide.style.left = slideWidth * index + "px";
+  });
+
+  const moveToSlide = (track, currentSlide, targetSlide) => {
+    track.style.transform = `translateX(-${targetSlide.style.left})`;
+    currentSlide.classList.remove("current-slide");
+    targetSlide.classList.add("current-slide");
+  };
+
+  const updateDots = (currentDot, targetDot) => {
+    currentDot.classList.remove("current-slide");
+    targetDot.classList.add("current-slide");
+  };
+
+  // Arrange the slides next to one another
+  // When user clicks left, move slides to the left
+  prevButton.addEventListener("click", (e) => {
+    const currentSlide = track.querySelector(".current-slide");
+    let prevSlide = currentSlide.previousElementSibling;
+    const currentDot = dotsNav.querySelector(".current-slide");
+    let prevDot = currentDot.previousElementSibling;
+    // Find the index of the current slide
+    const currentIndex = slides.indexOf(currentSlide);
+    if (currentIndex === 0) {
+      prevSlide = slides[lastSlideIndex];
+      prevDot = dots[lastSlideIndex];
+    }
+
+    moveToSlide(track, currentSlide, prevSlide);
+    updateDots(currentDot, prevDot);
+  });
+  // When user clicks right, move slides to the right
+  nextButton.addEventListener("click", (e) => {
+    const currentSlide = track.querySelector(".current-slide");
+    let nextSlide = currentSlide.nextElementSibling;
+    const currentDot = dotsNav.querySelector(".current-slide");
+    let nextDot = currentDot.nextElementSibling;
+    // Find the index of the current slide
+    const currentIndex = slides.indexOf(currentSlide);
+    if (currentIndex === lastSlideIndex) {
+      nextSlide = slides[0];
+      nextDot = dots[0];
+    }
+
+    moveToSlide(track, currentSlide, nextSlide);
+    updateDots(currentDot, nextDot);
+  });
+
+  // When user clicks on a carousel-nav-btn, move slides to that slide
+  dotsNav.addEventListener("click", (e) => {
+    // What button was clicled on?
+    const targetButton = e.target.closest("button"); // Only cares about buttons, returns null for anything else
+    if (!targetButton) return; // If there is no button, eg value is null, return and exit the function
+    const currentSlide = track.querySelector(".current-slide");
+    const currentButton = dotsNav.querySelector(".current-slide");
+    const targetIndex = dots.indexOf(targetButton); // Find the index of the button clicked
+    const targetSlide = slides[targetIndex];
+    moveToSlide(track, currentSlide, targetSlide);
+    updateDots(currentButton, targetButton);
+  });
+
+  // Make modals in gallery section work
+
+  // Get all modal buttons
+  const modalButtons = document.querySelectorAll(".open-modal");
+  // Get all modals
+  const modals = document.querySelectorAll(".modal");
+  // Get all modal close buttons
+  const modalCloses = document.querySelectorAll(".close-modal");
+
+  // Loop through all modal buttons, adding an event listener to each
+  for (let i = 0; i < modalButtons.length; i++) {
+    modalButtons[i].addEventListener("click", function () {
+      modals[i].showModal();
+    });
+  }
+
+  // Whenever the user clicks outside of a modal, close it
+  window.addEventListener("click", function (event) {
+    // If user clicks outside of a modal, close it
+    if (event.target.classList.contains("modal")) {
+      event.target.close();
+    }
+  });
 });

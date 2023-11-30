@@ -120,7 +120,7 @@
             <div class="mask"></div>
             <div class="padding wrapper">
               <div class="text-box wrapper">
-                <h2 id="about">Välkommen till Ekerhorn Art i Göteborg</h2>
+                <h2>Välkommen till Ekerhorn Art i Göteborg</h2>
                 <p>
                   Välkommen till mitt onlinegalleri, där du hittar ett litet
                   urval av mina målningar och dikter. Varje målning har en
@@ -144,9 +144,10 @@
 
             <p>
               Läkare och konstnär, med stor passion för konstens alla former.
-              Jag gör modern konst och dikter som utforskar teman om identitet,
-              känsla och skönhet. Nedan kan du se några av mina verk, läsa mina
-              dikter och lära dig mer om mig och min konstnärliga vision.
+              Jag skapar modern konst och dikter som utforskar teman om
+              identitet, känsla och skönhet. Nedan kan du se några av mina verk,
+              läsa mina dikter och lära dig mer om mig och min konstnärliga
+              vision.
               <br /><br />Jag hoppas att du finner något som berör dig, och att
               du kommer tillbaka ofta för att se mina senaste verk. Följ mig på
               en resa genom konst, poesi och färg.
@@ -155,35 +156,108 @@
         </div>
       </section>
 
-      <section id="events">
-        <div>
-          <div class="triad">
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-          <h2 class="center">Events</h2>
-          <p>
-            Join us at upcoming art galleries where my work takes center stage.
-            Be part of an immersive experience that goes beyond the canvas.
-          </p>
-          <p class="center">Se Alla</p>
-        </div>
-      </section>
+      <section class="carousel" id="events">
+        <h2 class="center">Events</h2>
+        <p>
+          Följ med oss på kommande konstgallerier där mitt arbete står i
+          centrum. Bli en del av en upplevelse som sträcker sig över
+          målarduken.
+        </p>
 
-      <hr />
+        <div class="carousel-track-container">
+          <button class="carousel-btn wrapper" id="prevBtn">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+
+          <ul class="carousel-track">
+            <li class="carousel-slide current-slide">
+              <img src="./frostdreams.jpg" alt="frostdreams event" />
+              <div class="carousel-text">
+                <h5>FrostDrömmar</h5>
+                <p>15e DECEMBER Kl 18:00-20:00</p>
+                <p>Vernissage, konsert, julfika</p>
+              </div>
+            </li>
+            <li class="carousel-slide">
+              <a href="https://google.se">
+                <img src="./hero.webp" alt="aromlandskap event" />
+                <div class="carousel-text">
+                  <h5>AromLandskap</h5>
+                  <p>2 SEP - 31 OCT 2023</p>
+                </div>
+              </a>
+            </li>
+            <li class="carousel-slide">
+              <img src="./window.jpg" alt="window" />
+              <div class="carousel-text">
+                <h5>Välkommen in!</h5>
+              </div>
+            </li>
+          </ul>
+
+          <button class="carousel-btn wrapper" id="nextBtn">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="carousel-nav">
+          <button class="carousel-nav-btn current-slide">
+            <h6>FrostDrömmar</h6>
+          </button>
+          <button class="carousel-nav-btn">
+            <h6>AromLandskap</h6>
+          </button>
+          <button class="carousel-nav-btn">
+            <h6>Välkommen in!</h6>
+          </button>
+        </div>
+
+        <p>Se Alla</p>
+      </section>
 
       <section id="gallery">
         <h2>Galleri</h2>
+        <p>Ett urval av mina senaste verk</p>
         <div class="paintings">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+          <dialog class="modal">
+            <img src="./hemlangtan.webp" alt="Målning"></img>
+            <h4>Hemlängtan</h4>
+            <p>Saknar tillhörande dikt, men detta är för tavlan "Hemlängtan" 1!</p>
+          </dialog>
+          <div class="open-modal">
+            <img src="./hemlangtan.webp" alt="Målning"></img>
+            <p>Hemlängtan</p>
+          </div>
+
+          <dialog class="modal">
+            <img src="./omheten.webp" alt="Målning"></img>
+            <h4>Ömheten</h4>
+            <p>Poesi här!</p>
+          </dialog>
+          <div class="open-modal">
+            <img src="./omheten.webp" alt="Målning" class="sold"></img>
+            <p>Ömheten</p>
+          </div>
+
+          <dialog class="modal">
+            <img src="./hemlangtan.webp" alt="Målning"></img>
+            <h4>Wow! This is a modal?</h4>
+            <p>Check it out! This is painting 3</p>
+          </dialog>
+          <div class="open-modal">
+            <img src="./hemlangtan.webp" alt="Målning"></img>
+            <p>Behöver fler tavlor</p>
+          </div>
+
+          <dialog class="modal">
+            <img src="./sammanbrottet.webp" alt="Målning"></img>
+            <h4>Sammanbrottet</h4>
+            <p>Check it out! This is painting 4</p>
+          </dialog>
+          <div class="open-modal">
+            <img src="./sammanbrottet.webp" alt="Målning"></img>
+            <p>Sammanbrottet</p>
+          </div>
         </div>
 
         <div class="studio">
@@ -199,7 +273,7 @@
       <section id="contact">
         <div class="contact-in">
           <div class="contact-map">
-            <!--
+            <!-- google maps
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2132.59276304478!2d11.971679199999999!3d57.6893985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464ff3404f96d5f5%3A0x568bad4381f766ec!2sEkerhorn%20Atelj%C3%A9!5e0!3m2!1ssv!2ses!4v1700405763257!5m2!1ssv!2ses"
               width="100%"
@@ -209,9 +283,8 @@
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
-            -->
           </div>
-
+-->
           <div class="contact-form">
             <div>
               <i class="fa-regular fa-envelope"></i>
