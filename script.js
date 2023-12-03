@@ -9,12 +9,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const neutralLight = "#f6f7f8";
   const neutralNormal = "#e3e5eb";
   const neutralBlack = "#00040d";
+  let prevScrollPos = 0;
 
   window.addEventListener("scroll", function () {
     const headerElement = document.getElementById("header");
-    let scrollTop = window.scrollY || document.documentElement.scrollTop;
+    let currentScrollPos = window.scrollY;
+    //let scrollThreshold = 100;
 
-    if (scrollTop < 20) {
+    if (currentScrollPos == 0) {
       headerElement.style.backgroundColor = "initial";
       headerElement.style.color = "initial";
       headerElement.style.backgroundColor = "initial";
@@ -26,6 +28,14 @@ document.addEventListener("DOMContentLoaded", function () {
       headerElement.style.boxShadow =
         "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px";
     }
+    // If the user scrolls upwards, reveal the header
+    if (currentScrollPos - prevScrollPos > 0 && currentScrollPos > 600) {
+      headerElement.style.top = "-100px";
+    } else {
+      headerElement.style.top = "0";
+    }
+    prevScrollPos = currentScrollPos;
+    console.log(prevScrollPos);
   });
 
   // OnClick hamburger icon animation and mobile navigation
