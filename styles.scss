@@ -45,15 +45,13 @@ $neutral-black: #00040d;
   width: 350px;
   z-index: 999;
   background-color: rgba(0, 0, 0, 0.6);
-  //-webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
   box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
 
   ul {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
   }
 
   ul:nth-of-type(2) {
@@ -72,7 +70,7 @@ $neutral-black: #00040d;
 
       a {
         padding: 15px 5px;
-        font-size: calc(20rem / 16);
+        font-size: calc(21.33rem / 16);
       }
 
       i {
@@ -144,32 +142,36 @@ body {
 
 .logo img {
   height: 60px;
-  padding: 5px 5px;
+  padding: 0 8px;
 }
 
-#header ul li .btn {
-  padding: 0 8px;
-  transition: 0.3s;
-  margin: 5px 30px 0 15px;
-  border-radius: 3px;
-  min-width: 64px;
-  height: 36px;
-  color: $neutral-black;
-  background-color: $accent-300;
-  border-color: $neutral-black;
-  font-size: calc(14rem / 16);
+#header ul {
+  height: 100%;
 
-  &:hover,
-  &:active {
-    background-color: $accent-600 !important;
-    color: $accent-50 !important;
-    border-color: $accent-900 !important;
+  li .btn {
+    padding: 0 8px;
+    transition: 0.3s;
+    margin: 5px 32px 0 15px; // 5px top, 24px right, 0 bottom, 15px left after mobile menu
+    border-radius: 3px;
+    min-width: 64px;
+    height: 36px;
+    color: $neutral-black;
+    background-color: $accent-300;
+    border-color: $neutral-black;
+    font-size: 0.75;
+
+    &:hover,
+    &:active {
+      background-color: $accent-600 !important;
+      color: $accent-50 !important;
+      border-color: $accent-900 !important;
+    }
   }
 }
 
 .hamb {
-  margin-top: 15px;
-  margin-right: 15px;
+  margin-top: 12px;
+  margin-right: 24px;
   display: none;
   width: 32px;
   cursor: pointer;
@@ -211,7 +213,7 @@ nav {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-size: calc(14rem / 16);
+  font-size: calc(12rem / 16);
   background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
   transition: 0.3s;
   opacity: 0;
@@ -228,22 +230,20 @@ nav ul {
 
 nav li {
   height: 50px;
-}
 
-a {
-  font-family: "Work Sans", sans-serif;
-  text-transform: uppercase;
-}
-
-nav a {
-  height: 100%;
-  padding: 0 1.5rem;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  color: $neutral-50;
-  position: relative;
-  transition: 0.5s;
+  a {
+    font-family: "Work Sans", sans-serif;
+    text-transform: uppercase;
+    height: 100%;
+    padding: 0 24px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: $neutral-50;
+    position: relative;
+    transition: 0.5s;
+    font-size: 0.75rem;
+  }
 }
 
 .nav-desktop li:not(:first-child):not(:last-child):not(:nth-child(6)) a {
@@ -329,8 +329,18 @@ h1 {
   font-style: italic;
 }
 
+h2 {
+  font-family: "Work Sans", serif;
+  font-size: 2.488rem;
+}
+
 h3 {
   font-family: "Work Sans", sans-serif;
+  font-size: 2.074rem;
+}
+
+h4 {
+  font-size: 1.728rem;
 }
 
 p {
@@ -348,7 +358,6 @@ p {
     background-image: url("./hero.webp");
     background-size: cover;
     background-repeat: no-repeat;
-    animation: zoom 3s forwards;
     position: absolute;
     top: 0;
     left: 0;
@@ -387,19 +396,20 @@ p {
 
       .text-box {
         text-align: center;
-        width: clamp(300px, 100%, 75ch);
-        margin: 0 1em 2em 1em;
+        width: 100%;
+        padding: 0 1em 2em 1em;
         line-height: 1.5;
 
         h2 {
           font-family: "Merriweather", serif;
           color: $primary-500;
-          font-size: calc(36rem / 16);
+          font-size: calc(37.9rem / 16);
         }
 
         p {
           width: clamp(300px, 100%, 75ch);
           color: $neutral-black;
+          line-height: 1.5;
         }
       }
     }
@@ -407,8 +417,7 @@ p {
 
   .row {
     display: flex;
-    width: clamp(300px, 100%, 700px);
-    margin-top: calc(8vw + 80px);
+    margin-top: calc(40px + 80px);
     margin-left: 0;
 
     .column {
@@ -418,12 +427,12 @@ p {
       align-items: center;
       opacity: 0;
       animation: right-reveal 1s ease 2s forwards;
-      margin-left: 2vw;
-      margin-right: 2vw;
+      padding-left: 36px;
+      padding-right: 32px;
 
       i {
         color: $accent-600;
-        font-size: calc(40rem / 16);
+        font-size: 2.369rem;
         transition: 0.3s;
       }
 
@@ -442,13 +451,15 @@ p {
       opacity: 0;
       animation: right-reveal 1s ease 1.2s forwards;
       color: $neutral-50;
+      width: clamp(300px, 100%, 725px);
 
       h1 {
-        font-size: calc(59.33rem / 16);
+        font-size: calc(67.34rem / 16);
       }
 
       h1:nth-of-type(2) {
-        font-size: calc(96rem / 16);
+        font-size: calc(119.66rem / 16);
+        margin-bottom: 8px;
 
         // Selects only the first letter.
         &:nth-of-type(2)::first-letter {
@@ -460,13 +471,14 @@ p {
         }
       }
 
-      h3 {
-        font-size: calc(22.66rem / 16);
+      h5 {
+        font-size: calc(28.43rem / 16);
         color: $sec-500;
+        margin-bottom: 8px;
       }
 
       p {
-        font-size: calc(18rem / 16);
+        font-size: 1rem;
         margin: 10px 15px 10px 0;
       }
 
@@ -477,11 +489,15 @@ p {
         gap: 8px;
         color: $accent-600;
         font-size: 1rem;
-        margin-top: 1em;
-        margin-bottom: 1em;
+        margin-top: 24px;
+        margin-bottom: 24px;
 
         p {
           margin: 0;
+        }
+
+        i {
+          margin: 0 4px 0 4px;
         }
       }
     }
@@ -533,7 +549,7 @@ p {
 
 .cta {
   display: flex;
-  gap: 1rem;
+  gap: 16px;
   align-items: center;
   font-size: calc(16rem / 16);
 
@@ -617,25 +633,27 @@ p {
       width: clamp(325px, 100%, 60ch);
       margin: 1em;
       z-index: 800;
-      line-height: 1.5;
 
-      h5 {
+      h6 {
         font-family: "Work Sans", sans-serif;
-        font-size: calc(18rem / 16);
+        font-size: calc(21.33rem / 16);
         font-weight: 500;
         text-transform: uppercase;
         color: $primary-300;
+        margin-bottom: 4px;
       }
 
-      h4 {
+      h5 {
         color: $primary-500;
         font-family: "Merriweather", serif;
-        font-size: calc(28rem / 16);
+        font-size: calc(28.43rem / 16);
+        margin-bottom: 16px;
       }
 
       p {
         color: $neutral-black;
         margin-bottom: 2em;
+        line-height: 1.5;
       }
     }
   }
@@ -643,7 +661,6 @@ p {
 
 .center {
   text-align: center;
-  margin: 1em;
   .p {
     width: clamp(300px, 40ch, 80%);
   }
@@ -668,166 +685,114 @@ p {
     background-color: rgba(16, 27, 48, 0.9);
   }
 
-  p {
+  h4 {
     color: $sec-500;
     font-family: "Merriweather", serif;
     font-style: italic;
     line-height: 1.5;
-    padding: 1em;
+    padding: 2.5em;
     text-align: center;
-    font-size: calc(42rem / 16);
     border: 1px solid $accent-600;
   }
 }
 
-.carousel {
-  min-height: 600px;
+#events {
   width: 100%;
-  margin: 0 auto;
-  padding: 2em;
-  background-color: $neutral-50;
-  text-align: center;
+  padding: 2.5em;
 
   h2 {
+    padding-top: 32px;
+    padding-bottom: 16px;
     color: $primary-500;
-    font-family: "Work Sans", serif;
-    font-size: calc(36rem / 16);
   }
 
   p {
     color: $neutral-black;
+    line-height: 1.5;
+    width: clamp(325px, 100%, 75ch);
+    margin: 1.5em auto;
+    text-align: center;
   }
 
-  .carousel-track-container {
-    height: 600px;
-    width: 80%;
-    margin: 1em auto;
-    overflow: hidden;
-    border-radius: 12px;
-    position: relative;
-
-    .carousel-track {
-      list-style: none;
-      position: relative;
-      height: 100%;
-      position: relative;
-      transition: transform 350ms ease-in;
-
-      .carousel-slide {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 100%;
-
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-
-        .carousel-text {
-          color: $neutral-50;
-          font-family: "Work Sans", sans-serif;
-          position: absolute;
-          top: 0;
-          left: 0;
-          height: 100%;
-          padding: 1em;
-          // Make linear horizontal gradient background
-          background-image: linear-gradient(
-            to right bottom,
-            #051937de,
-            #051937b2,
-            #fffffe00,
-            #fffffe00
-          );
-
-          h5 {
-            font-size: calc(42rem / 16);
-          }
-        }
-      }
-    }
+  a {
+    color: $neutral-black;
+    margin-bottom: 2.5em;
   }
 
-  .carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%); // Center vertically, moving 50% of own size up
-    background: transparent;
-    border: 0;
-    cursor: pointer;
-    background: $primary-50;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    padding: 0.5em;
-    z-index: 798;
-
-    &:first-of-type {
-      left: 40px;
-    }
-
-    &:last-of-type {
-      right: 40px;
-    }
-
-    i {
-      width: 12px;
-    }
-  }
-
-  .carousel-nav {
+  .concordion {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1em;
+    gap: 2em;
     width: 100%;
 
-    .carousel-nav-btn {
-      width: 250px;
-      height: 154.5px;
-      border: 1px solid $neutral-black;
-      border-radius: 12px;
-      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-      transform: translateY(-50%);
-      cursor: pointer;
+    .item-container {
       position: relative;
-      filter: brightness(0.8);
-      transition: 0.5s ease-in-out;
+      width: 10em;
+      height: 650px;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: 0.5s;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+        rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 
-      h6 {
-        color: $neutral-50;
-        position: absolute;
-        right: 0;
-        bottom: 0;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1);
+        transition: 0.5s;
+        filter: brightness(0.6);
+      }
+
+      &.expanded {
+        width: 60%;
+
+        img {
+          animation: zoom 1.5s forwards;
+          filter: none;
+        }
+
+        h3 {
+          font-size: 2.986rem;
+          bottom: calc(100% - 4rem);
+          left: 1rem;
+        }
+
+        .event-text {
+          bottom: 0;
+          padding-bottom: 0.5em;
+        }
+      }
+
+      h3 {
         font-size: 1rem;
-        font-family: "Merriweather", serif;
+        transition: 0.3s;
+        color: $neutral-50;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+        position: absolute;
+        bottom: 0.5rem;
+        left: 0.5rem;
       }
 
-      &:first-of-type {
-        background-image: url(./frostdreams.jpg);
-        object-fit: cover;
-        background-position: center;
-      }
+      .event-text {
+        position: absolute;
+        bottom: -200px;
+        left: 0;
+        padding-left: 0.5em;
+        padding-top: 2em;
+        transition: 0.3s;
+        font-size: 1.44rem;
+        font-weight: 600;
+        width: 100%;
+        background: linear-gradient(rgba(16, 27, 48, 0), rgba(16, 27, 48, 0.8));
 
-      &:nth-of-type(2) {
-        background-image: url(./hero.webp);
-        object-fit: cover;
-        background-position: center;
+        p {
+          color: $neutral-50;
+          text-align: left;
+          margin: 0;
+        }
       }
-
-      &:last-of-type {
-        background-image: url(./window.jpg);
-        object-fit: cover;
-        background-position: center;
-      }
-    }
-
-    .carousel-nav-btn.current-slide {
-      //Selects any element with both classes
-      border: 2px solid $sec-600;
-      filter: none;
     }
   }
 }
@@ -843,12 +808,15 @@ p {
   h2 {
     color: $primary-50;
     padding-top: 2em;
-    font-family: "Work Sans", serif;
-    font-size: calc(36rem / 16);
   }
 
   p {
     color: $neutral-200;
+  }
+
+  a {
+    color: $neutral-200;
+    margin-bottom: 2.5em;
   }
 
   .modal {
@@ -859,6 +827,7 @@ p {
     padding: 1em;
     border: none;
     outline: none;
+    background-color: $neutral-50;
 
     img {
       width: 100%;
@@ -867,9 +836,9 @@ p {
       object-fit: cover;
     }
 
-    h4 {
+    h5 {
       font-family: "Merriweather", serif;
-      font-size: 1.5rem;
+      font-size: 1.777rem;
       margin-bottom: 0.5em;
       color: $sec-500;
     }
@@ -880,10 +849,10 @@ p {
   }
 
   .paintings {
-    margin: 4rem;
+    margin: 2em;
     width: 90%;
     display: grid;
-    grid-gap: 1rem;
+    grid-row-gap: 2em;
     grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
     justify-items: center;
     align-items: center;
@@ -919,7 +888,6 @@ p {
       color: $neutral-50;
       transition: 0.5s ease-in-out;
       font-family: "Merriweather", serif;
-      font-size: 1.2rem;
       text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
     }
 
@@ -974,13 +942,12 @@ p {
     i {
       margin-bottom: 0.5em;
       color: $primary-500;
-      font-size: calc(22rem / 16);
+      font-size: 2.488rem;
     }
 
     h2 {
       margin-bottom: 1em;
       color: $primary-500;
-      font-family: "Work Sans", serif;
       display: inline;
     }
 
@@ -1024,7 +991,7 @@ p {
       text-transform: uppercase;
       padding: 10px 0;
       cursor: pointer;
-      font-size: calc(18rem / 16);
+      font-size: 1.333rem;
     }
   }
 }
@@ -1033,7 +1000,7 @@ footer {
   min-height: 150px;
   width: 100%;
   background-color: $neutral-black;
-  color: white;
+  color: $neutral-50;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1072,7 +1039,7 @@ footer {
 
     li i {
       color: $neutral-50;
-      font-size: calc(15rem / 16);
+      font-size: calc(16rem / 16);
       cursor: pointer;
       transition-duration: 0.3s;
       background-color: $primary-300;
@@ -1108,7 +1075,7 @@ footer {
     a {
       color: $neutral-100;
       text-decoration: none;
-      font-size: calc(12rem / 16);
+      font-size: 0.75rem;
     }
   }
 }
@@ -1122,16 +1089,6 @@ footer {
 }
 
 @media (max-width: 992px) {
-  .triad {
-    grid-auto-flow: row;
-    grid-auto-rows: 1fr;
-    gap: 1rem;
-  }
-
-  .triad > div {
-    width: 80vw;
-    height: calc(80vw / (3 * 1.618));
-  }
 }
 // mobile layout after this
 @media (max-width: 850px) {
@@ -1142,6 +1099,10 @@ footer {
     display: none;
   }
 
+  .hero-text {
+    margin-left: 2em;
+  }
+
   .row .column {
     display: none !important;
   }
@@ -1150,16 +1111,16 @@ footer {
     display: block !important;
   }
 
-  .hero .row .hero-text {
-  }
-
   .studio p {
-    font-size: calc(16rem / 16);
-    padding: 2em;
+    font-size: calc(36rem / 16);
   }
 }
 
 @media (max-width: 430px) {
+  .studio p {
+    font-size: calc(30rem / 16);
+  }
+
   .hero .row {
     width: 300px;
     margin-left: 0.5rem;
@@ -1195,11 +1156,6 @@ footer {
         margin: 4px 5px 0 5px;
         font-size: calc(10rem / 16);
       }
-    }
-
-    .studio p {
-      font-size: calc(16rem / 16);
-      padding: 1em;
     }
   }
 
