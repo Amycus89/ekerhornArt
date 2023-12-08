@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function () {
       headerElement.style.top = "0";
     }
     prevScrollPos = currentScrollPos;
-    console.log(prevScrollPos);
   });
 
   // OnClick hamburger icon animation and mobile navigation
@@ -62,17 +61,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Loop through all event items
   events.forEach((event) => {
-    event.addEventListener("mouseover", () => {
+    // Function to handle the mouseover and touchstart events
+    const hoverEvent = () => {
       // Remove any expanded class from all event items
       events.forEach((event) => {
         event.classList.remove("expanded");
       });
 
-      // Find out which event item was hovered over
+      // Find out which event item was hovered over or touched
       const hoveredEvent = event;
       // Readd the expanded class to the hovered event
       hoveredEvent.classList.add("expanded");
-    });
+    };
+
+    // Add event listeners for both mouseover and touchstart
+    event.addEventListener("mouseover", hoverEvent);
+    event.addEventListener("touchstart", hoverEvent);
   });
 
   // MODALS
