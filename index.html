@@ -22,7 +22,7 @@
       <ul class="nav-desktop">
         <li>
           <a href="#home" class="logo"
-            ><img src="./logga-ekerhorn.png" alt="Ekerhorn Art logo"
+            ><img src="./ekerhornArtLogo.svg" alt="Ekerhorn Art logo"
           /></a>
         </li>
         <li><a href="#home">Hem</a></li>
@@ -887,22 +887,20 @@
                 transform="translate(0 -315)"
               />
             </svg>
-
-            <div class="padding wrapper">
-              <div class="text-box wrapper">
-                <h2>Välkommen till Ekerhorn Art i Göteborg</h2>
-                <p>
-                  Välkommen till mitt onlinegalleri, där du hittar ett litet
-                  urval av mina målningar och dikter. Varje målning har en
-                  historia bakom sig, som jag vill dela genom mina ord.
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
       <section id="about">
+        <div class="text-box wrapper">
+          <h2>Välkommen till Ekerhorn Art i Göteborg</h2>
+          <p>
+            Välkommen till mitt onlinegalleri, där du hittar ett litet urval av
+            mina målningar och dikter. Varje målning har en historia bakom sig,
+            som jag vill dela genom mina ord.
+          </p>
+        </div>
+
         <div class="row">
           <div class="anchor">
             <div class="profile-image"></div>
@@ -954,12 +952,13 @@
               </div>
 
               <div class="location">
-                <div class="column">
-                  <i class="fa-solid fa-location-dot"></i>
-                </div>
                 <div class="address">
-                  <p class="location-name">A’mon Studio</p>
-                  <p class="location-address">Munkebäcks allé 14, Göteborg</p>
+                  <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p class="location-name">A’mon Studio</p>
+                  </div>
+                  <p class="location-address">Munkebäcks allé 14,</p>
+                  <p class="location-city">Göteborg</p>
                 </div>
               </div>
             </div>
@@ -985,14 +984,13 @@
               </div>
 
               <div class="location">
-                <div class="column">
-                  <i class="fa-solid fa-location-dot"></i>
-                </div>
                 <div class="address">
-                  <p class="location-name">Galleri Home Design</p>
-                  <p class="location-address">
-                    Kungsgatan 9A, 411 19, Göteborg
-                  </p>
+                  <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p class="location-name">Galleri Home Design</p>
+                  </div>
+                  <p class="location-address">Kungsgatan 9A, 411 19,</p>
+                  <p class="location-city">Göteborg</p>
                 </div>
               </div>
             </div>
@@ -1016,14 +1014,13 @@
               </div>
 
               <div class="location">
-                <div class="column">
-                  <i class="fa-solid fa-location-dot"></i>
-                </div>
                 <div class="address">
-                  <p class="location-name">Ekerhorn Ateljé</p>
-                  <p class="location-address">
-                    Kolonigatan 3A, 413 21, Göteborg
-                  </p>
+                  <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p class="location-name">Ekerhorn Ateljé</p>
+                  </div>
+                  <p class="location-address">Kolonigatan 3A, 413 21,</p>
+                  <p class="location-city">Göteborg</p>
                 </div>
               </div>
             </div>
@@ -1152,16 +1149,31 @@
               <h2>Kontakt</h2>
             </div>
             <form>
-              <input type="text" placeholder="Namn" class="contact-form-txt" />
-              <input
-                type="text"
-                placeholder="E-mail"
-                class="contact-form-txt"
-              />
-              <textarea
-                placeholder="Meddelande..."
-                class="contact-form-textarea"
-              ></textarea>
+              <div class="inputbox">
+                <input
+                  type="text"
+                  class="contact-form-txt"
+                  required="required"
+                />
+                <span>Name</span>
+              </div>
+
+              <div class="inputbox">
+                <input
+                  type="text"
+                  class="contact-form-txt"
+                  required="required"
+                />
+                <span>E-Mail</span>
+              </div>
+
+              <div class="inputbox">
+                <textarea
+                  class="contact-form-textarea"
+                  required="required"
+                ></textarea>
+                <span>Meddelande</span>
+              </div>
               <button type="submit" class="contact-form-btn">Skicka</button>
             </form>
           </div>
