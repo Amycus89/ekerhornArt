@@ -18,16 +18,16 @@ $accent-600: #c8a872;
 $accent-700: #9c8359;
 $accent-800: #796645;
 $accent-900: #5c4e35;
-$sec-50: #f9ebee;
-$sec-100: #ebc0cc;
-$sec-200: #e2a2b3;
-$sec-300: #d47790;
-$sec-400: #cc5d7a;
-$sec-500: #bf3459;
-$sec-600: #ae2f51;
-$sec-700: #88253f;
-$sec-800: #691d31;
-$sec-900: #501625;
+$sec-50: #fbeaef; //#f9ebee;
+$sec-100: #f3bfcd; //#ebc0cc;
+$sec-200: #eea0b4; //#e2a2b3;
+$sec-300: #e67492; //#d47790;
+$sec-400: #e1597d; //#cc5d7a;
+$sec-500: #d9305d; //#bf3459;
+$sec-600: #c52c55; //#ae2f51;
+$sec-700: #9a2242; //#88253f;
+$sec-800: #771a33; //#691d31;
+$sec-900: #5b1427; //#501625;
 $neutral-50: #f6f7f8;
 $neutral-100: #e3e5eb;
 $neutral-200: #d5d8e1;
@@ -163,8 +163,7 @@ body {
     white-space: nowrap;
 
     &:hover {
-      background-color: $accent-600 !important;
-      color: $accent-50 !important;
+      background-color: $accent-500 !important;
       border-color: $accent-900 !important;
     }
   }
@@ -312,10 +311,12 @@ main {
 
 @keyframes move-overlay {
   0% {
-    bottom: -300px;
+    bottom: -500px;
+    height: 0px;
   }
   100% {
-    bottom: 0px;
+    bottom: -4px;
+    height: clamp(6.25rem, 2.27278rem + 22.727vw, 25rem);
   }
 }
 
@@ -356,8 +357,9 @@ p {
 
 .hero {
   overflow: hidden;
-  min-height: 100vh;
-  min-width: 100vw;
+  height: 100vh;
+  min-height: 650px;
+  width: 100vw;
   position: relative;
 
   &::before {
@@ -376,13 +378,9 @@ p {
 
   .overlay {
     position: absolute;
-    bottom: -300px;
+    bottom: -500px;
     width: 100%;
-    animation: move-overlay 1.1s 2s forwards;
-
-    svg {
-      margin-bottom: -16px;
-    }
+    animation: move-overlay 2s 0.8s forwards;
   }
 
   .row {
@@ -539,8 +537,8 @@ p {
   }
 
   .btn:hover {
-    background-color: $accent-600;
-    color: $accent-50;
+    background-color: $accent-500;
+    //color: $accent-50;
     box-shadow: 0px 10px 15px -8px $sec-700;
   }
 
@@ -571,12 +569,12 @@ p {
     h2 {
       font-family: "Merriweather", serif;
       color: $primary-500;
-      font-size: clamp(1.2rem, 0.64354rem + 2.343vw, 2.98625rem);
+      font-size: clamp(1.776875rem, 1.4841rem + 1.673vw, 3.157rem);
     }
 
     p {
       width: clamp(280px, 100%, 75ch);
-      color: $neutral-black;
+      color: $primary-700;
       line-height: 1.5;
       padding: 1em;
     }
@@ -606,8 +604,8 @@ p {
         width: clamp(31.25rem, 25.94698rem + 30.303vw, 56.25rem);
         object-fit: cover;
         background-color: $primary-300;
-        mask-image: url("./15.png");
-        -webkit-mask-image: url("./15.png");
+        mask-image: url("./mask.webp");
+        -webkit-mask-image: url("./mask.webp");
         -webkit-mask-size: 100%;
         -webkit-mask-repeat: no-repeat;
         z-index: 799;
@@ -621,7 +619,7 @@ p {
 
     .text-box {
       width: clamp(280px, 100%, 60ch);
-      margin: 1em;
+      margin: clamp(0.25em, 0.09093em + 0.909vw, 1em);
       z-index: 800;
       text-align: left;
 
@@ -640,7 +638,6 @@ p {
       }
 
       p {
-        color: $neutral-black;
         margin-bottom: 2em;
         line-height: 1.5;
         padding: 0;
@@ -698,7 +695,7 @@ p {
   }
 
   p {
-    color: $neutral-black;
+    color: $primary-700;
     line-height: 1.5;
     width: clamp(220px, 100%, 60ch);
     margin: 1.5em auto;
@@ -1034,8 +1031,8 @@ p {
     width: 100%;
     height: auto;
     flex: 50%;
-    padding: 0.5em;
     text-align: center;
+    padding: 12px;
 
     i {
       color: $primary-500;
@@ -1044,7 +1041,7 @@ p {
     }
 
     h2 {
-      margin-bottom: 1em;
+      margin-bottom: 10px;
       color: $primary-500;
       display: inline;
       font-size: 2.488rem;
@@ -1303,6 +1300,7 @@ footer {
   }
 
   .event-bottom {
-    flex-direction: column;
+    flex-direction: column-reverse;
+    gap: 0.5em;
   }
 }
