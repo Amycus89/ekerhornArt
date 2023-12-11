@@ -385,6 +385,7 @@ p {
 .hero .row .hero-text .location i {
   margin: 0 4px 0 4px;
   color: #c8a872;
+  animation: hover 2s 3s infinite;
 }
 
 @keyframes hover {
@@ -403,10 +404,6 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.fa-location-dot {
-  animation: hover 2s 3s infinite;
 }
 
 .cta {

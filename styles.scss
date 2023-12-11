@@ -4,36 +4,36 @@ $primary-200: #9ca7bf;
 $primary-300: #6e7fa1;
 $primary-400: #52668f;
 $primary-500: #274073;
-$primary-600: #233a69;
+//$primary-600: #233a69;
 $primary-700: #1c2d52;
-$primary-800: #15233f;
+//$primary-800: #15233f;
 $primary-900: #101b30;
 $accent-50: #fcf8f2;
-$accent-100: #f4e9d7;
-$accent-200: #efdfc3;
+//$accent-100: #f4e9d7;
+//$accent-200: #efdfc3;
 $accent-300: #e8d0a8;
-$accent-400: #e3c797;
+//$accent-400: #e3c797;
 $accent-500: #dcb97d;
 $accent-600: #c8a872;
-$accent-700: #9c8359;
-$accent-800: #796645;
+//$accent-700: #9c8359;
+//$accent-800: #796645;
 $accent-900: #5c4e35;
 $sec-50: #fbeaef; //#f9ebee;
-$sec-100: #f3bfcd; //#ebc0cc;
-$sec-200: #eea0b4; //#e2a2b3;
-$sec-300: #e67492; //#d47790;
-$sec-400: #e1597d; //#cc5d7a;
+//$sec-100: #f3bfcd; //#ebc0cc;
+//$sec-200: #eea0b4; //#e2a2b3;
+//$sec-300: #e67492; //#d47790;
+//$sec-400: #e1597d; //#cc5d7a;
 $sec-500: #d9305d; //#bf3459;
 $sec-600: #c52c55; //#ae2f51;
 $sec-700: #9a2242; //#88253f;
-$sec-800: #771a33; //#691d31;
-$sec-900: #5b1427; //#501625;
+//$sec-800: #771a33; //#691d31;
+//$sec-900: #5b1427; //#501625;
 $neutral-50: #f6f7f8;
 $neutral-100: #e3e5eb;
 $neutral-200: #d5d8e1;
-$neutral-500: #a4abbd;
-$neutral-800: #5a5e68;
-$neutral-900: #45484f;
+//$neutral-500: #a4abbd;
+//$neutral-800: #5a5e68;
+//$neutral-900: #45484f;
 $neutral-black: #00040d;
 
 * {
@@ -458,6 +458,7 @@ p {
         i {
           margin: 0 4px 0 4px;
           color: $accent-600;
+          animation: hover 2s 3s infinite;
         }
       }
     }
@@ -483,10 +484,6 @@ p {
   align-items: center;
 }
 
-.fa-location-dot {
-  animation: hover 2s 3s infinite;
-}
-
 .cta {
   display: flex;
   gap: 16px;
@@ -509,7 +506,6 @@ p {
 
   .btn:hover {
     background-color: $accent-500;
-    //color: $accent-50;
     box-shadow: 0px 10px 15px -8px $sec-700;
   }
 
