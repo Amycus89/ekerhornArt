@@ -36,6 +36,25 @@ $neutral-800: #5a5e68;
 $neutral-900: #45484f;
 $neutral-black: #00040d;
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  scroll-behavior: smooth; // Makes scrolling smooth
+}
+
+body {
+  overflow-x: hidden; /* Ensures no horizontal scroll bar */
+  width: 100%; // Unles later specified, default should be 100% width
+  background-color: $neutral-50;
+  font-size: 1rem; //Default text should be 16px
+  font-family: "Work Sans", sans-serif;
+}
+
 .sidebar {
   position: fixed;
   top: 80px;
@@ -90,34 +109,6 @@ $neutral-black: #00040d;
   right: 0;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html,
-body {
-  scroll-behavior: smooth; // Makes scrolling smooth
-}
-
-body {
-  overflow-x: hidden; /* Ensures no horizontal scroll bar */
-  width: 100%; // Unles later specified, default should be 100% width
-  background-color: $neutral-50;
-  font-size: 1rem; //Default text should be 16px
-  font-family: "Work Sans", sans-serif;
-}
-/*
-.glassmorphism {
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  -webkit-backdrop-filter: blur(10em);
-  backdrop-filter: blur(10em);
-  border-radius: 10px 0 0 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-}
-*/
 @keyframes up-reveal {
   0% {
     opacity: 0;
@@ -485,26 +476,6 @@ p {
   }
 }
 
-/* Save for later
-@keyframes bounce {
-  20%,
-  50%,
-  80%,
-  to {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-4px);
-  }
-  70% {
-    transform: translateY(-2px);
-  }
-  90% {
-    transform: translateY(-1px);
-  }
-}
-*/
-
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -654,37 +625,6 @@ p {
   }
 }
 
-.studio {
-  width: 100%;
-  min-height: 80vh;
-  max-height: 800px;
-  background-image: url("./studio.webp");
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  .text-box {
-    width: clamp(240px, 60%, 75ch);
-    background-color: rgba(16, 27, 48, 0.9);
-    padding: 2.5em;
-    border: 1px solid $accent-600;
-  }
-
-  h4 {
-    color: $sec-500;
-    font-family: "Merriweather", serif;
-    font-style: italic;
-    line-height: 1.5;
-    text-align: center;
-    font-size: clamp(1.2rem, 0.64354rem + 2.343vw, 2.98625rem);
-  }
-}
-
 #events {
   width: 100%;
   padding: 1.5em;
@@ -783,6 +723,8 @@ p {
 
       .event-bottom {
         display: flex;
+        flex-wrap: wrap-reverse;
+        gap: 0.5em;
         justify-content: center;
         align-items: center;
         position: absolute;
@@ -993,6 +935,37 @@ p {
 
   &:hover {
     filter: none;
+  }
+}
+
+.studio {
+  width: 100%;
+  min-height: 80vh;
+  max-height: 800px;
+  background-image: url("./studio.webp");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .text-box {
+    width: clamp(240px, 60%, 75ch);
+    background-color: rgba(16, 27, 48, 0.9);
+    padding: 2.5em;
+    border: 1px solid $accent-600;
+  }
+
+  h4 {
+    color: $sec-500;
+    font-family: "Merriweather", serif;
+    font-style: italic;
+    line-height: 1.5;
+    text-align: center;
+    font-size: clamp(1.2rem, 0.64354rem + 2.343vw, 2.98625rem);
   }
 }
 
@@ -1235,18 +1208,7 @@ footer {
   }
 }
 
-@media (max-width: 1340px) {
-  //
-}
-
-@media (max-width: 1080px) {
-  //
-}
-
-@media (max-width: 992px) {
-  // Check if there really is a device like this
-}
-// mobile layout after this
+// Mobile layout
 @media (max-width: 850px) {
   .nav-desktop li:nth-child(2),
   .nav-desktop li:nth-child(3),
@@ -1271,10 +1233,6 @@ footer {
     margin-right: 24px;
   }
 
-  #about .row .anchor .profile-image {
-    //right: -50%;
-  }
-
   #events .accordion {
     flex-direction: column;
 
@@ -1287,20 +1245,5 @@ footer {
         width: 100%;
       }
     }
-  }
-}
-
-@media (max-width: 430px) {
-  #header ul li .btn {
-    margin-left: 0.5em;
-  }
-
-  .sidebar {
-    width: 100%;
-  }
-
-  .event-bottom {
-    flex-direction: column-reverse;
-    gap: 0.5em;
   }
 }
