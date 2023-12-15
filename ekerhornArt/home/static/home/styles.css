@@ -492,7 +492,7 @@ p {
   -webkit-mask-size: 100%;
   -webkit-mask-repeat: no-repeat;
   z-index: 799;
-  background-image: url("./images/profile.png");
+  background-image: url("./images/profile.webp");
   background-size: 1800px;
   background-position: 25% center;
   background-repeat: no-repeat;
