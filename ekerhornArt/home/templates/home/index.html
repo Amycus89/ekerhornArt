@@ -347,13 +347,43 @@
           <i class="fa-regular fa-envelope"></i>
           <h2>Kontakt</h2>
         </div>
-        <form action="{% url 'home:index' %}" method="post">
+        <div class="success">
+          <h3></h3>
+          <p>Vi har mottagit ditt meddelande.</p>
+        </div>
+        <form action="{% url 'home:index' %}" method="post" id="post-form">
           {% csrf_token %} {% for field in form %}
           <div class="input-container">{{ field }} {{ field.label_tag }}</div>
           {% endfor %}
 
           <button type="submit" class="contact-form-btn">Skicka</button>
         </form>
+        <script defer>
+          const form = document.getElementById("post-form");
+          form.addEventListener("submit", submitHandler);
+
+          function submitHandler(event) {
+            event.preventDefault();
+            $.ajax({
+              type: "POST",
+              url: "{% url 'home:index' %}",
+              data: $("#post-form").serialize(),
+              dataType: "json",
+              success: function (data) {
+                console.log(data.name);
+                const submitButton =
+                  document.querySelector(".contact-form-btn");
+                submitButton.style.visibility = "hidden";
+                // Hide all alements with the class "input-container"
+                const inputContainers =
+                  document.getElementsByClassName("input-container");
+                for (let i = 0; i < inputContainers.length; i++) {
+                  inputContainers[i].style.visibility = "hidden";
+                }
+              },
+            });
+          }
+        </script>
       </div>
     </div>
   </section>
