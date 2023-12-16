@@ -885,11 +885,12 @@ p {
   display: inline;
   font-size: 2.488rem;
 }
-#contact .contact-form .inputbox {
+#contact .contact-form .input-container {
   position: relative;
+  padding-bottom: 12px;
 }
-#contact .contact-form .inputbox input,
-#contact .contact-form .inputbox textarea {
+#contact .contact-form .input-container input,
+#contact .contact-form .input-container textarea {
   width: 100%;
   padding: 10px;
   border: 1px solid #274073;
@@ -899,7 +900,7 @@ p {
   color: #274073;
   font-size: 1.125rem;
 }
-#contact .contact-form .inputbox span {
+#contact .contact-form .input-container label {
   position: absolute;
   left: 0;
   padding: 10px;
@@ -909,10 +910,10 @@ p {
   text-transform: uppercase;
   transition: 0.3s;
 }
-#contact .contact-form .inputbox input:valid ~ span,
-#contact .contact-form .inputbox input:focus ~ span,
-#contact .contact-form .inputbox textarea:valid ~ span,
-#contact .contact-form .inputbox textarea:focus ~ span {
+#contact .contact-form .input-container input:valid ~ label,
+#contact .contact-form .input-container input:focus ~ label,
+#contact .contact-form .input-container textarea:valid ~ label,
+#contact .contact-form .input-container textarea:focus ~ label {
   color: #274073;
   transform: translateX(10px) translateY(-7px);
   font-size: 0.75rem;

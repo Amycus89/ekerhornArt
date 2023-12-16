@@ -347,24 +347,11 @@
           <i class="fa-regular fa-envelope"></i>
           <h2>Kontakt</h2>
         </div>
-        <form>
-          <div class="inputbox">
-            <input type="text" class="contact-form-txt" required="required" />
-            <span>Name</span>
-          </div>
+        <form action="{% url 'home:index' %}" method="post">
+          {% csrf_token %} {% for field in form %}
+          <div class="input-container">{{ field }} {{ field.label_tag }}</div>
+          {% endfor %}
 
-          <div class="inputbox">
-            <input type="text" class="contact-form-txt" required="required" />
-            <span>E-Mail</span>
-          </div>
-
-          <div class="inputbox">
-            <textarea
-              class="contact-form-textarea"
-              required="required"
-            ></textarea>
-            <span>Meddelande</span>
-          </div>
           <button type="submit" class="contact-form-btn">Skicka</button>
         </form>
       </div>
