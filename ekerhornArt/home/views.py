@@ -1,5 +1,6 @@
 from django import forms
 from django.shortcuts import render
+from django.core.mail import send_mail
 
 class ContactForm(forms.Form):
     name = forms.CharField(label='Namn', label_suffix='', max_length=70)
@@ -16,6 +17,13 @@ def index(request):
             email = form.cleaned_data["email"]
             message = form.cleaned_data["message"]
             print(name, email, message)
+
+            #Send email
+            subject = f"{name} har kontaktat dig ang Ekerhorn Art"
+            body = f"Email: {email}\n\n{message}"
+            sender = "Ekerhorn Art <your@gmail.com>"
+            recipient = f"{name} <{email}>"
+            send_mail(subject, body, sender, [recipient], fail_silently=False) # Remove fail_silently once done testing
         else:
             render(request, "home/index.html", {
 			"form": form # Will still show previously entered info, alongside error messages
