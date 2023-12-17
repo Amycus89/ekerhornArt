@@ -840,6 +840,10 @@ p {
   font-size: clamp(1.2rem, 0.64354rem + 2.343vw, 2.98625rem);
 }
 
+.success {
+  color: #c52c55;
+}
+
 #contact {
   width: 100vw;
   padding: 2em 0 4em 0;
@@ -903,6 +907,7 @@ p {
 #contact .contact-form .input-container label {
   position: absolute;
   left: 0;
+  top: 4px;
   padding: 10px;
   pointer-events: none;
   font-size: 1.125rem;
@@ -948,6 +953,7 @@ p {
 }
 #contact .contact-form .contact-form-btn {
   width: 100%;
+  min-height: 64px;
   border: none;
   outline: none;
   border-radius: 5px;
@@ -960,7 +966,7 @@ p {
   transition: 0.3s;
 }
 #contact .contact-form .contact-form-btn:hover {
-  background: #9a2242;
+  background-color: #9a2242;
 }
 
 footer {

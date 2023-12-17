@@ -347,10 +347,7 @@
           <i class="fa-regular fa-envelope"></i>
           <h2>Kontakt</h2>
         </div>
-        <div class="success">
-          <h3></h3>
-          <p>Vi har mottagit ditt meddelande.</p>
-        </div>
+        <p class="success"></p>
         <form action="{% url 'home:index' %}" method="post" id="post-form">
           {% csrf_token %} {% for field in form %}
           <div class="input-container">{{ field }} {{ field.label_tag }}</div>
@@ -371,15 +368,25 @@
               dataType: "json",
               success: function (data) {
                 console.log(data.name);
-                const submitButton =
-                  document.querySelector(".contact-form-btn");
-                submitButton.style.visibility = "hidden";
-                // Hide all alements with the class "input-container"
-                const inputContainers =
-                  document.getElementsByClassName("input-container");
-                for (let i = 0; i < inputContainers.length; i++) {
-                  inputContainers[i].style.visibility = "hidden";
-                }
+                //Empty the form
+                form.reset();
+                // Change the inner html of the element with the class success to "Tack för ert meddelande, {{ name }}."
+                $(".success").html("Hej på dig, " + data.name + ".");
+                // Change the inner html of .contact-form-btn to "Sänt" for 3 seconds
+                $(".contact-form-btn").html("Sänt");
+                // Change the background-color of .contact-form-btn to blue
+                $(".contact-form-btn").css({
+                  "background-color": "#274073",
+                  color: "#e9ecf1",
+                });
+                setTimeout(function () {
+                  $(".success").html("");
+                  $(".contact-form-btn").html("Skicka");
+                  $(".contact-form-btn").css({
+                    "background-color": "#c52c55",
+                    color: "#fbeaef",
+                  });
+                }, 3000);
               },
             });
           }
