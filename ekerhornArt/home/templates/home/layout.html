@@ -10,8 +10,8 @@
       property="og:description"
       content="Välkommen till mitt onlinegalleri, där du hittar ett litet urval av mina målningar och dikter. Varje målning har en historia bakom sig, som jag vill dela genom mina ord."
     />
-    <meta property="og:image" content="URL of the image you want to display" />
-    <meta property="og:url" content="URL of your webpage" />
+    <meta property="og:image" content="{% static 'home/images/meta.webp' %}" />
+    <meta property="og:url" content="www.ekerhorn.se" />
     <title>Ekerhorn Art</title>
     <link rel="icon" href="{% static 'home/images/iconTabEkerhornArt.svg' %}" />
     <link href="{% static 'home/styles.css' %}" rel="stylesheet" />
@@ -26,19 +26,21 @@
     <nav id="header">
       <ul class="nav-desktop">
         <li>
-          <a href="#home" class="logo"
+          <a href="#home" class="logo" title="Ekerhorn Art"
             ><img
               src="{% static 'home/images/ekerhornArtLogo.svg' %}"
               alt="Ekerhorn Art logo"
           /></a>
         </li>
-        <li><a href="#home">Hem</a></li>
-        <li><a href="#about">Info</a></li>
-        <li><a href="#events">Events</a></li>
-        <li><a href="#gallery">Galleri</a></li>
+        <li><a href="#home" title="Hem">Hem</a></li>
+        <li><a href="#about" title="Info">Info</a></li>
+        <li><a href="#events" title="LäEvents">Events</a></li>
+        <li><a href="#gallery" title="Galleri">Galleri</a></li>
 
         <li>
-          <a href="#contact" id="nav-cta" class="btn">Kontakta Mig</a>
+          <a href="#contact" id="nav-cta" class="btn" title="Kontakta mig"
+            >Kontakta Mig</a
+          >
         </li>
 
         <li>
@@ -52,25 +54,25 @@
 
       <div class="sidebar">
         <ul>
-          <li><a href="#home">Hem</a></li>
-          <li><a href="#about">Info</a></li>
-          <li><a href="#events">Events</a></li>
-          <li><a href="#gallery">Galleri</a></li>
+          <li><a href="#home" title="Hem">Hem</a></li>
+          <li><a href="#about" title="Info">Info</a></li>
+          <li><a href="#events" title="Events">Events</a></li>
+          <li><a href="#gallery" title="Galleri">Galleri</a></li>
         </ul>
 
         <ul>
           <li>
-            <a href="https://www.facebook.com/EkerhornArt/"
+            <a href="https://www.facebook.com/EkerhornArt/" title="My Facebook"
               ><i class="fa-brands fa-square-facebook"></i
             ></a>
           </li>
           <li>
-            <a href="https://www.twitter.com/"
+            <a href="https://www.twitter.com/" title="My Twitter"
               ><i class="fa-brands fa-twitter"></i
             ></a>
           </li>
           <li>
-            <a href="https://www.instagram.com/ekerhorn/"
+            <a href="https://www.instagram.com/ekerhorn/" title="My Instagram"
               ><i class="fa-brands fa-instagram"></i
             ></a>
           </li>
@@ -855,32 +857,34 @@
       <div>
         <ul>
           <li>
-            <a href="https://www.facebook.com/EkerhornArt/"
+            <a href="https://www.facebook.com/EkerhornArt/" title="My Facebook"
               ><i class="fa-brands fa-square-facebook"></i
             ></a>
           </li>
           <li>
-            <a href="https://www.twitter.com/"
+            <a href="https://www.twitter.com/" title="My Twitter"
               ><i class="fa-brands fa-twitter"></i
             ></a>
           </li>
           <li>
-            <a href="https://www.instagram.com/ekerhorn/"
+            <a href="https://www.instagram.com/ekerhorn/" title="My Instagram"
               ><i class="fa-brands fa-instagram"></i
             ></a>
           </li>
         </ul>
 
         <ul>
-          <li><a href="#home">Hem</a></li>
-          <li><a href="#about">Info</a></li>
-          <li><a href="#events">Events</a></li>
-          <li><a href="#gallery">Galleri</a></li>
-          <li><a href="#contact">Kontakt</a></li>
+          <li><a href="#home" title="Hem">Hem</a></li>
+          <li><a href="#about" title="Info">Info</a></li>
+          <li><a href="#events" title="Events">Events</a></li>
+          <li><a href="#gallery" title="Galleri">Galleri</a></li>
+          <li><a href="#contact" title="Kontakt">Kontakt</a></li>
         </ul>
 
         <div>
-          <a href="https://github.com/Amycus89"
+          <a
+            href="https://github.com/Amycus89"
+            title="Made by Daniel Svensson 2023"
             >Copyright &copy; 2023 Daniel Svensson | All Rights Reserved</a
           >
         </div>

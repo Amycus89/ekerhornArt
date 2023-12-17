@@ -8,8 +8,9 @@ env = environ.Env()
 environ.Env.read_env()
 
 class ContactForm(forms.Form):
-    name = forms.CharField(label='Namn', label_suffix='', max_length=70)
-    email = forms.EmailField(label='E-Mail', label_suffix='')
+    #Add autocomplete for name and email
+    name = forms.CharField(label='Namn', label_suffix='', max_length=70, widget=forms.TextInput(attrs={'autocomplete': 'name'}))
+    email = forms.EmailField(label='E-Mail', label_suffix='', widget=forms.TextInput(attrs={'autocomplete': 'email'}))
     message = forms.CharField(label='Meddelande', label_suffix='', widget=forms.Textarea, max_length=500)
 
 # Create your views here.
