@@ -29,8 +29,8 @@ def index(request):
             recipient = f"Ekerhorn Art <{env('myEmail')}>"
             sender = f"{name} <{email}>"
 
-            # Send email to host
             send_mail(subject, body, sender, [recipient], fail_silently=False) # Remove fail_silently once done testing
+
             return JsonResponse({
                 "success": True,
                 "name": name

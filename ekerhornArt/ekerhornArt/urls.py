@@ -20,5 +20,6 @@ from django.urls import include, path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("home.urls")), # Here I am letting Django know of the path 'home', where it will then look at any additional paths from home.urls
+    path('events/', include("events.urls")),
     path('legal/', include("legal.urls"))
 ]
