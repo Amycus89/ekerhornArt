@@ -1,4 +1,8 @@
-{% extends "home/layout.html" %} {% load static %} {% block content %}
+{% extends "home/layout.html" %} {% load static %} {% block head %}
+<link href="{% static 'home/styles.css' %}" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{% static 'home/script.js' %}"></script>
+{% endblock %} {% block content %}
 <main>
   <section id="home">
     <div class="hero">
@@ -206,7 +210,7 @@
       </div>
     </div>
 
-    <a href="#events" title="Kommer snart"><p>Se Alla</p></a>
+    <a href="{% url 'events:index' %}" title="Kommer snart"><p>Se Alla</p></a>
   </section>
 
   <section id="gallery">

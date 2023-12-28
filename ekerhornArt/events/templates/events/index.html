@@ -1,1 +1,19 @@
-Hello, world!
+{% extends "home/layout.html" %} {% load static %} {% block head %}
+<link href="{% static 'events/styles.css' %}" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{% static 'events/script.js' %}"></script>
+{% endblock %} {% block content %}
+
+<main>
+  <ul>
+    {% for event in events %}
+    <li>{{ event.name }}</li>
+    <li>{{ event.description }}</li>
+    <li>{{ event.date }}</li>
+    {% empty %}
+    <li>No events</li>
+    {% endfor %}
+  </ul>
+</main>
+
+{% endblock %}

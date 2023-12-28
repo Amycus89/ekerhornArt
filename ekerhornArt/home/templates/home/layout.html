@@ -13,20 +13,19 @@
     <meta property="og:image" content="{% static 'home/images/meta.webp' %}" />
     <meta property="og:url" content="www.ekerhorn.com" />
     <title>Ekerhorn Art</title>
-    <link rel="icon" href="{% static 'home/images/iconTabEkerhornArt.svg' %}" />
-    <link href="{% static 'home/styles.css' %}" rel="stylesheet" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script
       src="https://kit.fontawesome.com/a8ed3d1b14.js"
       crossorigin="anonymous"
     ></script>
-    <script src="{% static 'home/script.js' %}"></script>
+    <link rel="icon" href="{% static 'home/images/iconTabEkerhornArt.svg' %}" />
+    <link href="{% static 'home/layout.css' %}" rel="stylesheet" />
+    {% block head %} {% endblock %}
   </head>
   <body>
     <nav id="header">
       <ul class="nav-desktop">
         <li>
-          <a href="#home" class="logo" title="Ekerhorn Art"
+          <a href="{% url 'home:index' %}" class="logo" title="Ekerhorn Art"
             ><img
               src="{% static 'home/images/ekerhornArtLogo.svg' %}"
               alt="Ekerhorn Art logo"
@@ -80,7 +79,9 @@
       </div>
     </nav>
 
-    <main>{% block content %} {% endblock %}</main>
+    <body>
+      {% block content %} {% endblock %}
+    </body>
 
     <footer>
       <svg
