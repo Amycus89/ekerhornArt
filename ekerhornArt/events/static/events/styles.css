@@ -1,0 +1,35 @@
+h1 {
+  padding: 2em;
+}
+
+.events-container {
+  margin: 2em;
+  width: 90vw;
+  display: grid;
+  grid-row-gap: 2em;
+  grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
+  justify-items: center;
+  align-items: center;
+}
+
+.events-container div {
+  width: 600px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 25px;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.events-container div h3 {
+  position: absolute;
+  top: 0;
+  color: white;
+}
+
+.events-container div h6 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: white;
+}

@@ -3,405 +3,334 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{% static 'home/script.js' %}"></script>
 {% endblock %} {% block content %}
-<main>
-  <section id="home">
-    <div class="hero">
-      <div class="row">
-        <div class="column">
-          <a href="https://www.facebook.com/EkerhornArt/" title="My Facebook"
-            ><i class="fa-brands fa-square-facebook"></i
-          ></a>
+<section id="home">
+  <div class="hero">
+    <div class="row">
+      <div class="column">
+        <a href="https://www.facebook.com/EkerhornArt/" title="My Facebook"
+          ><i class="fa-brands fa-square-facebook"></i
+        ></a>
 
-          <span></span>
+        <span></span>
 
-          <a href="https://www.twitter.com/" title="My Twitter"
-            ><i class="fa-brands fa-twitter"></i
-          ></a>
+        <a href="https://www.twitter.com/" title="My Twitter"
+          ><i class="fa-brands fa-twitter"></i
+        ></a>
 
-          <span></span>
+        <span></span>
 
-          <a href="https://www.instagram.com/ekerhorn/" title="My Instagram"
-            ><i class="fa-brands fa-instagram"></i
-          ></a>
-        </div>
-
-        <div class="hero-text">
-          <h5>Mattias Ekerhorn</h5>
-          <h1>Konstnär med</h1>
-          <h1>
-            <span>Poesi</span>
-            <span>& Färg</span>
-          </h1>
-          <p>
-            Målningar och dikter som utforskar identitet, känslor och skönhet.
-            Upptäck konst av en ny vision och stil.
-          </p>
-          <div class="location">
-            <p>Just nu i</p>
-            <i class="fa-solid fa-location-dot"></i>
-            <p>Göteborg | Sverige</p>
-          </div>
-          <div class="cta">
-            <a href="#contact" class="btn wrapper" title="Kontakta mig"
-              >KONTAKTA MIG</a
-            >
-            <a href="#events" class="btn wrapper" title="Events">EVENTS</a>
-          </div>
-        </div>
+        <a href="https://www.instagram.com/ekerhorn/" title="My Instagram"
+          ><i class="fa-brands fa-instagram"></i
+        ></a>
       </div>
 
-      <img
-        src="{% static 'home/images/svg.webp' %}"
-        alt="divider"
-        class="overlay"
-      />
+      <div class="hero-text">
+        <h5>Mattias Ekerhorn</h5>
+        <h1>Konstnär med</h1>
+        <h1>
+          <span>Poesi</span>
+          <span>& Färg</span>
+        </h1>
+        <p>
+          Målningar och dikter som utforskar identitet, känslor och skönhet.
+          Upptäck konst av en ny vision och stil.
+        </p>
+        <div class="location">
+          <p>Just nu i</p>
+          <i class="fa-solid fa-location-dot"></i>
+          <p>Göteborg | Sverige</p>
+        </div>
+        <div class="cta">
+          <a href="#contact" class="btn wrapper" title="Kontakta mig"
+            >KONTAKTA MIG</a
+          >
+          <a href="#events" class="btn wrapper" title="Events">EVENTS</a>
+        </div>
+      </div>
     </div>
-  </section>
 
-  <section id="about">
-    <div class="text-box wrapper">
-      <h2>Välkommen till Ekerhorn Art</h2>
+    <img
+      src="{% static 'home/images/svg.webp' %}"
+      alt="divider"
+      class="overlay"
+    />
+  </div>
+</section>
+
+<section id="about">
+  <div class="text-box wrapper">
+    <h2>Välkommen till Ekerhorn Art</h2>
+    <p>
+      Välkommen till mitt onlinegalleri, där du hittar ett litet urval av mina
+      målningar och dikter. Varje målning har en historia bakom sig, som jag
+      vill dela genom mina ord.
+    </p>
+  </div>
+
+  <div class="row">
+    <div class="anchor">
+      <div class="profile-image"></div>
+    </div>
+
+    <div class="text-box">
+      <h6>Hej på er</h6>
+      <h4>Jag är Mattias Ekerhorn</h4>
+
       <p>
-        Välkommen till mitt onlinegalleri, där du hittar ett litet urval av mina
-        målningar och dikter. Varje målning har en historia bakom sig, som jag
-        vill dela genom mina ord.
+        Läkare och konstnär, med stor passion för konstens alla former. Jag
+        skapar modern konst och dikter som utforskar teman om identitet, känsla
+        och skönhet. Nedan kan du se några av mina verk, läsa mina dikter och
+        lära dig mer om mig och min konstnärliga vision.
+        <br /><br />Jag hoppas att du finner något som berör dig, och att du
+        kommer tillbaka ofta för att se mina senaste verk. Följ mig på en resa
+        genom konst, poesi och färg.
       </p>
     </div>
+  </div>
+</section>
 
-    <div class="row">
-      <div class="anchor">
-        <div class="profile-image"></div>
-      </div>
+<section id="events">
+  <h2 class="center">Events</h2>
+  <p>
+    Följ med oss på kommande konstgallerier där mitt arbete står i centrum. Bli
+    en del av en upplevelse som sträcker sig över målarduken.
+  </p>
 
-      <div class="text-box">
-        <h6>Hej på er</h6>
-        <h4>Jag är Mattias Ekerhorn</h4>
-
+  <div class="accordion">
+    <div class="item-container expanded">
+      <img
+        src="{% static 'home/images/frostDreams.webp' %}"
+        alt="Frostdrömmar event"
+      />
+      <div class="event-text">
+        <h3>FROSTDRÖMMAR</h3>
         <p>
-          Läkare och konstnär, med stor passion för konstens alla former. Jag
-          skapar modern konst och dikter som utforskar teman om identitet,
-          känsla och skönhet. Nedan kan du se några av mina verk, läsa mina
-          dikter och lära dig mer om mig och min konstnärliga vision.
-          <br /><br />Jag hoppas att du finner något som berör dig, och att du
-          kommer tillbaka ofta för att se mina senaste verk. Följ mig på en resa
-          genom konst, poesi och färg.
+          Kom och fira julens magi med oss den 15e december på Café A’mon
+          Studio! Det blir en härlig julstämning med fantastisk fika, en
+          minnesvärd konsert från Duo Danica och en konstvernissage av konstnär
+          Mattias Ekerhorn.
         </p>
+        <a
+          href="{% static 'home/brochures/broschyr-FrostDreams.pdf' %}"
+          title="Läs mer i broshyren"
+          download
+          >LÄS MER</a
+        >
       </div>
-    </div>
-  </section>
-
-  <section id="events">
-    <h2 class="center">Events</h2>
-    <p>
-      Följ med oss på kommande konstgallerier där mitt arbete står i centrum.
-      Bli en del av en upplevelse som sträcker sig över målarduken.
-    </p>
-
-    <div class="accordion">
-      <div class="item-container expanded">
-        <img
-          src="{% static 'home/images/frostDreams.webp' %}"
-          alt="Frostdrömmar event"
-        />
-        <div class="event-text">
-          <h3>FROSTDRÖMMAR</h3>
-          <p>
-            Kom och fira julens magi med oss den 15e december på Café A’mon
-            Studio! Det blir en härlig julstämning med fantastisk fika, en
-            minnesvärd konsert från Duo Danica och en konstvernissage av
-            konstnär Mattias Ekerhorn.
-          </p>
-          <a
-            href="{% static 'home/brochures/broschyr-FrostDreams.pdf' %}"
-            title="Läs mer i broshyren"
-            download
-            >LÄS MER</a
-          >
+      <div class="event-bottom">
+        <div class="calendar">
+          <p class="day">15</p>
+          <p class="month">DECEMBER</p>
+          <p class="year">2023</p>
         </div>
-        <div class="event-bottom">
-          <div class="calendar">
-            <p class="day">15</p>
-            <p class="month">DECEMBER</p>
-            <p class="year">2023</p>
-          </div>
 
-          <div class="location">
-            <div class="address">
-              <div>
-                <i class="fa-solid fa-location-dot"></i>
-                <p class="location-name">A’mon Studio</p>
-              </div>
-              <p class="location-address">Munkebäcks allé 14,</p>
-              <p class="location-city">Göteborg</p>
+        <div class="location">
+          <div class="address">
+            <div>
+              <i class="fa-solid fa-location-dot"></i>
+              <p class="location-name">A’mon Studio</p>
             </div>
+            <p class="location-address">Munkebäcks allé 14,</p>
+            <p class="location-city">Göteborg</p>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="item-container">
-        <img
-          src="{% static 'home/images/hero.webp' %}"
-          alt="Aromlandskap event"
-        />
-        <div class="event-text">
-          <h3>AROMLANDSKAP</h3>
-          <p>
-            En samskapande utställning den 1 september - 31 oktober 2023 på
-            Galleri Home Design med tavlor och dikter av konstnär Mattias
-            Ekerhorn. Medverkar gör också parfymkreatör Kerstin Strömberg med
-            några doftkompositioner, som är en del i utställningen.
-          </p>
-          <a
-            href="{% static 'home/brochures/broschyr-Aromlandskap.pdf' %}"
-            title="Läs mer i broshyren"
-            download
-            >LÄS MER</a
-          >
+    <div class="item-container">
+      <img
+        src="{% static 'home/images/hero.webp' %}"
+        alt="Aromlandskap event"
+      />
+      <div class="event-text">
+        <h3>AROMLANDSKAP</h3>
+        <p>
+          En samskapande utställning den 1 september - 31 oktober 2023 på
+          Galleri Home Design med tavlor och dikter av konstnär Mattias
+          Ekerhorn. Medverkar gör också parfymkreatör Kerstin Strömberg med
+          några doftkompositioner, som är en del i utställningen.
+        </p>
+        <a
+          href="{% static 'home/brochures/broschyr-Aromlandskap.pdf' %}"
+          title="Läs mer i broshyren"
+          download
+          >LÄS MER</a
+        >
+      </div>
+      <div class="event-bottom">
+        <div class="calendar">
+          <p class="day">1</p>
+          <p class="month">SEPTEMBER</p>
+          <p class="year">2023</p>
         </div>
-        <div class="event-bottom">
-          <div class="calendar">
-            <p class="day">1</p>
-            <p class="month">SEPTEMBER</p>
-            <p class="year">2023</p>
-          </div>
 
-          <div class="location">
-            <div class="address">
-              <div>
-                <i class="fa-solid fa-location-dot"></i>
-                <p class="location-name">Galleri Home Design</p>
-              </div>
-              <p class="location-address">Kungsgatan 9A, 411 19,</p>
-              <p class="location-city">Göteborg</p>
+        <div class="location">
+          <div class="address">
+            <div>
+              <i class="fa-solid fa-location-dot"></i>
+              <p class="location-name">Galleri Home Design</p>
             </div>
+            <p class="location-address">Kungsgatan 9A, 411 19,</p>
+            <p class="location-city">Göteborg</p>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="item-container">
-        <img src="{% static 'home/images/window.webp' %}" alt="Ateljé event" />
-        <div class="event-text">
-          <h3>VÄLKOMMEN IN!</h3>
-          <p>Ekerhorn Art finns nu i Göteborg.</p>
-          <a
-            href="https://www.facebook.com/photo/?fbid=257586013873524&set=a.257586027206856"
-            title="Läs mer här"
-            >LÄS MER</a
-          >
+    <div class="item-container">
+      <img src="{% static 'home/images/window.webp' %}" alt="Ateljé event" />
+      <div class="event-text">
+        <h3>VÄLKOMMEN IN!</h3>
+        <p>Ekerhorn Art finns nu i Göteborg.</p>
+        <a
+          href="https://www.facebook.com/photo/?fbid=257586013873524&set=a.257586027206856"
+          title="Läs mer här"
+          >LÄS MER</a
+        >
+      </div>
+      <div class="event-bottom">
+        <div class="calendar">
+          <p class="day">15</p>
+          <p class="month">Augusti</p>
+          <p class="year">2023</p>
         </div>
-        <div class="event-bottom">
-          <div class="calendar">
-            <p class="day">15</p>
-            <p class="month">Augusti</p>
-            <p class="year">2023</p>
-          </div>
 
-          <div class="location">
-            <div class="address">
-              <div>
-                <i class="fa-solid fa-location-dot"></i>
-                <p class="location-name">Ekerhorn Ateljé</p>
-              </div>
-              <p class="location-address">Kolonigatan 3A, 413 21,</p>
-              <p class="location-city">Göteborg</p>
+        <div class="location">
+          <div class="address">
+            <div>
+              <i class="fa-solid fa-location-dot"></i>
+              <p class="location-name">Ekerhorn Ateljé</p>
             </div>
+            <p class="location-address">Kolonigatan 3A, 413 21,</p>
+            <p class="location-city">Göteborg</p>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <a href="{% url 'events:index' %}" title="Kommer snart"><p>Se Alla</p></a>
-  </section>
+  <a href="{% url 'events:index' %}" title="Kommer snart"><p>Se Alla</p></a>
+</section>
 
-  <section id="gallery">
-    <h2>Galleri</h2>
-    <p>Ett urval av mina senaste verk</p>
-    <div class="paintings">
-      <dialog class="modal">
-        <img
-          src="{% static 'home/images/paintings/hemlangtan.webp' %}"
-          alt="Målning"
-        />
-        <h5>Hemlängtan</h5>
-        <p>
-          Jag saknar de spruckna fallfrukterna<br />
-          från det träd vi kallade vårt<br />
-          Hur din omfamning kändes som en bädd av<br />
-          dun som omgav mig och gav mig frid<br />
-          Jag saknar gnistorna från de eldar du råkade skapa<br />
-          och tyngden från ditt trötta hjärta i min hand<br />
-        </p>
-      </dialog>
-      <div class="open-modal">
-        <img
-          src="{% static 'home/images/paintings/hemlangtan.webp' %}"
-          alt="Målning"
-        />
-        <p>Hemlängtan</p>
-      </div>
-
-      <dialog class="modal">
-        <img
-          src="{% static 'home/images/paintings/oinbjudenTanke.webp' %}"
-          alt="Målning"
-        />
-        <h5>Oinbjuden Tanke</h5>
-        <p>
-          På din själs vågor skimrar och skummar den,<br />
-          dyker i dina rotådrors savströmmar<br />
-          Flyter på ytan av dina inre nebulosors sköra ytor,<br />
-          denna knut, oinbjuden, som stramar och stör<br />
-          Slit ej i rötterna, förgör inte dig själv<br />
-          Låt dina inre vågor vagga den till frid,<br />
-          tills den lämnar dig likt allt annat en dag skall
-        </p>
-      </dialog>
-      <div class="open-modal">
-        <img
-          src="{% static 'home/images/paintings/oinbjudenTanke.webp' %}"
-          alt="Målning"
-          class="sold"
-        />
-        <p>Oinbjuden Tanke</p>
-      </div>
-
-      <dialog class="modal">
-        <img
-          src="{% static 'home/images/paintings/omheten.webp' %}"
-          alt="Målning"
-        />
-        <h5>Ömheten</h5>
-        <p>
-          Dina ord är som mjuka droppar
-          <br />
-          En värmande dröm
-          <br />
-          kyssar av mildhet på min nacke
-          <br />
-          ett regn som dränker de mörka reven
-          <br />
-          Din famn är min bro öpver det obevekliga
-          <br />
-          som du bygger med din ömhets stenar
-        </p>
-      </dialog>
-      <div class="open-modal">
-        <img
-          src="{% static 'home/images/paintings/omheten.webp' %}"
-          alt="Målning"
-        />
-        <p>Ömheten</p>
-      </div>
-
-      <dialog class="modal">
-        <img
-          src="{% static 'home/images/paintings/sammanbrottet.webp' %}"
-          alt="Målning"
-        />
-        <h5>Sammanbrottet</h5>
-        <p>
-          Låt dig nu i stillhet sjunka ner,<br />
-          under tyngden av krossat som förlorar sin form<br />
-          Släpp taget om din längtan, låt den svalna<br />
-          Vila nu<br />
-          Din livskraft bär du alltjämt inom dig<br />
-          Låt den vila fram till vårens andedräkt<br />
-          Låt det brustna sakta sönderfalla,<br />
-          till aska, till grus, till oändlig tröst<br />
-          Vila nu,<br />
-          Låt dina rötter finna sin djupaste ro,<br />
-          tillit i den svarta jorden, i din tystnad.<br />
-          Tro, kära vän, att du åter ska blomstra
-        </p>
-      </dialog>
-      <div class="open-modal">
-        <img
-          src="{% static 'home/images/paintings/sammanbrottet.webp' %}"
-          alt="Målning"
-        />
-        <p>Sammanbrottet</p>
-      </div>
+<section id="gallery">
+  <h2>Galleri</h2>
+  <p>Ett urval av mina senaste verk</p>
+  <div class="paintings">
+    <dialog class="modal">
+      <img
+        src="{% static 'home/images/paintings/hemlangtan.webp' %}"
+        alt="Målning"
+      />
+      <h5>Hemlängtan</h5>
+      <p>
+        Jag saknar de spruckna fallfrukterna<br />
+        från det träd vi kallade vårt<br />
+        Hur din omfamning kändes som en bädd av<br />
+        dun som omgav mig och gav mig frid<br />
+        Jag saknar gnistorna från de eldar du råkade skapa<br />
+        och tyngden från ditt trötta hjärta i min hand<br />
+      </p>
+    </dialog>
+    <div class="open-modal">
+      <img
+        src="{% static 'home/images/paintings/hemlangtan.webp' %}"
+        alt="Målning"
+      />
+      <p>Hemlängtan</p>
     </div>
 
-    <a href="#gallery" title="Kommer snart">Se Fler</a>
-
-    <div class="studio">
-      <div class="text-box">
-        <h4>
-          Varje målning åtföljs av en dikt, som avslöjar inspirationen och
-          meningen bakom konstverket
-        </h4>
-      </div>
+    <dialog class="modal">
+      <img
+        src="{% static 'home/images/paintings/oinbjudenTanke.webp' %}"
+        alt="Målning"
+      />
+      <h5>Oinbjuden Tanke</h5>
+      <p>
+        På din själs vågor skimrar och skummar den,<br />
+        dyker i dina rotådrors savströmmar<br />
+        Flyter på ytan av dina inre nebulosors sköra ytor,<br />
+        denna knut, oinbjuden, som stramar och stör<br />
+        Slit ej i rötterna, förgör inte dig själv<br />
+        Låt dina inre vågor vagga den till frid,<br />
+        tills den lämnar dig likt allt annat en dag skall
+      </p>
+    </dialog>
+    <div class="open-modal">
+      <img
+        src="{% static 'home/images/paintings/oinbjudenTanke.webp' %}"
+        alt="Målning"
+        class="sold"
+      />
+      <p>Oinbjuden Tanke</p>
     </div>
-  </section>
 
-  <section id="contact">
-    <div class="contact-in">
-      <div class="contact-map">
-        <!-- google maps -->
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2132.59276304478!2d11.971679199999999!3d57.6893985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464ff3404f96d5f5%3A0x568bad4381f766ec!2sEkerhorn%20Atelj%C3%A9!5e0!3m2!1ssv!2ses!4v1700405763257!5m2!1ssv!2ses"
-          width="100%"
-          height="auto"
-          style="border: 0"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Ekerhorn Atelje"
-        ></iframe>
-      </div>
-
-      <div class="contact-form">
-        <div>
-          <i class="fa-regular fa-envelope"></i>
-          <h2>Kontakt</h2>
-        </div>
-        <p class="success"></p>
-        <form action="{% url 'home:index' %}" method="post" id="post-form">
-          {% csrf_token %} {% for field in form %}
-          <div class="input-container">{{ field }} {{ field.label_tag }}</div>
-          {% endfor %}
-
-          <button type="submit" class="contact-form-btn">Skicka</button>
-        </form>
-        <script defer>
-          const form = document.getElementById("post-form");
-          form.addEventListener("submit", submitHandler);
-
-          function submitHandler(event) {
-            event.preventDefault();
-            $.ajax({
-              type: "POST",
-              url: "{% url 'home:index' %}",
-              data: $("#post-form").serialize(),
-              dataType: "json",
-              success: function (data) {
-                console.log(data.name);
-                //Empty the form
-                form.reset();
-                // Change the inner html of the element with the class success to "Tack för ert meddelande, {{ name }}."
-                $(".success").html("Hej på dig, " + data.name + ".");
-                // Change the inner html of .contact-form-btn to "Sänt" for 3 seconds
-                $(".contact-form-btn").html("Sänt");
-                // Change the background-color of .contact-form-btn to blue
-                $(".contact-form-btn").css({
-                  "background-color": "#274073",
-                  color: "#e9ecf1",
-                });
-                setTimeout(function () {
-                  $(".success").html("");
-                  $(".contact-form-btn").html("Skicka");
-                  $(".contact-form-btn").css({
-                    "background-color": "#c52c55",
-                    color: "#fbeaef",
-                  });
-                }, 3000);
-              },
-            });
-          }
-        </script>
-      </div>
+    <dialog class="modal">
+      <img
+        src="{% static 'home/images/paintings/omheten.webp' %}"
+        alt="Målning"
+      />
+      <h5>Ömheten</h5>
+      <p>
+        Dina ord är som mjuka droppar
+        <br />
+        En värmande dröm
+        <br />
+        kyssar av mildhet på min nacke
+        <br />
+        ett regn som dränker de mörka reven
+        <br />
+        Din famn är min bro öpver det obevekliga
+        <br />
+        som du bygger med din ömhets stenar
+      </p>
+    </dialog>
+    <div class="open-modal">
+      <img
+        src="{% static 'home/images/paintings/omheten.webp' %}"
+        alt="Målning"
+      />
+      <p>Ömheten</p>
     </div>
-  </section>
-</main>
+
+    <dialog class="modal">
+      <img
+        src="{% static 'home/images/paintings/sammanbrottet.webp' %}"
+        alt="Målning"
+      />
+      <h5>Sammanbrottet</h5>
+      <p>
+        Låt dig nu i stillhet sjunka ner,<br />
+        under tyngden av krossat som förlorar sin form<br />
+        Släpp taget om din längtan, låt den svalna<br />
+        Vila nu<br />
+        Din livskraft bär du alltjämt inom dig<br />
+        Låt den vila fram till vårens andedräkt<br />
+        Låt det brustna sakta sönderfalla,<br />
+        till aska, till grus, till oändlig tröst<br />
+        Vila nu,<br />
+        Låt dina rötter finna sin djupaste ro,<br />
+        tillit i den svarta jorden, i din tystnad.<br />
+        Tro, kära vän, att du åter ska blomstra
+      </p>
+    </dialog>
+    <div class="open-modal">
+      <img
+        src="{% static 'home/images/paintings/sammanbrottet.webp' %}"
+        alt="Målning"
+      />
+      <p>Sammanbrottet</p>
+    </div>
+  </div>
+
+  <a href="#gallery" title="Kommer snart">Se Fler</a>
+
+  <div class="studio">
+    <div class="text-box">
+      <h4>
+        Varje målning åtföljs av en dikt, som avslöjar inspirationen och
+        meningen bakom konstverket
+      </h4>
+    </div>
+  </div>
+</section>
 {% endblock %}

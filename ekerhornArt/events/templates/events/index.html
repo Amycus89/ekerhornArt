@@ -3,17 +3,19 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{% static 'events/script.js' %}"></script>
 {% endblock %} {% block content %}
-
-<main>
-  <ul>
+<section>
+  <h1>Events</h1>
+  <div class="events-container">
     {% for event in events %}
-    <li>{{ event.name }}</li>
-    <li>{{ event.description }}</li>
-    <li>{{ event.date }}</li>
+    <div>
+      <img src="{{ event.background.url }}" alt="event image" />
+      <h3>{{ event.name }}</h3>
+      <h6>{{ event.date }}</h6>
+    </div>
     {% empty %}
-    <li>No events</li>
+    <p>No events</p>
     {% endfor %}
-  </ul>
-</main>
+  </div>
+</section>
 
 {% endblock %}

@@ -80,8 +80,83 @@
     </nav>
 
     <body>
-      {% block content %} {% endblock %}
-    </body>
+      <main>
+        {% block content %} {% endblock %}
+        <section id="contact">
+          <div class="contact-in">
+            <div class="contact-map">
+              <!-- google maps -->
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2132.59276304478!2d11.971679199999999!3d57.6893985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464ff3404f96d5f5%3A0x568bad4381f766ec!2sEkerhorn%20Atelj%C3%A9!5e0!3m2!1ssv!2ses!4v1700405763257!5m2!1ssv!2ses"
+                width="100%"
+                height="auto"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Ekerhorn Atelje"
+              ></iframe>
+            </div>
+
+            <div class="contact-form">
+              <div>
+                <i class="fa-regular fa-envelope"></i>
+                <h2>Kontakt</h2>
+              </div>
+              <p class="success"></p>
+              <form
+                action="{% url 'home:index' %}"
+                method="post"
+                id="post-form"
+              >
+                {% csrf_token %} {% for field in form %}
+                <div class="input-container">
+                  {{ field }} {{ field.label_tag }}
+                </div>
+                {% endfor %}
+
+                <button type="submit" class="contact-form-btn">Skicka</button>
+              </form>
+              <script defer>
+                const form = document.getElementById("post-form");
+                form.addEventListener("submit", submitHandler);
+
+                function submitHandler(event) {
+                  event.preventDefault();
+                  $.ajax({
+                    type: "POST",
+                    url: "{% url 'home:index' %}",
+                    data: $("#post-form").serialize(),
+                    dataType: "json",
+                    success: function (data) {
+                      console.log(data.name);
+                      //Empty the form
+                      form.reset();
+                      // Change the inner html of the element with the class success to "Tack för ert meddelande, {{ name }}."
+                      $(".success").html("Hej på dig, " + data.name + ".");
+                      // Change the inner html of .contact-form-btn to "Sänt" for 3 seconds
+                      $(".contact-form-btn").html("Sänt");
+                      // Change the background-color of .contact-form-btn to blue
+                      $(".contact-form-btn").css({
+                        "background-color": "#274073",
+                        color: "#e9ecf1",
+                      });
+                      setTimeout(function () {
+                        $(".success").html("");
+                        $(".contact-form-btn").html("Skicka");
+                        $(".contact-form-btn").css({
+                          "background-color": "#c52c55",
+                          color: "#fbeaef",
+                        });
+                      }, 3000);
+                    },
+                  });
+                }
+              </script>
+            </div>
+          </div>
+        </section>
+      </main>
 
     <footer>
       <svg
