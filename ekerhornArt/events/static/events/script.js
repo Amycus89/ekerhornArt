@@ -1,3 +1,4 @@
+let prevScrollPos = 0;
 document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", function () {
     const headerElement = document.getElementById("header");
