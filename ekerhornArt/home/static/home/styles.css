@@ -599,6 +599,136 @@ nav {
   font-size: clamp(1.2rem, 0.64354rem + 2.343vw, 2.98625rem);
 }
 
+.success {
+  color: #c52c55;
+}
+
+#contact {
+  width: 100vw;
+  padding: 2em 0 4em 0;
+  background-color: #e9ecf1;
+  display: grid;
+  align-items: center;
+}
+#contact .contact-in {
+  width: 80%;
+  height: auto;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 16px;
+  border-radius: 10px;
+  background-color: #f6f7f8;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+#contact .contact-map {
+  width: 100%;
+  height: auto;
+  flex: 50%;
+}
+#contact .contact-map iframe {
+  width: 100%;
+  height: 100%;
+}
+#contact .contact-form {
+  width: 100%;
+  height: auto;
+  flex: 50%;
+  text-align: center;
+  padding: 12px;
+}
+#contact .contact-form i {
+  color: #274073;
+  font-size: 2.488rem;
+  transform: translateY(0.125rem);
+}
+#contact .contact-form h2 {
+  margin-bottom: 10px;
+  color: #274073;
+  display: inline;
+  font-size: 2.488rem;
+}
+#contact .contact-form .input-container {
+  position: relative;
+  padding-bottom: 12px;
+}
+#contact .contact-form .input-container input,
+#contact .contact-form .input-container textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #274073;
+  background-color: #f6f7f8;
+  border-radius: 5px;
+  outline: none;
+  color: #274073;
+  font-size: 1.125rem;
+}
+#contact .contact-form .input-container label {
+  position: absolute;
+  left: 0;
+  top: 4px;
+  padding: 10px;
+  pointer-events: none;
+  font-size: 1.125rem;
+  color: #9ca7bf;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+#contact .contact-form .input-container input:valid ~ label,
+#contact .contact-form .input-container input:focus ~ label,
+#contact .contact-form .input-container textarea:valid ~ label,
+#contact .contact-form .input-container textarea:focus ~ label {
+  color: #274073;
+  transform: translateX(10px) translateY(-7px);
+  font-size: 0.75rem;
+  padding: 0 10px;
+  background-color: #f6f7f8;
+  letter-spacing: 0.2em;
+}
+#contact .contact-form .contact-form-txt {
+  width: 100%;
+  height: 40px;
+  color: #00040d;
+  border: 1px solid #f6f7f8;
+  outline: none;
+  margin-bottom: 20px;
+  padding: 15px;
+}
+#contact .contact-form .contact-form-txt::placeholder {
+  color: #274073;
+}
+#contact .contact-form .contact-form-textarea {
+  width: 100%;
+  min-height: 130px;
+  color: #00040d;
+  border: 1px solid #f6f7f8;
+  border-radius: 10px;
+  outline: none;
+  margin-bottom: 20px;
+  padding: 15px;
+}
+#contact .contact-form .contact-form-textarea::placeholder {
+  color: #274073;
+}
+#contact .contact-form .contact-form-btn {
+  width: 100%;
+  min-height: 64px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background-color: #c52c55;
+  color: #fbeaef;
+  text-transform: uppercase;
+  padding: 10px 0;
+  margin-top: 8px;
+  cursor: pointer;
+  font-size: 1.333rem;
+  transition: 0.3s;
+}
+#contact .contact-form .contact-form-btn:hover {
+  background-color: #9a2242;
+}
+
 @media (hover: hover) or (pointer: fine) {
   .row .column i:hover {
     transform: rotate(-25deg) scale(1.2);
