@@ -1,0 +1,21 @@
+{% extends "home/layout.html" %} {% load static %} {% block head %}
+<link href="{% static 'events/styles.css' %}" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{% static 'events/script.js' %}"></script>
+{% endblock %} {% block content %}
+<section>
+  <img src="{{ event.background.url }}" alt="event image" />
+</section>
+
+<section>
+  <h1>{{ event.name }}</h1>
+  <h6>{{ event.date }}</h6>
+  <p>{{ event.description }}</p>
+  {% if event.read_more %}
+  <a href="{{ event.read_more }}">Läs mer...</a>
+  {% endif %} {% if event.download_file %}
+  <a href="{{ event.download_file.url }}" download>Download Brochure</a>
+  {% endif %}
+</section>
+
+{% endblock %}

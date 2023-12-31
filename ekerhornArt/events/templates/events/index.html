@@ -5,13 +5,17 @@
 {% endblock %} {% block content %}
 <section>
   <h1>Events</h1>
+</section>
+<section>
   <div class="events-container">
     {% for event in events %}
-    <div>
-      <img src="{{ event.background.url }}" alt="event image" />
-      <h3>{{ event.name }}</h3>
-      <h6>{{ event.date }}</h6>
-    </div>
+    <a href="{% url 'events:event' event.id %}">
+      <div>
+        <img src="{{ event.background.url }}" alt="event image" />
+        <h3>{{ event.name }}</h3>
+        <h6>{{ event.date }}</h6>
+      </div>
+    </a>
     {% empty %}
     <p>No events</p>
     {% endfor %}

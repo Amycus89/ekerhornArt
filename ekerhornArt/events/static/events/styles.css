@@ -7,24 +7,30 @@ h1 {
   width: 90vw;
   display: grid;
   grid-row-gap: 2em;
-  grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   justify-items: center;
   align-items: center;
 }
 
 .events-container div {
-  width: 600px;
+  width: 500px;
   height: 200px;
   overflow: hidden;
   border-radius: 25px;
   position: relative;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: 0.3s;
+}
+
+.events-container div:hover {
+  transform: translateY(-16px);
 }
 
 .events-container div h3 {
   position: absolute;
   top: 0;
   color: white;
+  padding: 16px;
 }
 
 .events-container div h6 {
@@ -32,4 +38,9 @@ h1 {
   bottom: 0;
   right: 0;
   color: white;
+  padding: 16px;
+}
+
+.events-container div img {
+  object-fit: cover;
 }

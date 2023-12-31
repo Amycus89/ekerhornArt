@@ -43,3 +43,9 @@ def index(request):
         "events": Event.objects.all(),
         "form": ContactForm()
     })
+
+def event(request, event_id):
+    event = Event.objects.get(id=event_id)
+    return render(request, "events/event.html", {
+        "event": event
+    })
