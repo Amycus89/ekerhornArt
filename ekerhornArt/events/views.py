@@ -17,7 +17,7 @@ class ContactForm(forms.Form):
 # Create your views here.
 def index(request):
     return render(request, "events/index.html", {
-        "events": Event.objects.all()
+        "events": Event.objects.all().order_by("-date")
     })
 
 def event(request, event_id):

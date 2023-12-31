@@ -1,5 +1,10 @@
 h1 {
-  padding: 2em;
+  margin-top: 104px;
+  font-size: clamp(2.119rem, 1.79591rem + 2.413vw, 4.209rem);
+}
+
+main {
+  background-color: #e9ecf1;
 }
 
 .events-container {
@@ -9,7 +14,12 @@ h1 {
   grid-row-gap: 2em;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   justify-items: center;
-  align-items: center;
+  align-items: start;
+  background-color: #f6f7f8;
+  padding: 24px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border-radius: 25px;
+  min-height: 80vh;
 }
 
 .events-container div {
