@@ -7,6 +7,7 @@ class Event(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=46)
     background = models.ImageField(upload_to="events/images")
+    tags = models.CharField(max_length=46, blank=True)
     description = models.TextField()
     date = models.DateField()
     location_name = models.CharField(max_length=46)

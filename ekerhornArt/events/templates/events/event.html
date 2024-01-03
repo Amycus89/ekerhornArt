@@ -1,21 +1,58 @@
 {% extends "home/layout.html" %} {% load static %} {% block head %}
 <link href="{% static 'events/styles.css' %}" rel="stylesheet" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script
+  src="https://kit.fontawesome.com/a8ed3d1b14.js"
+  crossorigin="anonymous"
+></script>
 <script src="{% static 'events/script.js' %}"></script>
 {% endblock %} {% block content %}
-<section>
-  <img src="{{ event.background.url }}" alt="event image" />
+
+<section class="return">
+  <a href="{% url 'events:index' %}">Tillbaka</a>
 </section>
 
-<section>
-  <h1>{{ event.name }}</h1>
-  <h6>{{ event.date }}</h6>
-  <p>{{ event.description }}</p>
-  {% if event.read_more %}
-  <a href="{{ event.read_more }}">Läs mer...</a>
-  {% endif %} {% if event.download_file %}
-  <a href="{{ event.download_file.url }}" download>Download Brochure</a>
-  {% endif %}
+<section class="event-slide">
+  <div class="event-page box">
+    <h1>{{ event.name }}</h1>
+    {% if event.tags %}
+    <h3>{{ event.tags }}</h3>
+    {% endif %}
+    <h4 class="date"><i class="fa-solid fa-calendar"></i> {{ event.date }}</h4>
+    <p>{{ event.description }}</p>
+    <div class="info-box box">
+      <div class="location">
+        <h5>
+          <i class="fa-solid fa-location-dot"></i>{{ event.location_name }}
+        </h5>
+        <p>{{ event.street }}</p>
+        <h6>{{ event.city }}</h6>
+      </div>
+      <div class="row">
+        <div class="btn-container">
+          {% if event.read_more %}
+          <a href="{{ event.read_more }}" target="_blank" class="btn box"
+            ><i class="fa-solid fa-up-right-from-square"></i>Läs mer</a
+          >
+          {% endif %} {% if event.download_file %}
+          <a href="{{ event.download_file.url }}" class="btn box" download
+            ><i class="fa-solid fa-download"></i>Broschyr</a
+          >
+          {% endif %}
+        </div>
+        <div class="share-container">
+          <i class="fa-brands fa-square-twitter"></i>
+          <i class="fa-brands fa-square-facebook"></i>
+          <i class="fa-brands fa-square-instagram"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    style="background-image: url('{{ event.background.url }}');"
+    class="event-background box"
+  ></div>
 </section>
 
 {% endblock %}

@@ -7,10 +7,10 @@
   <h1>Events</h1>
 </section>
 <section>
-  <div class="events-container">
+  <div class="events-container box">
     {% for event in events %}
     <a href="{% url 'events:event' event.id %}">
-      <div>
+      <div class="box">
         <img src="{{ event.background.url }}" alt="event image" />
         <h3>{{ event.name }}</h3>
         <h6>{{ event.date }}</h6>

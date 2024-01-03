@@ -255,8 +255,8 @@ nav {
   width: clamp(31.25rem, 25.94698rem + 30.303vw, 56.25rem);
   object-fit: cover;
   background-color: #6e7fa1;
-  mask-image: url("./images/mask.webp");
-  -webkit-mask-image: url("./images/mask.webp");
+  mask-image: url("../../../media/deco/mask.webp");
+  -webkit-mask-image: url("../../../media/deco/mask.webp");
   -webkit-mask-size: 100%;
   -webkit-mask-repeat: no-repeat;
   z-index: 799;
