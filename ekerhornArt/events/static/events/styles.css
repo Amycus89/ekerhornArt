@@ -66,13 +66,14 @@ main {
 
 .event-background {
   position: absolute;
-  left: clamp(0.5rem, -4.69698rem + 29.697vw, 25rem);
+  left: 150px;
+  bottom: 0;
   bottom: clamp(0rem, -0.39778rem + 2.273vw, 1.875rem);
   z-index: 0;
   background-size: cover;
   background-position: center;
-  height: clamp(17.5rem, 6.62883rem + 62.121vw, 68.75rem);
-  width: clamp(17.5rem, 6.62883rem + 62.121vw, 68.75rem);
+  height: 1600px;
+  width: 1600px;
 
   mask-image: url("../../../media/deco/mask.webp");
   -webkit-mask-image: url("../../../media/deco/mask.webp");
@@ -84,11 +85,11 @@ main {
 
 .event-page {
   position: absolute;
-  left: 40px;
-  top: 40px;
-  background-color: rgba(254, 254, 254, 0.9);
-  width: clamp(17.5rem, 14.58328rem + 16.667vw, 31.25rem);
-  padding: 16px;
+  left: clamp(0.25rem, -0.75765rem + 5.758vw, 5rem);
+  top: clamp(0.25rem, -0.75765rem + 5.758vw, 5rem);
+  background-color: rgba(254, 254, 254, 0.875);
+  width: clamp(16.875rem, 13.8258rem + 17.424vw, 31.25rem);
+  padding: clamp(0.25rem, 0.09093rem + 0.909vw, 1rem);
   padding-bottom: 40px;
   z-index: 1;
 }
@@ -141,18 +142,22 @@ main {
   margin-top: 120px;
   margin-bottom: 24px;
   width: 100%;
-  padding-left: 40px;
+  padding-left: clamp(0.25rem, -0.75765rem + 5.758vw, 5rem);
+}
+
+.return a {
+  color: #192330;
 }
 
 .row {
   background-color: #f2f2f2;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px;
+  justify-content: space-around; /*Will center items as they wrap around*/
+  padding: 16px 0;
   margin-bottom: 12px;
   border-radius: 12px;
   flex-wrap: wrap;
+  gap: 20px;
 }
 
 i {
@@ -169,11 +174,20 @@ i {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  width: 50%;
+  width: 30%;
+  align-self: center;
+}
+
+.btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
 }
 
 .share-container i {
   font-size: 1.5rem;
+  margin: 8px;
 }
 
 .share-container i:hover {
