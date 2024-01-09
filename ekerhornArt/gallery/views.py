@@ -10,11 +10,11 @@ environ.Env.read_env()
 # Create your views here.
 def index(request):
     return render(request, "events/index.html", {
-        "events": Event.objects.all().order_by("-date")
+        #"paintings": Event.objects.all().order_by("-date")
     })
 
-def event(request, event_id):
-    event = Event.objects.get(id=event_id)
-    return render(request, "events/event.html", {
-        "event": event
+def painting(request, painting_id):
+    painting = Painting.objects.get(id=painting_id)
+    return render(request, "gallery/painting.html", {
+        "painting": painting
     })

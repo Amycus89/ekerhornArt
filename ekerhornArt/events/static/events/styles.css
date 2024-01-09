@@ -1,24 +1,21 @@
 h1 {
-  margin-top: 104px;
   font-size: clamp(2.119rem, 1.79591rem + 2.413vw, 4.209rem);
 }
 
 main {
   background-color: #e9ecf1;
+  padding: clamp(0.25em, -0.75765em + 5.758vw, 5em);
 }
 
 .events-container {
   margin: 2em;
-  width: 90vw;
+  width: 100vw;
   display: grid;
   grid-row-gap: 2em;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   justify-items: center;
   align-items: start;
-  background-color: #f6f7f8;
   padding: 24px;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  border-radius: 25px;
   min-height: 80vh;
 }
 
@@ -64,67 +61,22 @@ main {
   min-height: 100vh;
 }
 
-.event-background {
-  position: absolute;
-  left: 150px;
-  bottom: 0;
-  bottom: clamp(0rem, -0.39778rem + 2.273vw, 1.875rem);
-  z-index: 0;
-  background-size: cover;
-  background-position: center;
-  height: 1600px;
-  width: 1600px;
-
-  mask-image: url("../../../media/deco/mask.webp");
-  -webkit-mask-image: url("../../../media/deco/mask.webp");
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-size: 100%;
-  /* Move mask upwards */
-  -webkit-mask-position: center center;
-}
-
-.event-page {
-  position: absolute;
-  left: clamp(0.25rem, -0.75765rem + 5.758vw, 5rem);
-  top: clamp(0.25rem, -0.75765rem + 5.758vw, 5rem);
-  background-color: rgba(254, 254, 254, 0.875);
-  width: clamp(16.875rem, 13.8258rem + 17.424vw, 31.25rem);
-  padding: clamp(0.25rem, 0.09093rem + 0.909vw, 1rem);
-  padding-bottom: 40px;
-  z-index: 1;
-}
-
-.date,
-.date i {
-  color: #3c5473;
+.background h1 {
   margin-top: 8px;
-  font-size: 1.5rem;
+  color: #6e7fa1;
 }
 
-.location h5,
-.location p,
-.location h6,
-.location i {
-  color: #fefefe;
-}
-
-.event-page .location p {
-  margin: 0;
-}
-
-.event-page p {
-  line-height: 1.5;
-  margin: 8px 0 24px 0;
-}
-
-.event-page h1 {
-  margin-top: 8px;
-  color: #274073;
-}
-
-.event-page h3 {
+.background h3 {
   color: #c52c55;
   font-size: clamp(1rem, 0.83515rem + 0.942vw, 1.777rem);
+}
+
+.background h4 {
+  color: #e9ecf1;
+}
+
+.background h5 {
+  color: #c8a872;
 }
 
 .info-box {
@@ -138,19 +90,15 @@ main {
   padding-bottom: 16px;
 }
 
-.return {
-  margin-top: 120px;
-  margin-bottom: 24px;
-  width: 100%;
-  padding-left: clamp(0.25rem, -0.75765rem + 5.758vw, 5rem);
+.background p {
+  line-height: 1.5;
+  max-width: 75ch;
+  text-align: center;
+  color: white;
+  margin: 8px 0 24px 0;
 }
 
-.return a {
-  color: #192330;
-}
-
-.row {
-  background-color: #f2f2f2;
+.background .row {
   display: flex;
   justify-content: space-around; /*Will center items as they wrap around*/
   padding: 16px 0;
@@ -162,12 +110,8 @@ main {
 
 i {
   margin-right: 4px;
-  color: #192330;
+  color: white;
   transition: 0.3s;
-}
-
-.btn:hover i {
-  color: #f6f7f8;
 }
 
 .share-container {
@@ -178,35 +122,82 @@ i {
   align-self: center;
 }
 
-.btn-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: nowrap;
+.social i {
+  font-size: 2.2rem;
 }
 
-.share-container i {
-  font-size: 1.5rem;
-  margin: 8px;
-}
-
-.share-container i:hover {
+.social i:hover {
   transform: rotate(-25deg) scale(1.2);
 }
 
 .btn {
   text-decoration: none;
-  height: 36px;
+  display: flex;
+  align-items: center;
+  height: 48px;
   min-width: 64px;
-  border: 1px solid #00040d;
-  padding: 8px;
-  margin: 8px;
-  color: #00040d;
+  border: 1px solid white;
+  padding: 16px;
+  margin: 16px;
+  color: white;
   transition: 0.3s;
   white-space: nowrap;
 }
 
+.btn:hover,
+.btn:hover i {
+  color: #00040d;
+}
+
 .btn:hover {
-  background-color: #00040d;
-  color: #fefefe;
+  background-color: #fefefe;
+}
+
+.background {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 24px;
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.background .filter {
+  background-color: hsla(0, 0%, 0%, 0.5);
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 25px;
+}
+
+.text-container {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.75);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  -webkit-backdrop-filter: blur(10em);
+  backdrop-filter: blur(4px);
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.background .return {
+  color: #f6f7f8;
+  position: absolute;
+  inset: clamp(1rem, 0.53284rem + 1.967vw, 2.5rem);
+}
+
+.background .text-box {
+  padding: 16px;
 }

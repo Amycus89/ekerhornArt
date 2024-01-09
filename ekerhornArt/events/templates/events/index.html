@@ -7,7 +7,7 @@
   <h1>Events</h1>
 </section>
 <section>
-  <div class="events-container box">
+  <div class="events-container">
     {% for event in events %}
     <a href="{% url 'events:event' event.id %}">
       <div class="box">

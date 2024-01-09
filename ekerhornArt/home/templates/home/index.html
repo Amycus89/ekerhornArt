@@ -97,119 +97,40 @@
   </p>
 
   <div class="accordion">
-    <div class="item-container expanded">
-      <img
-        src="{% static 'home/images/frostDreams.webp' %}"
-        alt="Frostdrömmar event"
-      />
+    {% for event in events %}
+    <div class="item-container {% if forloop.first %}expanded{% endif %}">
+      <img src="{{ event.background.url }}" alt="{{ event.name }} event" />
+
       <div class="event-text">
-        <h3>FROSTDRÖMMAR</h3>
-        <p>
-          Kom och fira julens magi med oss den 15e december på Café A’mon
-          Studio! Det blir en härlig julstämning med fantastisk fika, en
-          minnesvärd konsert från Duo Danica och en konstvernissage av konstnär
-          Mattias Ekerhorn.
-        </p>
-        <a
-          href="{% static 'home/brochures/broschyr-FrostDreams.pdf' %}"
-          title="Läs mer i broshyren"
-          download
-          >LÄS MER</a
-        >
+        <h3>{{ event.name }}</h3>
+        <p>{{ event.description }}</p>
+        <a href="{% url 'events:event' event.id %}" title="Läs mer">LÄS MER</a>
       </div>
       <div class="event-bottom">
         <div class="calendar">
-          <p class="day">15</p>
-          <p class="month">DECEMBER</p>
-          <p class="year">2023</p>
+          <p class="day">{{ event.date|date:"d" }}</p>
+          <p class="month">{{ event.date|date:"F" }}</p>
+          <p class="year">{{ event.date|date:"Y" }}</p>
         </div>
 
         <div class="location">
           <div class="address">
             <div>
               <i class="fa-solid fa-location-dot"></i>
-              <p class="location-name">A’mon Studio</p>
+              <p class="location-name">{{ event.location_name }}</p>
             </div>
-            <p class="location-address">Munkebäcks allé 14,</p>
-            <p class="location-city">Göteborg</p>
+            <p class="location-address">{{ event.street }}</p>
+            <p class="location-city">{{ event.city }}</p>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="item-container">
-      <img
-        src="{% static 'home/images/hero.webp' %}"
-        alt="Aromlandskap event"
-      />
-      <div class="event-text">
-        <h3>AROMLANDSKAP</h3>
-        <p>
-          En samskapande utställning den 1 september - 31 oktober 2023 på
-          Galleri Home Design med tavlor och dikter av konstnär Mattias
-          Ekerhorn. Medverkar gör också parfymkreatör Kerstin Strömberg med
-          några doftkompositioner, som är en del i utställningen.
-        </p>
-        <a
-          href="{% static 'home/brochures/broschyr-Aromlandskap.pdf' %}"
-          title="Läs mer i broshyren"
-          download
-          >LÄS MER</a
-        >
-      </div>
-      <div class="event-bottom">
-        <div class="calendar">
-          <p class="day">1</p>
-          <p class="month">SEPTEMBER</p>
-          <p class="year">2023</p>
-        </div>
-
-        <div class="location">
-          <div class="address">
-            <div>
-              <i class="fa-solid fa-location-dot"></i>
-              <p class="location-name">Galleri Home Design</p>
-            </div>
-            <p class="location-address">Kungsgatan 9A, 411 19,</p>
-            <p class="location-city">Göteborg</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="item-container">
-      <img src="{% static 'home/images/window.webp' %}" alt="Ateljé event" />
-      <div class="event-text">
-        <h3>VÄLKOMMEN IN!</h3>
-        <p>Ekerhorn Art finns nu i Göteborg.</p>
-        <a
-          href="https://www.facebook.com/photo/?fbid=257586013873524&set=a.257586027206856"
-          title="Läs mer här"
-          >LÄS MER</a
-        >
-      </div>
-      <div class="event-bottom">
-        <div class="calendar">
-          <p class="day">15</p>
-          <p class="month">Augusti</p>
-          <p class="year">2023</p>
-        </div>
-
-        <div class="location">
-          <div class="address">
-            <div>
-              <i class="fa-solid fa-location-dot"></i>
-              <p class="location-name">Ekerhorn Ateljé</p>
-            </div>
-            <p class="location-address">Kolonigatan 3A, 413 21,</p>
-            <p class="location-city">Göteborg</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    {% empty %}
+    <p>No events</p>
+    {% endfor %}
   </div>
 
-  <a href="{% url 'events:index' %}" title="Kommer snart"><p>Se Alla</p></a>
+  <a href="{% url 'events:index' %}" title="Se alla events"><p>Se Alla</p></a>
 </section>
 
 <section id="gallery">

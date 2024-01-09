@@ -7,6 +7,9 @@ import environ
 env = environ.Env()
 environ.Env.read_env()
 
+# import the model 'Event' from the app 'events':
+from events.models import Event
+
 class ContactForm(forms.Form):
     #Add autocomplete for name and email
     name = forms.CharField(label='Namn', label_suffix='', max_length=70, widget=forms.TextInput(attrs={'autocomplete': 'name'}))
@@ -40,5 +43,6 @@ def index(request):
 
     # GET method
     return render(request, "home/index.html", {
-	"form": ContactForm()
+	"form": ContactForm(),
+    "events": Event.objects.all().order_by("-date")
 })
