@@ -5,5 +5,5 @@ app_name = "gallery"
 
 urlpatterns = [
 path("", views.index, name="index"),
-path("<int:painting_id>/", views.gallery, name="gallery"),
+path("<int:painting_id>/", views.painting, name="painting"),
 ]

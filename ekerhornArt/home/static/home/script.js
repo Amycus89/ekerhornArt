@@ -19,14 +19,16 @@ document.addEventListener("DOMContentLoaded", function () {
     if (currentScrollPos == 0) {
       headerElement.style.backgroundColor = "initial";
       headerElement.style.color = "initial";
-      headerElement.style.backgroundColor = "initial";
       headerElement.style.background =
-        "linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0))";
+        "linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0))";
       headerElement.style.boxShadow = "initial";
+      headerElement.style.borderBottom = "none";
     } else {
-      headerElement.style.background = neutralBlack;
+      headerElement.style.background =
+        "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)), linear-gradient(90deg, var(--dark), var(--a-dark), var(--dark))";
       headerElement.style.boxShadow =
         "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px";
+      headerElement.style.borderBottom = "1px solid var(--a-dark)";
     }
     // If the user scrolls upwards, reveal the header
     if (currentScrollPos - prevScrollPos > 0 && currentScrollPos > 600) {

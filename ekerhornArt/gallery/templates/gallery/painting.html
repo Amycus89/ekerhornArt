@@ -1,0 +1,29 @@
+{% extends "home/layout.html" %} {% load static %} {% block head %}
+<link href="{% static 'gallery/styles.css' %}" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{% static 'gallery/script.js' %}"></script>
+{% endblock %} {% block content %}
+
+<section
+  style="background-image: url('{{ painting.painting.url }}');"
+  class="box background"
+>
+  <div class="filter">
+    <a href="{% url 'gallery:index' %}" class="return">Tillbaka</a>
+    <div class="text-container">
+      <h1>{{ painting.name }}</h1>
+      {% if painting.width %}
+      <h3>{{ painting.width }}</h3>
+      {% endif %}
+      <p>{{ painting.poem|linebreaksbr }}</p>
+
+      <div class="row social">
+        <a href=""><i class="fa-brands fa-square-twitter"></i></a>
+        <a href=""><i class="fa-brands fa-square-facebook"></i></a>
+        <a href=""><i class="fa-brands fa-square-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

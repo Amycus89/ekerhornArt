@@ -1,0 +1,25 @@
+{% extends "home/layout.html" %} {% load static %} {% block head %}
+<link href="{% static 'gallery/styles.css' %}" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{% static 'gallery/script.js' %}"></script>
+{% endblock %} {% block content %}
+<section>
+  <h1>Gallery</h1>
+</section>
+<section>
+  <div class="paintings-container">
+    {% for painting in paintings %}
+    <a href="{% url 'gallery:painting' painting.id %}">
+      <div class="box">
+        <img src="{{ painting.painting.url }}" alt="image of painting" />
+        <h3>{{ painting.name }}</h3>
+        <h6>{{ painting.poem|linebreaksbr }}</h6>
+      </div>
+    </a>
+    {% empty %}
+    <p>No paintings</p>
+    {% endfor %}
+  </div>
+</section>
+
+{% endblock %}

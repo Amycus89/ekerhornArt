@@ -1,4 +1,4 @@
-from .models import Event
+from .models import Painting
 from django import forms
 from django.shortcuts import render
 
@@ -9,8 +9,8 @@ environ.Env.read_env()
 
 # Create your views here.
 def index(request):
-    return render(request, "events/index.html", {
-        #"paintings": Event.objects.all().order_by("-date")
+    return render(request, "gallery/index.html", {
+        "paintings": Painting.objects.all().order_by("-id")
     })
 
 def painting(request, painting_id):

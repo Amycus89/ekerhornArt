@@ -23,5 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("home.urls")), # Here I am letting Django know of the path 'home', where it will then look at any additional paths from home.urls
     path('events/', include("events.urls")),
+    path('gallery/', include("gallery.urls")),
     path('legal/', include("legal.urls"))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
