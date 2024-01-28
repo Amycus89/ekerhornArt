@@ -50,7 +50,7 @@
     </div>
 
     <img
-      src="{% static 'home/images/svg.webp' %}"
+      src="{% static 'home/images/divider.png' %}"
       alt="divider"
       class="overlay"
     />
@@ -66,25 +66,26 @@
       vill dela genom mina ord.
     </p>
   </div>
+    <div class="background">
+      <div class="row">
+      <div class="anchor">
+        <img loading="lazy" src="{% static 'home/images/portrait-large.png' %}" class="profile-image"></img>
+      </div>
 
-  <div class="row">
-    <div class="anchor">
-      <div class="profile-image"></div>
-    </div>
+      <div class="text-box">
+        <h6>Hej på er</h6>
+        <h4>Jag är Mattias Ekerhorn</h4>
 
-    <div class="text-box">
-      <h6>Hej på er</h6>
-      <h4>Jag är Mattias Ekerhorn</h4>
-
-      <p>
-        Läkare och konstnär, med stor passion för konstens alla former. Jag
-        skapar modern konst och dikter som utforskar teman om identitet, känsla
-        och skönhet. Nedan kan du se några av mina verk, läsa mina dikter och
-        lära dig mer om mig och min konstnärliga vision.
-        <br /><br />Jag hoppas att du finner något som berör dig, och att du
-        kommer tillbaka ofta för att se mina senaste verk. Följ mig på en resa
-        genom konst, poesi och färg.
-      </p>
+        <p>
+          Läkare och konstnär, med stor passion för konstens alla former. Jag
+          skapar modern konst och dikter som utforskar teman om identitet, känsla
+          och skönhet. Nedan kan du se några av mina verk, läsa mina dikter och
+          lära dig mer om mig och min konstnärliga vision.
+          <br /><br />Jag hoppas att du finner något som berör dig, och att du
+          kommer tillbaka ofta för att se mina senaste verk. Följ mig på en resa
+          genom konst, poesi och färg.
+        </p>
+      </div>
     </div>
   </div>
 </section>
@@ -265,9 +266,10 @@
         height="auto"
         style="border: 0"
         allowfullscreen=""
-        loading="lazy"
+        loading="async"
         referrerpolicy="no-referrer-when-downgrade"
         title="Ekerhorn Atelje"
+        loading="lazy"
       ></iframe>
     </div>
 

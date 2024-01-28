@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", function () {
     const headerElement = document.getElementById("header");
     let currentScrollPos = window.scrollY;
-    //let scrollThreshold = 100;
 
     if (currentScrollPos == 0) {
       headerElement.style.backgroundColor = "initial";
