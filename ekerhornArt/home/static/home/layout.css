@@ -27,6 +27,15 @@ body {
   font-family: Josefin-Sans, sans-serif;
 }
 
+.blur-load {
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.blur-load.loaded {
+  opacity: 1;
+}
+
 .sidebar {
   position: fixed;
   top: 80px;

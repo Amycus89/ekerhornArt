@@ -1,3 +1,7 @@
+function loaded(img) {
+  img.classList.add("loaded");
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   // Change styling of navbar based on scroll
   const primaryLight = "#eaeff0";
@@ -10,6 +14,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const neutralNormal = "#e3e5eb";
   const neutralBlack = "#00040d";
   let prevScrollPos = 0;
+
+  const blurDivs = document.querySelectorAll(".blur-load");
+  blurDivs.forEach((img) => {
+    if (img.complete) {
+      loaded(img);
+    } else {
+      img.addEventListener("load", function () {
+        loaded(img);
+      });
+    }
+  });
 
   window.addEventListener("scroll", function () {
     const headerElement = document.getElementById("header");
