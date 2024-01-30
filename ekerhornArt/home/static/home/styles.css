@@ -8,7 +8,7 @@
   --accent: #dcb97d;
   --neutral: #f5f5f5;
   --dark: #00040d;
-  --main-margin: 160px;
+  --main-margin: clamp(0.5em, -1.51513em + 11.515vw, 10em);
 }
 
 @keyframes up-reveal {
@@ -40,16 +40,6 @@
   100% {
     background-position: left bottom;
     transform: scale(1.2);
-  }
-}
-@keyframes move-overlay {
-  0% {
-    bottom: -500px;
-    height: 0px;
-  }
-  100% {
-    bottom: -4px;
-    height: clamp(6.25rem, 2.27278rem + 22.727vw, 25rem);
   }
 }
 
@@ -91,16 +81,15 @@ nav {
 }
 .hero .overlay {
   position: absolute;
-  bottom: -10px;
+  bottom: -2px;
   width: 100%;
   max-height: 200px;
-  /*animation: move-overlay 2s 0.8s forwards;*/
   -webkit-mask-image: linear-gradient(to right, black 90%, transparent);
   mask-image: linear-gradient(to right, black 90%, transparent);
   mask-size: 0%;
   -webkit-mask-size: 0%;
   mask-repeat: no-repeat;
-  animation: reveal 1.8s 2.6s forwards;
+  animation: reveal 1.2s 2.1s forwards;
 }
 
 @keyframes reveal {
@@ -328,17 +317,16 @@ nav {
 
 #events {
   width: 100%;
-  padding: 2em var(--main-margin);
+  padding: 4em var(--main-margin);
 }
 #events h2 {
   color: var(--a-main);
-  padding-top: 1em;
 }
 #events p {
   color: #1c2d52;
   line-height: 1.5;
   width: clamp(220px, 100%, 60ch);
-  margin: 1.5em auto;
+  margin: 0 auto;
   text-align: center;
 }
 #events a {
@@ -352,12 +340,13 @@ nav {
   align-items: center;
   gap: 24px;
   width: 100%;
+  margin: 2em 0;
 }
 #events .accordion .item-container {
   position: relative;
   width: 10%;
   min-width: 120px;
-  height: 480px;
+  height: 520px;
   border-radius: 12px;
   overflow: hidden;
   transition: 0.5s;
@@ -508,6 +497,7 @@ nav {
 }
 
 #gallery {
+  padding: 4em var(--main-margin);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -517,14 +507,13 @@ nav {
 }
 #gallery h2 {
   color: var(--a-light);
-  padding-top: 2em;
 }
 #gallery p {
   color: #d5d8e1;
 }
 #gallery a {
   color: #d5d8e1;
-  margin-bottom: 2.5em;
+  line-height: 1.5;
 }
 #gallery .modal {
   top: 50%;
@@ -552,8 +541,8 @@ nav {
   color: #101b30;
 }
 #gallery .paintings {
-  margin: 2em;
-  width: 90%;
+  margin: 2em 0;
+  width: 100%;
   display: grid;
   grid-row-gap: 2em;
   grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
@@ -564,7 +553,6 @@ nav {
   width: 12em;
   height: 19.416em;
   border: 2px solid var(--accent);
-  border-radius: 12px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   overflow: hidden;
   cursor: pointer;
@@ -628,19 +616,15 @@ nav {
   font-size: clamp(1.2rem, 0.64354rem + 2.343vw, 2.98625rem);
 }
 
-.success {
-  color: var(--b-main);
-}
-
 #contact {
-  width: 100vw;
-  padding: 2em 0 4em 0;
+  width: 100%;
+  padding: 4em var(--main-margin);
   background-color: var(--a-light);
   display: grid;
   align-items: center;
 }
 #contact .contact-in {
-  width: 80%;
+  width: 100%;
   height: auto;
   margin: auto;
   display: flex;
@@ -666,20 +650,24 @@ nav {
   text-align: center;
   padding: 12px;
 }
+
+#contact .contact-form > div {
+  padding-bottom: 12px;
+}
+
 #contact .contact-form i {
   color: var(--a-main);
   font-size: 2.488rem;
   transform: translateY(0.125rem);
 }
 #contact .contact-form h2 {
-  margin-bottom: 10px;
   color: var(--a-main);
   display: inline;
   font-size: 2.488rem;
 }
 #contact .contact-form .input-container {
   position: relative;
-  padding-bottom: 12px;
+  margin-bottom: 12px;
 }
 #contact .contact-form .input-container input,
 #contact .contact-form .input-container textarea {
@@ -746,16 +734,17 @@ nav {
   outline: none;
   border-radius: 5px;
   background-color: var(--b-main);
-  color: #fbeaef;
+  color: var(--b-light);
   text-transform: uppercase;
   padding: 10px 0;
-  margin-top: 8px;
   cursor: pointer;
   font-size: 1.333rem;
+  font-weight: 600;
   transition: 0.3s;
 }
 #contact .contact-form .contact-form-btn:hover {
-  background-color: var(--b-main);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 @media (hover: hover) or (pointer: fine) {

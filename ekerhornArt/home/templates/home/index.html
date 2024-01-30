@@ -247,14 +247,14 @@
   </div>
 
   <a href="{% url 'gallery:index' %}" title="Se fler">Se Fler</a>
+</section>
 
-  <div class="studio">
-    <div class="text-box">
-      <h4>
-        Varje målning åtföljs av en dikt, som avslöjar inspirationen och
-        meningen bakom konstverket
-      </h4>
-    </div>
+<section class="studio">
+  <div class="text-box">
+    <h4>
+      Varje målning åtföljs av en dikt, som avslöjar inspirationen och
+      meningen bakom konstverket
+    </h4>
   </div>
 </section>
 
@@ -280,12 +280,10 @@
         <i class="fa-regular fa-envelope"></i>
         <h2>Kontakt</h2>
       </div>
-      <p class="success"></p>
       <form action="{% url 'home:index' %}" method="post" id="post-form">
         {% csrf_token %} {% for field in form %}
         <div class="input-container">{{ field }} {{ field.label_tag }}</div>
         {% endfor %}
-
         <button type="submit" class="contact-form-btn">Skicka</button>
       </form>
       <script defer>
@@ -303,23 +301,23 @@
               console.log(data.name);
               //Empty the form
               form.reset();
-              // Change the inner html of the element with the class success to "Tack för ert meddelande, {{ name }}."
-              $(".success").html("Hej på dig, " + data.name + ".");
-              // Change the inner html of .contact-form-btn to "Sänt" for 3 seconds
-              $(".contact-form-btn").html("Sänt");
+              // Save the first name into a variable
+              let name = data.name.split(" ")[0];
+              name = name[0].toUpperCase() + name.slice(1);
+              // Change the inner html of .contact-form-btn to "Tack för ert meddelande, {{ name }}."
+              $(".contact-form-btn").html("Hej, " + name + "!");
               // Change the background-color of .contact-form-btn to blue
               $(".contact-form-btn").css({
-                "background-color": "#274073",
-                color: "#e9ecf1",
+                "background-color": "var(--a-main)",
+                color: "var(--a-light)",
               });
               setTimeout(function () {
-                $(".success").html("");
                 $(".contact-form-btn").html("Skicka");
                 $(".contact-form-btn").css({
-                  "background-color": "#c52c55",
-                  color: "#fbeaef",
+                  "background-color": "var(--b-main)",
+                  color: "var(--b-light)",
                 });
-              }, 3000);
+              }, 8000);
             },
           });
         }
