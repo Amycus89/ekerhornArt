@@ -85,7 +85,7 @@ body {
 }
 
 .logo {
-  margin-left: 80px;
+  margin-left: clamp(0.25em, -1.22963em + 6.23vw, 5em);
   position: relative;
 }
 
@@ -101,7 +101,7 @@ body {
 #header ul li .btn {
   padding: 0 0.57em;
   transition: 0.3s;
-  margin: 5px 80px 0 2em;
+  margin: 5px clamp(0.25em, -1.22963em + 6.23vw, 5em) 0 2em;
   border-radius: 3px;
   min-width: 5.33em;
   height: 3em;
@@ -153,9 +153,9 @@ body {
 nav {
   height: 80px;
   position: fixed;
-  top: 0;
+  inset: 0;
   z-index: 1000;
-  width: 100%;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -359,5 +359,12 @@ footer div:last-child a {
   }
   #header ul li .btn {
     margin-right: 24px;
+  }
+}
+
+@media (max-width: 400px) {
+  .logo img {
+    width: clamp(5.625rem, -7.5rem + 75vw, 11.25rem);
+    bottom: -4px;
   }
 }

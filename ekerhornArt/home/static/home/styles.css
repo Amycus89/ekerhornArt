@@ -105,7 +105,7 @@ nav {
 
 .hero .row {
   display: flex;
-  margin-top: 200px;
+  margin-top: clamp(8rem, 7.04538rem + 5.455vw, 12.5rem);
   margin-left: 0;
 }
 .hero .row .column {
@@ -272,14 +272,14 @@ nav {
 }
 #about .row .anchor {
   position: relative;
-  min-height: clamp(18.75rem, 14.77278rem + 22.727vw, 37.5rem);
-  min-width: clamp(18.75rem, 14.77278rem + 22.727vw, 37.5rem);
+  min-height: clamp(12.5rem, 7.19698rem + 30.303vw, 37.5rem);
+  min-width: clamp(12.5rem, 7.19698rem + 30.303vw, 37.5rem);
 }
 #about .row .anchor .profile-image {
   position: absolute;
-  top: -80px;
-  right: -200px;
-  width: clamp(31.25rem, 25.94698rem + 30.303vw, 56.25rem);
+  top: clamp(-0.25rem, 0.75765rem + -5.758vw, -5rem);
+  right: clamp(-4.75rem, -3.10605rem + -9.394vw, -12.5rem);
+  width: clamp(17.5rem, 9.28025rem + 46.97vw, 56.25rem);
   z-index: 799;
 }
 #about .row .text-box {
