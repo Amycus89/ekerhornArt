@@ -91,11 +91,29 @@ nav {
 }
 .hero .overlay {
   position: absolute;
-  bottom: -500px;
+  bottom: -10px;
   width: 100%;
   max-height: 200px;
-  animation: move-overlay 2s 0.8s forwards;
+  /*animation: move-overlay 2s 0.8s forwards;*/
+  -webkit-mask-image: linear-gradient(to right, black 90%, transparent);
+  mask-image: linear-gradient(to right, black 90%, transparent);
+  mask-size: 0%;
+  -webkit-mask-size: 0%;
+  mask-repeat: no-repeat;
+  animation: reveal 1.8s 2.6s forwards;
 }
+
+@keyframes reveal {
+  0% {
+    mask-size: 0%;
+    -webkit-mask-size: 0%;
+  }
+  100% {
+    mask-size: 120%;
+    -webkit-mask-size: 120%;
+  }
+}
+
 .hero .row {
   display: flex;
   margin-top: 200px;
