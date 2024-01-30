@@ -112,8 +112,8 @@ body {
   white-space: nowrap;
 }
 #header ul li .btn:hover {
-  background-color: #dcb97d !important;
-  border-color: #5c4e35 !important;
+  background-color: var(--b-main) !important;
+  border-color: var(--b-main) !important;
 }
 
 .hamb {
@@ -191,6 +191,7 @@ nav li a {
 
 .nav-desktop li:not(:first-child):not(:last-child):not(:nth-child(6)) {
   padding: 0 2em;
+  text-shadow: 1px 1px 12px black;
 }
 
 .nav-desktop li:not(:first-child):not(:last-child):not(:nth-child(6)) a::after {
@@ -201,7 +202,7 @@ nav li a {
   width: 60%;
   margin: 0 20%;
   height: 3px;
-  background: var(--accent);
+  background: var(--b-main);
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.5s;

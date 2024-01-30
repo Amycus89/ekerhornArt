@@ -43,7 +43,7 @@
   }
 }
 
-nav {
+#header {
   height: 64px;
   position: fixed;
   top: 0;
@@ -54,10 +54,23 @@ nav {
   align-items: center;
   flex-direction: column;
   font-size: 0.75rem;
-  background: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0));
-  transition: 0.3s;
+  background-color: rgba(0, 0, 0, 0);
+  transition: 1s;
   opacity: 0;
   animation: up-reveal 1s ease 2s forwards;
+}
+
+.header-background {
+  height: 100px;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.8) 20%,
+    rgba(0, 0, 0, 0)
+  );
 }
 
 .hero {
@@ -136,7 +149,9 @@ nav {
   animation: right-reveal 1s ease 1.2s forwards;
   color: var(--neutral);
   width: clamp(280px, 75%, 600px);
+  text-shadow: 2px 2px 16px rgba(0, 0, 0, 0.5);
 }
+
 .hero .row .hero-text h1 {
   font-size: clamp(2.119rem, 1.79591rem + 2.413vw, 4.209rem);
 }
@@ -265,9 +280,8 @@ nav {
 #about .row {
   width: calc(100% - (2 * var(--main-margin)));
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  gap: 24px;
   flex-wrap: wrap;
 }
 #about .row .anchor {
@@ -277,8 +291,8 @@ nav {
 }
 #about .row .anchor .profile-image {
   position: absolute;
-  top: clamp(-0.25rem, 0.75765rem + -5.758vw, -5rem);
-  right: clamp(-4.75rem, -3.10605rem + -9.394vw, -12.5rem);
+  top: clamp(-0.5rem, 0.45463rem - 5.455vw, -5rem);
+  left: -39px;
   width: clamp(17.5rem, 9.28025rem + 46.97vw, 56.25rem);
   z-index: 799;
 }
@@ -287,6 +301,8 @@ nav {
   z-index: 800;
   text-align: left;
   padding: 0;
+  margin-left: var(--main-margin);
+  margin-top: var(--main-margin);
 }
 #about .row .text-box h6 {
   font-family: Josefin-Sans, sans-serif;
@@ -346,7 +362,7 @@ nav {
   position: relative;
   width: 10%;
   min-width: 120px;
-  height: 520px;
+  height: 600px;
   border-radius: 12px;
   overflow: hidden;
   transition: 0.5s;
@@ -602,16 +618,19 @@ nav {
   justify-content: center;
 }
 .studio .text-box {
-  width: clamp(240px, 60%, 75ch);
+  width: 100%;
+  min-height: 400px;
+  margin: var(--main-margin);
   background-color: rgba(16, 27, 48, 0.9);
   padding: 2.5em;
   border: 1px solid var(--accent);
 }
 .studio h4 {
+  margin: var(--main-margin);
   color: var(--b-main);
   font-family: Merriweather, serif;
   font-style: italic;
-  line-height: 1.5;
+  line-height: 2;
   text-align: center;
   font-size: clamp(1.2rem, 0.64354rem + 2.343vw, 2.98625rem);
 }
@@ -687,7 +706,7 @@ nav {
   padding: 10px;
   pointer-events: none;
   font-size: 1.125rem;
-  color: #9ca7bf;
+  color: var(--a-medium);
   text-transform: uppercase;
   transition: 0.3s;
 }

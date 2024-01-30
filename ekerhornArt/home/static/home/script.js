@@ -25,21 +25,17 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   });
-
+  // NAVBAR
   window.addEventListener("scroll", function () {
     const headerElement = document.getElementById("header");
     let currentScrollPos = window.scrollY;
 
     if (currentScrollPos == 0) {
-      headerElement.style.backgroundColor = "initial";
-      headerElement.style.color = "initial";
-      headerElement.style.background =
-        "linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0))";
-      headerElement.style.boxShadow = "initial";
+      headerElement.style.background = "rgba(0, 0, 0, 0)";
+      headerElement.style.boxShadow = "none";
       headerElement.style.borderBottom = "none";
     } else {
-      headerElement.style.background =
-        "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)), linear-gradient(90deg, var(--dark), var(--a-dark), var(--dark))";
+      headerElement.style.background = "var(--dark)";
       headerElement.style.boxShadow =
         "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px";
       headerElement.style.borderBottom = "1px solid var(--a-dark)";
