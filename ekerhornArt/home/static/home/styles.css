@@ -272,9 +272,9 @@
 #about .background {
   width: 100%;
   background-color: var(--a-light);
-  padding: 40px 0;
   display: flex;
   justify-content: center;
+  box-shadow: inset 0 64px 0 0 var(--neutral), inset 0 -64px 0 0 var(--neutral);
 }
 
 #about .row {
@@ -284,25 +284,16 @@
   align-items: center;
   flex-wrap: wrap;
 }
-#about .row .anchor {
-  position: relative;
-  min-height: clamp(12.5rem, 7.19698rem + 30.303vw, 37.5rem);
-  min-width: clamp(12.5rem, 7.19698rem + 30.303vw, 37.5rem);
-}
-#about .row .anchor .profile-image {
-  position: absolute;
-  top: clamp(-0.5rem, 0.45463rem - 5.455vw, -5rem);
-  left: -39px;
-  width: clamp(17.5rem, 9.28025rem + 46.97vw, 56.25rem);
-  z-index: 799;
+
+#about .row .profile-image {
+  width: clamp(17.5rem, 12.4229rem + 29.012vw, 46.875rem);
+  margin: 0 -32px;
 }
 #about .row .text-box {
   width: clamp(280px, 100%, 60ch);
-  z-index: 800;
   text-align: left;
   padding: 0;
-  margin-left: var(--main-margin);
-  margin-top: var(--main-margin);
+  margin-bottom: 5em;
 }
 #about .row .text-box h6 {
   font-family: Josefin-Sans, sans-serif;
@@ -333,7 +324,7 @@
 
 #events {
   width: 100%;
-  padding: 4em var(--main-margin);
+  padding: 0 var(--main-margin) 4em var(--main-margin);
 }
 #events h2 {
   color: var(--a-main);
