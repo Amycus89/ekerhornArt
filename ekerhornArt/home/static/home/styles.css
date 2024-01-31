@@ -6,7 +6,7 @@
   --a-light: #ebeff4;
   --b-light: #fde9ec;
   --accent: #dcb97d;
-  --neutral: #f5f5f5;
+  --neutral: #f7f7f7;
   --dark: #00040d;
   --main-margin: clamp(0.5em, -1.51513em + 11.515vw, 10em);
 }
@@ -325,6 +325,7 @@
 #events {
   width: 100%;
   padding: 0 var(--main-margin) 4em var(--main-margin);
+  background-color: var(--neutral);
 }
 #events h2 {
   color: var(--a-main);
@@ -382,7 +383,7 @@
   opacity: 0;
 }
 #events .accordion .item-container .event-text h3 {
-  color: var(--a-medium);
+  color: var(--b-main);
   margin-bottom: 16px;
   font-size: clamp(1.44rem, 1.16715rem + 1.819vw, 2.98625rem);
 }
@@ -440,11 +441,11 @@
   font-size: 2rem;
 }
 #events .accordion .item-container .event-bottom .calendar .month {
-  color: #bcc4d4;
+  color: var(--a-light);
   margin-top: -8px;
 }
 #events .accordion .item-container .event-bottom .calendar .year {
-  color: #52668f;
+  color: var(--a-medium);
 }
 #events .accordion .item-container .event-bottom .location {
   display: none;
@@ -454,11 +455,14 @@
   max-width: auto;
   height: auto;
   margin: 0;
-  color: var(--neutral);
+  color: var(--a-light);
+}
+/*Select the first p element only*/
+#events .accordion .item-container .event-bottom .location .location-name {
+  color: var(--accent);
 }
 #events .accordion .item-container .event-bottom .location .address {
   white-space: nowrap;
-  margin-left: 0.5em;
 }
 #events .accordion .item-container .event-bottom .location .address p {
   text-align: left;
@@ -472,7 +476,7 @@
 }
 #events .accordion .item-container .event-bottom .location .address div i {
   animation: none;
-  color: var(--neutral);
+  color: var(--accent);
   margin-left: 0.5em;
   font-size: clamp(0.75rem, 0.62505rem + 0.833vw, 1.25rem);
 }
@@ -513,13 +517,13 @@
   background-color: var(--dark);
 }
 #gallery h2 {
-  color: var(--a-light);
+  color: var(--b-main);
 }
 #gallery p {
-  color: #d5d8e1;
+  color: var(--b-light);
 }
 #gallery a {
-  color: #d5d8e1;
+  color: var(--b-light);
   line-height: 1.5;
 }
 #gallery .modal {
@@ -658,7 +662,7 @@
   height: auto;
   flex: 50%;
   text-align: center;
-  padding: 12px;
+  padding: 12px 0 12px 12px;
 }
 
 #contact .contact-form > div {
