@@ -277,6 +277,7 @@ footer {
   width: 100%;
   color: #f6f7f8;
   background-color: #e9ecf1;
+  padding-top: 16px;
 }
 footer svg {
   margin-bottom: -16px;
