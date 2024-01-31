@@ -105,9 +105,9 @@ body {
   border-radius: 3px;
   min-width: 5.33em;
   height: 3em;
-  color: #00040d;
-  background-color: #e8d0a8;
-  border-color: #00040d;
+  color: var(--dark);
+  background-color: var(--accent);
+  border-color: var(--dark);
   font-size: clamp(0.625rem, 0.57198rem + 0.303vw, 0.875rem);
   white-space: nowrap;
 }
@@ -191,7 +191,6 @@ nav li a {
 
 .nav-desktop li:not(:first-child):not(:last-child):not(:nth-child(6)) {
   padding: 0 2em;
-  text-shadow: 1px 1px 12px black;
 }
 
 .nav-desktop li:not(:first-child):not(:last-child):not(:nth-child(6)) a::after {
