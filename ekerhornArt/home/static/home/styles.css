@@ -1,16 +1,3 @@
-:root {
-  --a-main: #122849;
-  --b-main: #e44564;
-  --a-dark: #18293b;
-  --a-medium: #6e7fa1;
-  --a-light: #ebeff4;
-  --b-light: #fde9ec;
-  --accent: #dcb97d;
-  --neutral: #f7f7f7;
-  --dark: #00040d;
-  --main-margin: clamp(0.5em, -1.51513em + 11.515vw, 10em);
-}
-
 @keyframes up-reveal {
   0% {
     transform: translateY(-100%);

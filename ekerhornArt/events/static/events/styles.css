@@ -1,22 +1,51 @@
 h1 {
-  font-size: clamp(2.119rem, 1.79591rem + 2.413vw, 4.209rem);
+  font-size: 22px;
+  color: var(--b-main);
+  padding: 0;
+  margin: 0;
 }
 
 main {
-  background-color: #e9ecf1;
-  padding: clamp(0.25em, -0.75765em + 5.758vw, 5em);
+  background-color: var(--meutral);
+  padding: 64px var(--main-margin);
+  min-height: 100vh;
+}
+
+.breadcrumbs {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  padding: 16px 0;
+}
+
+main .breadcrumbs a {
+  color: var(--a-medium);
+  text-decoration: none;
+  font-size: 22px;
+}
+
+main .breadcrumbs p,
+main .breadcrumbs i {
+  color: var(--a-medium);
+}
+
+main .breadcrumbs a:hover,
+main .breadcrumbs a:hover i {
+  color: var(--a-main);
+}
+
+main .breadcrumbs p {
+  margin: 0 0.5em;
+  font-size: 22px;
 }
 
 .events-container {
-  margin: 2em;
-  width: 100vw;
+  width: 100%;
   display: grid;
-  grid-row-gap: 2em;
+  grid-row-gap: 32px;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   justify-items: center;
   align-items: start;
-  padding: 24px;
-  min-height: 80vh;
 }
 
 .events-container div {
@@ -40,6 +69,7 @@ main {
   position: absolute;
   top: 0;
   color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   padding: 16px;
 }
 
@@ -53,6 +83,10 @@ main {
 
 .events-container div img {
   object-fit: cover;
+  width: 100%;
+  height: 100%;
+  /*center image*/
+  object-position: center;
 }
 
 .event-slide {

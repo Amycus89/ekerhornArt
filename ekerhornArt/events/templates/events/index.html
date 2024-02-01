@@ -3,23 +3,23 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{% static 'events/script.js' %}"></script>
 {% endblock %} {% block content %}
-<section>
+<section class="breadcrumbs">
+  <a href="{% url 'home:index' %}"><i class="fa-solid fa-house"></i>Home</a>
+  <p>/</p>
   <h1>Events</h1>
 </section>
-<section>
-  <div class="events-container">
-    {% for event in events %}
-    <a href="{% url 'events:event' event.id %}">
-      <div class="box">
-        <img src="{{ event.background.url }}" alt="event image" />
-        <h3>{{ event.name }}</h3>
-        <h6>{{ event.date }}</h6>
-      </div>
-    </a>
-    {% empty %}
-    <p>No events</p>
-    {% endfor %}
-  </div>
+<section class="events-container">
+  {% for event in events %}
+  <a href="{% url 'events:event' event.id %}">
+    <div class="box">
+      <img src="{{ event.background.url }}" alt="event image" />
+      <h3>{{ event.name }}</h3>
+      <h6>{{ event.date }}</h6>
+    </div>
+  </a>
+  {% empty %}
+  <p>No events</p>
+  {% endfor %}
 </section>
 
 {% endblock %}

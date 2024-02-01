@@ -1,3 +1,16 @@
+:root {
+  --a-main: #122849;
+  --b-main: #e44564;
+  --a-dark: #18293b;
+  --a-medium: #6e7fa1;
+  --a-light: #ebeff4;
+  --b-light: #fde9ec;
+  --accent: #dcb97d;
+  --neutral: #f7f7f7;
+  --dark: #00040d;
+  --main-margin: clamp(0.5em, -1.51513em + 11.515vw, 10em);
+}
+
 @font-face {
   font-family: Merriweather;
   src: url(./fonts/Merriweather-BoldItalic.ttf);
@@ -22,7 +35,7 @@ body {
 body {
   overflow-x: hidden; /* Ensures no horizontal scroll bar */
   width: 100%;
-  background-color: #f6f7f8;
+  background-color: var(--neutral);
   font-size: 1rem;
   font-family: Josefin-Sans, sans-serif;
 }
@@ -132,7 +145,7 @@ body {
   display: block;
   height: 2px;
   width: 100%;
-  background-color: #f6f7f8;
+  background-color: var(--neutral);
   transition-duration: 0.3s;
   transition-property: opacity transform;
 }
@@ -154,18 +167,18 @@ body {
 }
 
 nav {
-  height: 80px;
+  height: 64px;
   position: fixed;
   inset: 0;
   z-index: 1000;
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   font-size: 0.75rem;
-  background: #00040d;
-  transition: 0.3s;
+  background: var(--dark);
+  transition: 1s;
 }
 
 nav ul {
@@ -186,7 +199,7 @@ nav li a {
   text-decoration: none;
   display: flex;
   align-items: center;
-  color: #f6f7f8;
+  color: var(--neutral);
   position: relative;
   transition: 0.5s;
   font-size: 0.875rem;
@@ -239,7 +252,7 @@ nav a img {
 main {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   min-height: 100vh;
 }
@@ -280,15 +293,15 @@ p {
 
 footer {
   width: 100%;
-  color: #f6f7f8;
-  background-color: #e9ecf1;
+  color: var(--neutral);
+  background-color: var(--a-light);
   padding-top: 16px;
 }
 footer svg {
   margin-bottom: -16px;
 }
 footer div {
-  background-color: #00040d;
+  background-color: var(--dark);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -305,11 +318,11 @@ footer div ul:first-of-type {
   gap: 1rem;
 }
 footer div ul:first-of-type li i {
-  color: #f6f7f8;
+  color: var(--a-light);
   font-size: 1rem;
   cursor: pointer;
   transition-duration: 0.3s;
-  background-color: #6e7fa1;
+  background-color: var(--a-medium);
   padding: 15px;
   border-radius: 50px;
 }
@@ -321,7 +334,7 @@ footer ul:last-of-type {
   gap: 1rem;
 }
 footer ul:last-of-type li a {
-  color: #f6f7f8;
+  color: var(--neutral);
   text-decoration: none;
 }
 footer ul:last-of-type li a:hover {
@@ -333,7 +346,7 @@ footer div:last-child {
   z-index: 99;
 }
 footer div:last-child a {
-  color: #e3e5eb;
+  color: var(--a-light);
   text-decoration: none;
   font-size: 0.875rem;
 }
