@@ -13,11 +13,9 @@
 
 @keyframes up-reveal {
   0% {
-    opacity: 0;
     transform: translateY(-100%);
   }
   100% {
-    opacity: 1;
     transform: translateY(0);
   }
 }
@@ -56,15 +54,14 @@
   font-size: 0.75rem;
   background-color: rgba(0, 0, 0, 0);
   transition: 1s;
-  opacity: 0;
+  transform: translateY(-100%);
   animation: up-reveal 1s ease 2s forwards;
 }
-
 .header-background {
   height: 100px;
   position: absolute;
   top: 0;
-  z-index: 999;
+  z-index: 997;
   width: 100%;
   background: linear-gradient(
     to bottom,

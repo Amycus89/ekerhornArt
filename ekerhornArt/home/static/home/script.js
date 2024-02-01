@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     // If the user scrolls upwards, reveal the header
     if (currentScrollPos - prevScrollPos > 0 && currentScrollPos > 600) {
-      headerElement.style.top = "-100px";
+      headerElement.style.top = "-64px";
     } else {
       headerElement.style.top = "0";
     }

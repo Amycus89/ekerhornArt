@@ -38,36 +38,39 @@ body {
 
 .sidebar {
   position: fixed;
-  top: 80px;
+  top: 64px;
   right: -440px;
   transition: 0.3s right;
   height: auto;
   width: 350px;
-  z-index: 999;
+  z-index: 998;
   background-color: rgba(0, 0, 0, 0.6);
   box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
-  padding-bottom: 1em;
-}
-.sidebar ul {
+  backdrop-filter: blur(5px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.sidebar ul:nth-of-type(2) {
-  margin-top: 4rem;
-  flex-direction: row;
+
+.sidebar ul li {
+  display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 20px;
 }
-.sidebar ul:nth-of-type(2) li {
+
+.sidebar ul i {
+  margin: 0 auto;
+}
+.sidebar ul:nth-of-type(1) {
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 24px;
 }
+
 .sidebar ul:nth-of-type(2) li a {
   width: 100%;
   height: 100%;
@@ -224,11 +227,13 @@ nav a img {
   height: 60px;
 }
 
-.sidebar li {
+.sidebar li,
+.sidebar a {
   width: 100%;
 }
-.sidebar li:hover {
-  background-color: rgba(255, 255, 255, 0.384);
+
+.sidebar p {
+  margin: 0 auto;
 }
 
 main {
