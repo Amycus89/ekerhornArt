@@ -13,8 +13,8 @@
   <a href="{% url 'events:event' event.id %}">
     <div class="box">
       <img src="{{ event.background.url }}" alt="event image" />
-      <h3>{{ event.name }}</h3>
-      <h6>{{ event.date }}</h6>
+      <h3 class="stroke">{{ event.name }}</h3>
+      <h6 class="stroke">{{ event.date }}</h6>
     </div>
   </a>
   {% empty %}

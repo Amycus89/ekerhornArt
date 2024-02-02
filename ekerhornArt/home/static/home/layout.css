@@ -40,6 +40,11 @@ body {
   font-family: Josefin-Sans, sans-serif;
 }
 
+.stroke {
+  text-shadow: -1px 0 var(--dark), 0 1px var(--dark), 1px 0 var(--dark),
+    0 -1px var(--dark);
+}
+
 .blur-load {
   opacity: 0;
   transition: 0.5s;
@@ -294,7 +299,6 @@ p {
 footer {
   width: 100%;
   color: var(--neutral);
-  background-color: var(--a-light);
   padding-top: 16px;
 }
 footer svg {

@@ -746,6 +746,10 @@
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
+footer {
+  background-color: var(--a-light);
+}
+
 @media (hover: hover) or (pointer: fine) {
   .row .column i:hover {
     transform: rotate(-25deg) scale(1.2);
