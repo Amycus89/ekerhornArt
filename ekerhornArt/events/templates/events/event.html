@@ -8,12 +8,19 @@
 <script src="{% static 'events/script.js' %}"></script>
 {% endblock %} {% block content %}
 
+<section class="breadcrumbs">
+  <a href="{% url 'home:index' %}"><i class="fa-solid fa-house"></i>Home</a>
+  <p>/</p>
+  <a href="{% url 'events:index' %}">Events</a>
+  <p>/</p>
+  <h1>{{ event.name }}</h1>
+</section>
+
 <section
   style="background-image: url('{{ event.background.url }}');"
   class="box background"
 >
   <div class="filter">
-    <a href="{% url 'events:index' %}" class="return">Tillbaka</a>
     <div class="text-container">
       <h4 class="date">{{ event.date }}</h4>
       <h1>{{ event.name }}</h1>
