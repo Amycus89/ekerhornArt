@@ -12,7 +12,10 @@
   {% for event in events %}
   <a href="{% url 'events:event' event.id %}">
     <div class="box">
-      <img src="{{ event.background.url }}" alt="event image" />
+      <img
+        src="{{ event.get_resized_image_urls.img_m_url }}"
+        alt="Event image"
+      />
       <h3 class="stroke">{{ event.name }}</h3>
       <h6 class="stroke">{{ event.date }}</h6>
     </div>

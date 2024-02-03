@@ -101,7 +101,7 @@
   <div class="accordion">
     {% for event in events %}
     <div class="item-container {% if forloop.first %}expanded{% endif %}">
-      <img src="{{ event.background.url }}" alt="{{ event.name }} event" />
+      <img src="{{ event.get_resized_image_urls.img_m_url }}" alt="{{ event.name }} event" />
 
       <div class="event-text">
         <h3>{{ event.name }}</h3>
