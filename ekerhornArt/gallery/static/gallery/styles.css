@@ -1,0 +1,200 @@
+h1 {
+  font-size: 22px;
+  color: var(--b-main);
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  background-color: var(--meutral);
+  padding: 64px var(--main-margin);
+  min-height: 100vh;
+}
+
+.breadcrumbs {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  padding: 16px 0;
+}
+
+main .breadcrumbs a {
+  color: var(--a-medium);
+  text-decoration: none;
+  font-size: 22px;
+}
+
+main .breadcrumbs p,
+main .breadcrumbs i {
+  color: var(--a-medium);
+}
+
+main .breadcrumbs a:hover,
+main .breadcrumbs a:hover i {
+  color: var(--a-main);
+}
+
+main .breadcrumbs p {
+  margin: 0 0.5em;
+  font-size: 22px;
+}
+
+.paintings {
+  width: 100%;
+  display: grid;
+  grid-row-gap: 2em;
+  grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
+  justify-items: center;
+  align-items: center;
+}
+
+.box {
+  width: 12em;
+  height: 19.416em;
+  border: 4px solid var(--dark);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  transition: 0.5s ease-in-out;
+}
+
+.box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sold {
+  filter: grayscale(100%);
+}
+.sold:hover {
+  filter: none;
+}
+
+.sold::before {
+  content: "SÅLD";
+  position: absolute;
+  transform: translate(-50%, -50%) rotate(315deg);
+  color: white;
+  top: 50%;
+  left: 50%;
+  font-size: 72px;
+  font-weight: 700;
+  transition: 0.5s ease-in-out;
+}
+
+.sold:hover::before {
+  opacity: 0;
+}
+
+.vignette {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+
+.vignette > img {
+  display: block;
+}
+
+.vignette::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.6);
+}
+
+.card__article {
+  position: relative;
+  overflow: hidden;
+}
+
+.card__img {
+  width: 328px;
+}
+
+.card__data {
+  width: 168px;
+  background-color: var(--neutral);
+  padding: 1rem 2rem;
+  box-shadow: 0 8px 24px hsla(0, 0%, 0%, 0.15);
+  position: absolute;
+  bottom: -9rem;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  opacity: 0;
+  transition: opacity 1s 1s;
+  text-align: center;
+}
+
+.card__title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--a-main);
+  margin-bottom: 0.75rem;
+}
+
+.card__article:hover .card__data {
+  animation: show-data 1s forwards;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.card__article:hover {
+  animation: remove-overflow 2s forwards;
+}
+
+.card__article:not(:hover) {
+  animation: show-overflow 2s forwards;
+}
+
+.card__article:not(:hover) .card__data {
+  animation: remove-data 1s forwards;
+}
+
+article img {
+  width: 200px;
+}
+
+@keyframes show-data {
+  50% {
+    transform: translateY(-10rem);
+  }
+  100% {
+    transform: translateY(-7rem);
+  }
+}
+
+@keyframes remove-overflow {
+  to {
+    overflow: initial;
+  }
+}
+
+@keyframes remove-data {
+  0% {
+    transform: translateY(-7rem);
+  }
+  50% {
+    transform: translateY(-10rem);
+  }
+  100% {
+    transform: translateY(0.5rem);
+  }
+}
+
+@keyframes show-overflow {
+  0% {
+    overflow: initial;
+    pointer-events: none;
+  }
+  50% {
+    overflow: hidden;
+  }
+}

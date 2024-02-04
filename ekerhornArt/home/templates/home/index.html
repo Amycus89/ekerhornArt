@@ -6,8 +6,8 @@
 <section id="home">
   <div class="hero">
     <div class="header-background"></div>
-    <img class="hero-background" src="../../static/home/images/hero-loading.jpg"></img>
-    <img class="hero-background blur-load" src="../../static/home/images/hero.webp"></img>
+    <img class="hero-background" src="../../static/home/images/hero-p.jpg"></img>
+    <img class="hero-background blur-load" src="../../static/home/images/hero.jpg"></img>
     <div class="row">
       <div class="column">
         <a href="https://www.facebook.com/EkerhornArt/" title="My Facebook"
@@ -101,7 +101,7 @@
   <div class="accordion">
     {% for event in events %}
     <div class="item-container {% if forloop.first %}expanded{% endif %}">
-      <img src="{{ event.get_resized_image_urls.img_m_url }}" alt="{{ event.name }} event" />
+      <img src="{{ event.get_resized_image_urls.img_2_url }}" alt="{{ event.name }} event" />
 
       <div class="event-text">
         <h3>{{ event.name }}</h3>

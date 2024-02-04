@@ -3,23 +3,30 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{% static 'gallery/script.js' %}"></script>
 {% endblock %} {% block content %}
-<section>
+<section class="breadcrumbs">
+  <a href="{% url 'home:index' %}"><i class="fa-solid fa-house"></i>Home</a>
+  <p>/</p>
   <h1>Gallery</h1>
 </section>
-<section>
-  <div class="paintings-container">
-    {% for painting in paintings %}
-    <a href="{% url 'gallery:painting' painting.id %}">
-      <div class="box">
-        <img src="{{ painting.painting.url }}" alt="image of painting" />
-        <h3>{{ painting.name }}</h3>
-        <h6>{{ painting.poem|linebreaksbr }}</h6>
+<section class="paintings">
+  {% for painting in paintings %}
+  <a href="{% url 'gallery:painting' painting.id %}">
+    <div class="box card__article">
+      {% if painting.sold %}
+      <div class="vignette sold">
+      {% else %}
+      <div class="vignette">
+        {% endif %}
+        <img src="{{ painting.painting.url }}" alt="{{ painting.name }}" />
       </div>
-    </a>
-    {% empty %}
-    <p>No paintings</p>
-    {% endfor %}
-  </div>
+      <div class="card__data">
+        <h3 class="card__title">{{ painting.name }}</h3>
+      </div>
+    </div>
+  </a>
+  {% empty %}
+  <p>No paintings</p>
+  {% endfor %}
 </section>
 
 {% endblock %}

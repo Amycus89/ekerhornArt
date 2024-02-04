@@ -5,6 +5,7 @@ from PIL import Image
 import os
 from django.conf import settings
 
+
 # Create your models here.
 
 class Event(models.Model):
@@ -24,16 +25,16 @@ class Event(models.Model):
         return f"{self.name} - {self.date}"
 
     def get_resized_image_urls(self):
-        event_file_name = self.name.lower().replace(" ", "_").replace("ö", "o").replace("ä", "a").replace("å", "a").translate(str.maketrans("", "", "/:*?!#&\"<>|"))
-        img_p_url = f"{settings.MEDIA_URL}events/images/{self.id}_{event_file_name}_p.jpg"
-        img_s_url = f"{settings.MEDIA_URL}events/images/{self.id}_{event_file_name}_s.jpg"
-        img_m_url = f"{settings.MEDIA_URL}events/images/{self.id}_{event_file_name}_m.jpg"
-        img_l_url = f"{settings.MEDIA_URL}events/images/{self.id}_{event_file_name}_l.jpg"
+        event_file_name = process_name(self.name)
+        img_0_url = f"{settings.MEDIA_URL}events/images/{self.id}_{event_file_name}_0.jpg"
+        img_1_url = f"{settings.MEDIA_URL}events/images/{self.id}_{event_file_name}_1.jpg"
+        img_2_url = f"{settings.MEDIA_URL}events/images/{self.id}_{event_file_name}_2.jpg"
+        img_3_url = f"{settings.MEDIA_URL}events/images/{self.id}_{event_file_name}_3.jpg"
         return {
-            'img_p_url': img_p_url,
-            'img_s_url': img_s_url,
-            'img_m_url': img_m_url,
-            'img_l_url': img_l_url,
+            'img_0_url': img_0_url,
+            'img_1_url': img_1_url,
+            'img_2_url': img_2_url,
+            'img_3_url': img_3_url,
         }
 
 #Whenever admin creates new event
@@ -44,10 +45,10 @@ def resize_uploaded_image(sender, instance, created, **kwargs):
 
     # Calculate aspect ratio
     aspect_ratio = img.width / img.height
-    img_0_Width = 100
-    img_1_Width = 273
-    img_2_Width = 980
-    img_3_Width = 1260
+    img_0_Width = 20
+    img_1_Width = 500
+    img_2_Width = 1200
+    img_3_Width = 1800
 
     # Resize the image to different resolutions
     img_0 = img.resize((img_0_Width, int(img_0_Width / aspect_ratio)))
@@ -56,10 +57,21 @@ def resize_uploaded_image(sender, instance, created, **kwargs):
     img_3 = img.resize((img_3_Width, int(img_3_Width / aspect_ratio)))
 
     # Save the resized images
-    event_file_name = instance.name.lower().replace(" ", "_").replace("ö", "o").replace("ä", "a").replace("å", "a").translate(str.maketrans("", "", "/:*?!#&\"<>|"))
-    img_0.save(f"media/events/images/{instance.id}_{event_file_name}_p.jpg")
-    img_1.save(f"media/events/images/{instance.id}_{event_file_name}_s.jpg")
-    img_2.save(f"media/events/images/{instance.id}_{event_file_name}_m.jpg")
-    img_3.save(f"media/events/images/{instance.id}_{event_file_name}_l.jpg")
-    #Delete it
+    event_file_name = process_name(instance)
+    img_0.save(f"media/events/images/{instance.id}_{event_file_name}_0.jpg", quality=80, optimize=True)
+    img_1.save(f"media/events/images/{instance.id}_{event_file_name}_1.jpg", quality=80, optimize=True)
+    img_2.save(f"media/events/images/{instance.id}_{event_file_name}_2.jpg", quality=80, optimize=True)
+    img_3.save(f"media/events/images/{instance.id}_{event_file_name}_3.jpg", quality=80, optimize=True)
+
+    #Convert to webp
+    #webp_0 = img_0.convert("webp")
+    #webp_0.save(f"media/events/images/{instance.id}_{event_file_name}_0.webp", quality=80, optimize=True)
+
+
+    #Delete the old image
     os.remove(instance.background.path)
+
+
+def process_name(event_name):
+    processed_name = event_name.lower().replace(" ", "_").replace("ö", "o").replace("ä", "a").replace("å", "a").translate(str.maketrans("", "", "/:*?!#&\"<>|"))
+    return processed_name
