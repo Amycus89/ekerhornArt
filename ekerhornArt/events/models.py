@@ -26,16 +26,10 @@ class Event(models.Model):
 
     def get_resized_image_urls(self):
         event_file_name = process_name(self.name)
-        img_0_url = f"{settings.MEDIA_URL}events/images/{self.id}_{event_file_name}_0.jpg"
-        img_1_url = f"{settings.MEDIA_URL}events/images/{self.id}_{event_file_name}_1.jpg"
-        img_2_url = f"{settings.MEDIA_URL}events/images/{self.id}_{event_file_name}_2.jpg"
-        img_3_url = f"{settings.MEDIA_URL}events/images/{self.id}_{event_file_name}_3.jpg"
-        return {
-            'img_0_url': img_0_url,
-            'img_1_url': img_1_url,
-            'img_2_url': img_2_url,
-            'img_3_url': img_3_url,
-        }
+        image_urls = {}
+        for i in range(4):
+            image_urls[f'img_{i}_url'] = f"{settings.MEDIA_URL}events/images/{event_file_name}/{self.id}_{event_file_name}_{i}.jpg"
+        return image_urls
 
 #Whenever admin creates new event
 @receiver(post_save, sender=Event)
@@ -50,23 +44,22 @@ def resize_uploaded_image(sender, instance, created, **kwargs):
     img_2_Width = 1200
     img_3_Width = 1800
 
-    # Resize the image to different resolutions
-    img_0 = img.resize((img_0_Width, int(img_0_Width / aspect_ratio)))
-    img_1 = img.resize((img_1_Width, int(img_1_Width / aspect_ratio)))
-    img_2 = img.resize((img_2_Width, int(img_2_Width / aspect_ratio)))
-    img_3 = img.resize((img_3_Width, int(img_3_Width / aspect_ratio)))
+    # Define the image widths
+    image_widths = [20, 500, 1200, 1800]
 
-    # Save the resized images
-    event_file_name = process_name(instance)
-    img_0.save(f"media/events/images/{instance.id}_{event_file_name}_0.jpg", quality=80, optimize=True)
-    img_1.save(f"media/events/images/{instance.id}_{event_file_name}_1.jpg", quality=80, optimize=True)
-    img_2.save(f"media/events/images/{instance.id}_{event_file_name}_2.jpg", quality=80, optimize=True)
-    img_3.save(f"media/events/images/{instance.id}_{event_file_name}_3.jpg", quality=80, optimize=True)
-
-    #Convert to webp
-    #webp_0 = img_0.convert("webp")
-    #webp_0.save(f"media/events/images/{instance.id}_{event_file_name}_0.webp", quality=80, optimize=True)
-
+    for i, width in enumerate(image_widths):
+        # Resize the image to different resolutions
+        resized_img = img.resize((width, int(width / aspect_ratio)))
+        # Define the event file name
+        event_file_name = process_name(instance.name)
+        # Save the resized images as jpgs
+        if not os.path.exists(f"media/events/images/{event_file_name}"):
+            os.makedirs(f"media/events/images/{event_file_name}")
+        resized_img.save(f"media/events/images/{event_file_name}/{instance.id}_{event_file_name}_{i}.jpg", quality=80, optimize=True)
+        # Convert JPG to webp
+        webp_img = resized_img.convert("RGB").convert("P", palette=Image.ADAPTIVE)
+        # Save the webp images
+        webp_img.save(f"media/events/images/{event_file_name}/{instance.id}_{event_file_name}_{i}.webp", optimize=True)
 
     #Delete the old image
     os.remove(instance.background.path)
