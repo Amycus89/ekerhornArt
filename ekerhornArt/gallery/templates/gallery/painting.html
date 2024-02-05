@@ -4,25 +4,50 @@
 <script src="{% static 'gallery/script.js' %}"></script>
 {% endblock %} {% block content %}
 
-<section
-  style="background-image: url('{{ painting.painting.url }}');"
-  class="box background"
->
-  <div class="filter">
-    <a href="{% url 'gallery:index' %}" class="return">Tillbaka</a>
-    <div class="text-container">
-      <h1>{{ painting.name }}</h1>
-      {% if painting.width %}
-      <h3>{{ painting.width }}</h3>
-      {% endif %}
-      <p>{{ painting.poem|linebreaksbr }}</p>
+<section>
+  <div class="breadcrumbs">
+    <a href="{% url 'home:index' %}"><i class="fa-solid fa-house"></i>Home</a>
+    <p>/</p>
+    <a href="{% url 'gallery:index' %}">Gallery</a>
+    <p>/</p>
+    <h1>{{ painting.name }}</h1>
+  </div>
+  <div class="painting__container">
+    <div class="vignette c">
+      <img src="{{ painting.painting.url }}" alt="{{ painting.name }}" />
+    </div>
 
-      <div class="row social">
-        <a href=""><i class="fa-brands fa-square-twitter"></i></a>
-        <a href=""><i class="fa-brands fa-square-facebook"></i></a>
-        <a href=""><i class="fa-brands fa-square-instagram"></i></a>
+    <div class="painting-info d">
+      <h3>{{ painting.name }}</h3>
+      <div class="quick-info">
+        <div class="keypair">
+          <h6>Konstnär:</h6>
+          <p>Mattias Ekerhorn</p>
+        </div>
+
+        {% if painting.width and painting.height %}
+        <div class="keypair">
+          <h6>Bredd:</h6>
+          <p>{{ painting.width }}</p>
+        </div>
+
+        <div class="keypair">
+          <h6>Höjd:</h6>
+          <p>{{ painting.height }}</p>
+        </div>
+        {% endif %}
+
+        <div class="keypair">
+          <h6>Status:</h6>
+          {% if painting.sold %}
+          <p>Såld</p>
+          {% else %}
+          <p>Till salu</p>
+          {% endif %}
+        </div>
       </div>
     </div>
+    <p class="e">{{ painting.poem|linebreaksbr }}</p>
   </div>
 </section>
 
