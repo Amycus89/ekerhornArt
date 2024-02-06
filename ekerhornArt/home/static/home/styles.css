@@ -63,6 +63,7 @@
   min-height: 650px;
   width: 100vw;
   position: relative;
+  background-color: var(--a-main);
 }
 .hero-background {
   object-fit: cover;

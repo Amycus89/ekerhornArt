@@ -1,7 +1,3 @@
-function loaded(img) {
-  img.classList.add("loaded");
-}
-
 document.addEventListener("DOMContentLoaded", function () {
   // Change styling of navbar based on scroll
   const primaryLight = "#eaeff0";
@@ -15,16 +11,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const neutralBlack = "#00040d";
   let prevScrollPos = 0;
 
-  const blurDivs = document.querySelectorAll(".blur-load");
-  blurDivs.forEach((img) => {
+  const blurContainers = document.querySelectorAll(".blur-load");
+  blurContainers.forEach((container) => {
+    const img = container.querySelector("img");
+
+    function loaded() {
+      container.classList.add("loaded");
+    }
+
     if (img.complete) {
-      loaded(img);
+      loaded();
     } else {
-      img.addEventListener("load", function () {
-        loaded(img);
-      });
+      img.addEventListener("load", loaded);
     }
   });
+
   // NAVBAR
   window.addEventListener("scroll", function () {
     const headerElement = document.getElementById("header");

@@ -6,8 +6,15 @@
 <section id="home">
   <div class="hero">
     <div class="header-background"></div>
-    <img class="hero-background" src="../../static/home/images/hero-p.jpg"></img>
-    <img class="hero-background blur-load" src="../../static/home/images/hero.jpg"></img>
+    <img
+      class="hero-background"
+      src="{% static 'home/images/hero-s.jpg' %}"
+      srcset="{% static 'home/images/hero-s.jpg' %} 500w, {% static 'home/images/hero-m.jpg' %} 1000w, {% static 'home/images/hero-l.jpg' %} 1600w"
+      sizes="(max-width: 500px) 400px,
+              (max-width: 1000px) 800px,
+              1600px"
+      alt="hero background"
+    />
     <div class="row">
       <div class="column">
         <a href="https://www.facebook.com/EkerhornArt/" title="My Facebook"
@@ -69,9 +76,29 @@
       vill dela genom mina ord.
     </p>
   </div>
-    <div class="background">
-      <div class="row">
-      <img loading="lazy" src="{% static 'home/images/portrait-large.png' %}" class="profile-image"></img>
+  <div class="background">
+    <div class="row">
+      <picture
+    class="blur-load"
+    style="
+        background-image: url({% static 'home/images/portrait-small-p.png' %});
+        "
+      >
+        <source
+          type="image/webp"
+          srcset="{% static 'home/images/portrait-small.webp' %} 500w, {% static 'home/images/portrait-medium.webp' %} 1000w, {% static 'home/images/portrait-large.webp' %} 1600w"
+        />
+        <img
+          src="{% static 'home/images/portrait-small.png' %}"
+          srcset="{% static 'home/images/portrait-small.png' %} 500w, {% static 'home/images/portrait-medium.png' %} 1000w, {% static 'home/images/portrait-large.png' %} 1600w"
+          sizes="(max-width: 500px) 400px,
+                (max-width: 1000px) 800px,
+                1600px"
+          loading="lazy"
+          class="profile-image"
+          alt="portrait photo"
+        />
+      </picture>
 
       <div class="text-box">
         <h6>Hej på er</h6>
@@ -79,9 +106,9 @@
 
         <p>
           Läkare och konstnär, med stor passion för konstens alla former. Jag
-          skapar modern konst och dikter som utforskar teman om identitet, känsla
-          och skönhet. Nedan kan du se några av mina verk, läsa mina dikter och
-          lära dig mer om mig och min konstnärliga vision.
+          skapar modern konst och dikter som utforskar teman om identitet,
+          känsla och skönhet. Nedan kan du se några av mina verk, läsa mina
+          dikter och lära dig mer om mig och min konstnärliga vision.
           <br /><br />Jag hoppas att du finner något som berör dig, och att du
           kommer tillbaka ofta för att se mina senaste verk. Följ mig på en resa
           genom konst, poesi och färg.
@@ -100,8 +127,15 @@
 
   <div class="accordion">
     {% for event in events %}
-    <div class="item-container {% if forloop.first %}expanded{% endif %}">
-      <img src="{{ event.get_resized_image_urls.img_2_url }}" alt="{{ event.name }} event" />
+    <div
+      class="item-container blur-load {% if forloop.first %}expanded{% endif %}"
+      style="background-image: url({{ event.get_resized_image_urls.img_0_url }});"
+    >
+      <img
+        src="{{ event.get_resized_image_urls.img_2_url }}"
+        alt="{{ event.name }} event"
+        load="lazy"
+      />
 
       <div class="event-text">
         <h3>{{ event.name }}</h3>
@@ -140,27 +174,28 @@
   <p>Ett urval av mina senaste verk</p>
   <div class="paintings">
     {% for painting in paintings %}
-    <dialog class="modal">
+    <dialog
+      class="modal blur-load"
+    >
       <img
         src="{{ painting.get_resized_image_urls.img_1_url }}"
-        alt="Målning"
+        alt="Målning" loading="lazy"
       />
       <h5>{{ painting.name }}</h5>
       <p>{{ painting.poem|linebreaksbr }}</p>
     </dialog>
     {% if painting.sold %}
-    <div class="open-modal sold">
-    {% else %}
-    <div class="open-modal">
-    {% endif %}
+    <div class="open-modal blur-load sold">
+      {% else %} <div class="open-modal blur-load" style="background-image:
+      url({{ painting.get_resized_image_urls.img_0_url }});"> {% endif %}
       <img
         src="{{ painting.get_resized_image_urls.img_1_url }}"
-        alt="Målningen {{ painting.name }}"
+        alt="Målningen {{ painting.name }}" loading="lazy"
       />
       <p>{{ painting.name }}</p>
     </div>
     {% empty %}
-      <p>No paintings</p>
+    <p>No paintings</p>
     {% endfor %}
   </div>
 
@@ -170,8 +205,8 @@
 <section class="studio">
   <div class="text-box">
     <h4>
-      Varje målning åtföljs av en dikt, som avslöjar inspirationen och
-      meningen bakom konstverket
+      Varje målning åtföljs av en dikt, som avslöjar inspirationen och meningen
+      bakom konstverket
     </h4>
   </div>
 </section>
