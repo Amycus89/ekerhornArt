@@ -39,10 +39,6 @@ def resize_uploaded_image(sender, instance, created, **kwargs):
 
     # Calculate aspect ratio
     aspect_ratio = img.width / img.height
-    img_0_Width = 20
-    img_1_Width = 500
-    img_2_Width = 1200
-    img_3_Width = 1800
 
     # Define the image widths
     image_widths = [20, 500, 1200, 1800]

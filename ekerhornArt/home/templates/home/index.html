@@ -139,110 +139,29 @@
   <h2>Galleri</h2>
   <p>Ett urval av mina senaste verk</p>
   <div class="paintings">
+    {% for painting in paintings %}
     <dialog class="modal">
       <img
-        src="{% static 'home/images/paintings/hemlangtan.webp' %}"
+        src="{{ painting.get_resized_image_urls.img_1_url }}"
         alt="Målning"
       />
-      <h5>Hemlängtan</h5>
-      <p>
-        Jag saknar de spruckna fallfrukterna<br />
-        från det träd vi kallade vårt<br />
-        Hur din omfamning kändes som en bädd av<br />
-        dun som omgav mig och gav mig frid<br />
-        Jag saknar gnistorna från de eldar du råkade skapa<br />
-        och tyngden från ditt trötta hjärta i min hand<br />
-      </p>
+      <h5>{{ painting.name }}</h5>
+      <p>{{ painting.poem|linebreaksbr }}</p>
     </dialog>
+    {% if painting.sold %}
+    <div class="open-modal sold">
+    {% else %}
     <div class="open-modal">
+    {% endif %}
       <img
-        src="{% static 'home/images/paintings/hemlangtan.webp' %}"
-        alt="Målning"
+        src="{{ painting.get_resized_image_urls.img_1_url }}"
+        alt="Målningen {{ painting.name }}"
       />
-      <p>Hemlängtan</p>
+      <p>{{ painting.name }}</p>
     </div>
-
-    <dialog class="modal">
-      <img
-        src="{% static 'home/images/paintings/oinbjudenTanke.webp' %}"
-        alt="Målning"
-      />
-      <h5>Oinbjuden Tanke</h5>
-      <p>
-        På din själs vågor skimrar och skummar den,<br />
-        dyker i dina rotådrors savströmmar<br />
-        Flyter på ytan av dina inre nebulosors sköra ytor,<br />
-        denna knut, oinbjuden, som stramar och stör<br />
-        Slit ej i rötterna, förgör inte dig själv<br />
-        Låt dina inre vågor vagga den till frid,<br />
-        tills den lämnar dig likt allt annat en dag skall
-      </p>
-    </dialog>
-    <div class="open-modal">
-      <img
-        src="{% static 'home/images/paintings/oinbjudenTanke.webp' %}"
-        alt="Målning"
-        class="sold"
-      />
-      <p>Oinbjuden Tanke</p>
-    </div>
-
-    <dialog class="modal">
-      <img
-        src="{% static 'home/images/paintings/omheten.webp' %}"
-        alt="Målning"
-      />
-      <h5>Ömheten</h5>
-      <p>
-        Dina ord är som mjuka droppar
-        <br />
-        En värmande dröm
-        <br />
-        kyssar av mildhet på min nacke
-        <br />
-        ett regn som dränker de mörka reven
-        <br />
-        Din famn är min bro öpver det obevekliga
-        <br />
-        som du bygger med din ömhets stenar
-      </p>
-    </dialog>
-    <div class="open-modal">
-      <img
-        src="{% static 'home/images/paintings/omheten.webp' %}"
-        alt="Målning"
-      />
-      <p>Ömheten</p>
-    </div>
-
-    <dialog class="modal">
-      <img
-        src="{% static 'home/images/paintings/sammanbrottet.webp' %}"
-        alt="Målning"
-      />
-      <h5>Sammanbrottet</h5>
-      <p>
-        Låt dig nu i stillhet sjunka ner,<br />
-        under tyngden av krossat som förlorar sin form<br />
-        Släpp taget om din längtan, låt den svalna<br />
-        Vila nu<br />
-        Din livskraft bär du alltjämt inom dig<br />
-        Låt den vila fram till vårens andedräkt<br />
-        Låt det brustna sakta sönderfalla,<br />
-        till aska, till grus, till oändlig tröst<br />
-        Vila nu,<br />
-        Låt dina rötter finna sin djupaste ro,<br />
-        tillit i den svarta jorden, i din tystnad.<br />
-        Tro, kära vän, att du åter ska blomstra
-      </p>
-    </dialog>
-    <div class="open-modal">
-      <img
-        src="{% static 'home/images/paintings/sammanbrottet.webp' %}"
-        alt="Målning"
-      />
-      <p>Sammanbrottet</p>
-    </div>
+    {% empty %}
+      <p>No paintings</p>
+    {% endfor %}
   </div>
 
   <a href="{% url 'gallery:index' %}" title="Se fler">Se Fler</a>

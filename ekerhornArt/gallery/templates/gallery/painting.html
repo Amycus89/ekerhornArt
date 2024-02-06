@@ -13,9 +13,16 @@
     <h1>{{ painting.name }}</h1>
   </div>
   <div class="painting__container">
-    <div class="vignette c">
-      <img src="{{ painting.painting.url }}" alt="{{ painting.name }}" />
-    </div>
+    <a
+      href="{{ painting.get_resized_image_urls.img_3_url }}"
+      target="_blank"
+      class="vignette c"
+    >
+      <img
+        src="{{ painting.get_resized_image_urls.img_2_url }}"
+        alt="{{ painting.name }}"
+      />
+    </a>
 
     <div class="painting-info d">
       <h3>{{ painting.name }}</h3>

@@ -17,7 +17,7 @@
       {% else %}
       <div class="vignette">
         {% endif %}
-        <img src="{{ painting.painting.url }}" alt="{{ painting.name }}" />
+        <img src="{{ painting.get_resized_image_urls.img_1_url }}" alt="{{ painting.name }}" />
       </div>
       <div class="card__data">
         <h3 class="card__title">{{ painting.name }}</h3>
