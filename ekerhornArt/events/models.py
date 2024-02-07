@@ -29,6 +29,8 @@ class Event(models.Model):
         image_urls = {}
         for i in range(4):
             image_urls[f'img_{i}_url'] = f"{settings.MEDIA_URL}events/images/{event_file_name}/{self.id}_{event_file_name}_{i}.jpg"
+            # Add the webp images as well
+            image_urls[f'webp_{i}_url'] = f"{settings.MEDIA_URL}events/images/{event_file_name}/{self.id}_{event_file_name}_{i}.webp"
         return image_urls
 
 #Whenever admin creates new event

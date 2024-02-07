@@ -127,14 +127,22 @@
 
   <div class="accordion">
     {% for event in events %}
-    <div
+    <picture
       class="item-container blur-load {% if forloop.first %}expanded{% endif %}"
       style="background-image: url({{ event.get_resized_image_urls.img_0_url }});"
     >
+      <source
+        type="image/webp"
+        srcset="{{ event.get_resized_image_urls.webp_1_url }} 500w, {{ event.get_resized_image_urls.webp_2_url }} 1000w, {{ event.get_resized_image_urls.webp_3_url }} 1600w"
+      />
       <img
-        src="{{ event.get_resized_image_urls.img_2_url }}"
-        alt="{{ event.name }} event"
-        load="lazy"
+        src="{{ event.get_resized_image_urls.img_1_url }}"
+        srcset="{{ event.get_resized_image_urls.img_1_url }} 500w, {{ event.get_resized_image_urls.img_2_url }} 1000w, {{ event.get_resized_image_urls.img_3_url }} 1600w"
+        sizes="(max-width: 500px) 400px,
+              (max-width: 1000px) 800px,
+              1600px"
+        loading="lazy"
+        alt="Bakgrund för {{ event.name }}"
       />
 
       <div class="event-text">
@@ -160,7 +168,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </picture>
     {% empty %}
     <p>No events</p>
     {% endfor %}
