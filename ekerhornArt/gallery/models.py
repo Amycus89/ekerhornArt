@@ -36,31 +36,33 @@ class Painting(models.Model):
 #Whenever admin adds new painting
 @receiver(post_save, sender=Painting)
 def resize_uploaded_image(sender, instance, created, **kwargs):
-    # Open the uploaded image
-    img = Image.open(instance.painting)
+    # Check whether the object is created or if the painting has changed
+    if not created and instance.painting != Event.objects.get(id=instance.id).painting:
+        # Open the uploaded image
+        img = Image.open(instance.painting)
 
-    # Calculate aspect ratio
-    aspect_ratio = img.width / img.height
+        # Calculate aspect ratio
+        aspect_ratio = img.width / img.height
 
-    # Define the image widths
-    image_widths = [20, 500, 960, 1800]
+        # Define the image widths
+        image_widths = [20, 500, 960, 1800]
 
-    for i, width in enumerate(image_widths):
-        # Resize the image to different resolutions
-        resized_img = img.resize((width, int(width / aspect_ratio)))
-        # Define the painting file name
-        painting_file_name = process_name(instance.name)
-        # Save the resized images as jpgs
-        if not os.path.exists(f"media/gallery/images/{painting_file_name}"):
-            os.makedirs(f"media/gallery/images/{painting_file_name}")
-        resized_img.save(f"media/gallery/images/{painting_file_name}/{instance.id}_{painting_file_name}_{i}.jpg", quality=80, optimize=True)
-        # Convert JPG to webp
-        webp_img = resized_img.convert("RGB").convert("P", palette=Image.ADAPTIVE)
-        # Save the webp images
-        webp_img.save(f"media/gallery/images/{painting_file_name}/{instance.id}_{painting_file_name}_{i}.webp", optimize=True)
+        for i, width in enumerate(image_widths):
+            # Resize the image to different resolutions
+            resized_img = img.resize((width, int(width / aspect_ratio)))
+            # Define the painting file name
+            painting_file_name = process_name(instance.name)
+            # Save the resized images as jpgs
+            if not os.path.exists(f"media/gallery/images/{painting_file_name}"):
+                os.makedirs(f"media/gallery/images/{painting_file_name}")
+            resized_img.save(f"media/gallery/images/{painting_file_name}/{instance.id}_{painting_file_name}_{i}.jpg", quality=80, optimize=True)
+            # Convert JPG to webp
+            webp_img = resized_img.convert("RGB").convert("P", palette=Image.ADAPTIVE)
+            # Save the webp images
+            webp_img.save(f"media/gallery/images/{painting_file_name}/{instance.id}_{painting_file_name}_{i}.webp", optimize=True)
 
-    #Delete the old image
-    os.remove(instance.painting.path)
+        #Delete the old image
+        os.remove(instance.painting.path)
 
 
 def process_name(painting_name):
