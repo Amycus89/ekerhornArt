@@ -133,14 +133,13 @@
     >
       <source
         type="image/webp"
-        srcset="{{ event.get_resized_image_urls.webp_1_url }} 500w, {{ event.get_resized_image_urls.webp_2_url }} 1000w, {{ event.get_resized_image_urls.webp_3_url }} 1600w"
+        srcset="{{ event.get_resized_image_urls.webp_1_url }} 500w, {{ event.get_resized_image_urls.webp_2_url }} 1000w"
       />
       <img
         src="{{ event.get_resized_image_urls.img_1_url }}"
-        srcset="{{ event.get_resized_image_urls.img_1_url }} 500w, {{ event.get_resized_image_urls.img_2_url }} 1000w, {{ event.get_resized_image_urls.img_3_url }} 1600w"
+        srcset="{{ event.get_resized_image_urls.img_1_url }} 500w, {{ event.get_resized_image_urls.img_2_url }} 1000w"
         sizes="(max-width: 500px) 400px,
-              (max-width: 1000px) 800px,
-              1600px"
+              (max-width: 1000px) 800px"
         loading="lazy"
         alt="Bakgrund för {{ event.name }}"
       />
@@ -186,9 +185,9 @@
       class="modal"
     >
       <picture>
-        <source type="image/webp" srcset="{{ painting.get_resized_image_urls.webp_1_url }} 500w, {{ painting.get_resized_image_urls.webp_2_url }} 1000w, {{ painting.get_resized_image_urls.webp_3_url }} 1600w" />
+        <source type="image/webp" srcset="{{ painting.get_resized_image_urls.webp_1_url }} 500w, {{ painting.get_resized_image_urls.webp_2_url }} 1000w" />
         <img
-          src="{{ painting.get_resized_image_urls.img_1_url }}" srcset="{{ painting.get_resized_image_urls.img_1_url }} 500w, {{ painting.get_resized_image_urls.img_2_url }} 1000w, {{ painting.get_resized_image_urls.img_3_url }} 1600w"
+          src="{{ painting.get_resized_image_urls.img_1_url }}" srcset="{{ painting.get_resized_image_urls.img_1_url }} 500w, {{ painting.get_resized_image_urls.img_2_url }} 1000w" sizes="(max-width: 500px) 400px, (max-width: 1000px) 800px"
           alt="Målning {{ painting.name }}" loading="lazy"
         />
         <h5>{{ painting.name }}</h5>
@@ -200,9 +199,9 @@
     {% else %}
     <picture class="open-modal blur-load" style="background-image: url({{ painting.get_resized_image_urls.img_0_url }});">
     {% endif %}
-        <source type="image/webp" srcset="{{ painting.get_resized_image_urls.webp_1_url }} 500w, {{ painting.get_resized_image_urls.webp_2_url }} 1000w, {{ painting.get_resized_image_urls.webp_3_url }} 1600w" />
+        <source type="image/webp" srcset="{{ painting.get_resized_image_urls.webp_1_url }} 500w, {{ painting.get_resized_image_urls.webp_2_url }} 1000w" />
         <img
-          src="{{ painting.get_resized_image_urls.img_1_url }}" srcset="{{ painting.get_resized_image_urls.img_1_url }} 500w, {{ painting.get_resized_image_urls.img_2_url }} 1000w, {{ painting.get_resized_image_urls.img_3_url }} 1600w"
+          src="{{ painting.get_resized_image_urls.img_1_url }}" srcset="{{ painting.get_resized_image_urls.img_1_url }} 500w, {{ painting.get_resized_image_urls.img_2_url }} 1000w" sizes="(max-width: 500px) 400px, (max-width: 1000px) 800px"
           alt="Målning {{ painting.name }}" loading="lazy"
         />
       <p>{{ painting.name }}</p>
