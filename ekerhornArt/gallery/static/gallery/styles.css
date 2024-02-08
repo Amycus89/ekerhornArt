@@ -88,27 +88,6 @@ main .breadcrumbs p {
   opacity: 0;
 }
 
-.vignette {
-  position: relative;
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-}
-
-.vignette > img {
-  display: block;
-}
-
-.vignette::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.6);
-}
-
 .card__article {
   position: relative;
   overflow: hidden;
@@ -252,9 +231,6 @@ article img {
   );
   color: var(--dark);
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-}
-
-.center__container {
 }
 
 .quick-info {

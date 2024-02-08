@@ -11,7 +11,7 @@
 <section class="events-container">
   {% for event in events %}
   <a href="{% url 'events:event' event.id %}">
-    <div class="box">
+    <div class="box vignette">
       <img
         src="{{ event.get_resized_image_urls.img_2_url }}"
         alt="Event image"

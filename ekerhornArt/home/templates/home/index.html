@@ -128,7 +128,7 @@
   <div class="accordion">
     {% for event in events %}
     <picture
-      class="item-container blur-load {% if forloop.first %}expanded{% endif %}"
+      class="item-container blur-load vignette {% if forloop.first %}expanded{% endif %}"
       style="background-image: url({{ event.get_resized_image_urls.img_0_url }});"
     >
       <source
@@ -184,20 +184,21 @@
     <dialog
       class="modal"
     >
-      <picture>
+      <picture class="vignette">
         <source type="image/webp" srcset="{{ painting.get_resized_image_urls.webp_1_url }} 500w, {{ painting.get_resized_image_urls.webp_2_url }} 1000w" />
         <img
           src="{{ painting.get_resized_image_urls.img_1_url }}" srcset="{{ painting.get_resized_image_urls.img_1_url }} 500w, {{ painting.get_resized_image_urls.img_2_url }} 1000w" sizes="(max-width: 500px) 400px, (max-width: 1000px) 800px"
           alt="Målning {{ painting.name }}" loading="lazy"
         />
-        <h5>{{ painting.name }}</h5>
-        <p>{{ painting.poem|linebreaksbr }}</p>
       </picture>
+      <h5>{{ painting.name }}</h5>
+      <p>{{ painting.poem|linebreaksbr }}</p>
+      <a href="{% url 'gallery:painting' painting.id %}">Läs mer</a>
     </dialog>
     {% if painting.sold %}
-    <picture class="open-modal blur-load sold" style="background-image: url({{ painting.get_resized_image_urls.img_0_url }});">
+    <picture class="open-modal blur-load vignette sold" style="background-image: url({{ painting.get_resized_image_urls.img_0_url }});">
     {% else %}
-    <picture class="open-modal blur-load" style="background-image: url({{ painting.get_resized_image_urls.img_0_url }});">
+    <picture class="open-modal blur-load vignette" style="background-image: url({{ painting.get_resized_image_urls.img_0_url }});">
     {% endif %}
         <source type="image/webp" srcset="{{ painting.get_resized_image_urls.webp_1_url }} 500w, {{ painting.get_resized_image_urls.webp_2_url }} 1000w" />
         <img
