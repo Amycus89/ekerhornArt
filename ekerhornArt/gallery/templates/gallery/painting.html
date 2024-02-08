@@ -32,6 +32,25 @@
           <p>Mattias Ekerhorn</p>
         </div>
 
+        <div class="keypair">
+          <h6>Status:</h6>
+          {% if painting.sold %}
+          <p>Såld</p>
+          {% else %}
+          <p>Till salu</p>
+          {% endif %}
+        </div>
+
+        <div class="keypair">
+          <h6>Bredd:</h6>
+          <p>120 cm</p>
+        </div>
+
+        <div class="keypair">
+          <h6>Höjd:</h6>
+          <p>220 cm</p>
+        </div>
+
         {% if painting.width and painting.height %}
         <div class="keypair">
           <h6>Bredd:</h6>
@@ -43,15 +62,6 @@
           <p>{{ painting.height }}</p>
         </div>
         {% endif %}
-
-        <div class="keypair">
-          <h6>Status:</h6>
-          {% if painting.sold %}
-          <p>Såld</p>
-          {% else %}
-          <p>Till salu</p>
-          {% endif %}
-        </div>
       </div>
     </div>
     <p class="e">{{ painting.poem|linebreaksbr }}</p>
