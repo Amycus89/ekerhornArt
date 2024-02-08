@@ -781,4 +781,19 @@ footer {
     height: 480px;
     width: 100%;
   }
+
+  .studio {
+    width: 100%;
+    min-height: 80vh;
+    max-height: 800px;
+    background-image: url("./images/studio-m.jpg");
+}
+
+@media (max-width: 400px) {
+  .studio {
+    width: 100%;
+    min-height: 80vh;
+    max-height: 800px;
+    background-image: url("./images/studio-s.jpg");
+  }
 }
