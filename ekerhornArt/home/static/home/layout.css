@@ -402,4 +402,8 @@ footer div:last-child a {
     width: clamp(5.625rem, -7.5rem + 75vw, 11.25rem);
     bottom: -4px;
   }
+
+  .sidebar {
+    width: 100%;
+  }
 }
