@@ -43,13 +43,13 @@ main .breadcrumbs p {
   width: 100%;
   display: grid;
   grid-row-gap: 32px;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
   justify-items: center;
   align-items: start;
 }
 
 .events-container div {
-  width: 500px;
+  width: 450px;
   height: 200px;
   overflow: hidden;
   position: relative;
@@ -240,11 +240,11 @@ i {
 @media (max-width: 850px) {
   .events-container {
     grid-row-gap: 32px;
-    grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   }
 
   .events-container div {
-    width: 256px;
+    width: 260px;
     height: 108px;
   }
 }
