@@ -16,12 +16,26 @@
     <a
       href="{{ painting.get_resized_image_urls.img_3_url }}"
       target="_blank"
-      class="vignette c"
+      class="c"
     >
-      <img
-        src="{{ painting.get_resized_image_urls.img_2_url }}"
-        alt="{{ painting.name }}"
-      />
+      <picture
+        class="blur-load vignette"
+        style="background-image: url('{{ painting.get_resized_image_urls.img_0_url }}');"
+      >
+        <source
+          type="image/webp"
+          srcset="{{ painting.get_resized_image_urls.webp_1_url }} 500w, {{ painting.get_resized_image_urls.webp_2_url }} 1000w, {{ painting.get_resized_image_urls.webp_3_url }} 1600w"
+        />
+        <img
+          src="{{ painting.get_resized_image_urls.img_1_url }}"
+          alt="{{ painting.name }}"
+          srcset="{{ painting.get_resized_image_urls.img_1_url }} 500w, {{ painting.get_resized_image_urls.img_2_url }} 1000w, {{ painting.get_resized_image_urls.img_3_url }} 1600w"
+          sizes="(max-width: 500px) 400px,
+                (max-width: 1000px) 800px,
+                1600px"
+          loading="lazy"
+        />
+      </picture>
     </a>
 
     <div class="painting-info d">
