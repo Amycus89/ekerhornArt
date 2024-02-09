@@ -4,6 +4,7 @@ from django.db.models.signals import post_save
 from PIL import Image
 import os
 from django.conf import settings
+from django.core.validators import FileExtensionValidator
 
 
 # Create your models here.
@@ -11,7 +12,7 @@ from django.conf import settings
 class Event(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=46)
-    background = models.ImageField(upload_to="events/images")
+    background = models.ImageField(upload_to="events/images", validitors=[FileExtensionValidator(allowed_extensions=['jpg', 'webp', 'jpeg'])])
     tags = models.CharField(max_length=46, blank=True)
     description = models.TextField()
     date = models.DateField()
