@@ -11,18 +11,29 @@
 <section class="paintings">
   {% for painting in paintings %}
   <a href="{% url 'gallery:painting' painting.id %}">
-    <div class="box card__article">
+    <picture>
+      <div class="box card__article">
       {% if painting.sold %}
-      <div class="vignette sold">
+      <div class="vignette sold blur-load" style="background-image: url('{{ painting.get_resized_image_urls.img_0_url }}');">
       {% else %}
-      <div class="vignette">
+      <div class="vignette blur-load" style="background-image: url('{{ painting.get_resized_image_urls.img_0_url }}');">
         {% endif %}
-        <img src="{{ painting.get_resized_image_urls.img_1_url }}" alt="{{ painting.name }}" />
+        <source
+          type="image/webp"
+          srcset="{{ painting.get_resized_image_urls.webp_1_url }} 500w, {{ painting.get_resized_image_urls.webp_2_url }} 1000w"
+        />
+        <img src="{{ painting.get_resized_image_urls.img_1_url }}" alt="{{ painting.name }}" srcset="{{
+        painting.get_resized_image_urls.img_1_url }} 500w, {{
+        painting.get_resized_image_urls.img_2_url }} 1000w"
+          sizes="(max-width:
+        500px) 400px, (max-width: 1000px) 800px"
+          loading="lazy" />
       </div>
       <div class="card__data">
         <h3 class="card__title">{{ painting.name }}</h3>
       </div>
     </div>
+    </picture>
   </a>
   {% empty %}
   <p>No paintings</p>

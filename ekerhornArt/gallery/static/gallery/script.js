@@ -30,4 +30,19 @@ document.addEventListener("DOMContentLoaded", function () {
       mobileNav.classList.remove("active");
     }
   });
+
+  const blurContainers = document.querySelectorAll(".blur-load");
+  blurContainers.forEach((container) => {
+    const img = container.querySelector("img");
+
+    function loaded() {
+      container.classList.add("loaded");
+    }
+
+    if (img.complete) {
+      loaded();
+    } else {
+      img.addEventListener("load", loaded);
+    }
+  });
 });
