@@ -608,6 +608,22 @@
   filter: none;
 }
 
+.sold::before {
+  content: "SÅLD";
+  position: absolute;
+  transform: translate(-50%, -50%) rotate(315deg);
+  color: white;
+  top: 50%;
+  left: 50%;
+  font-size: 72px;
+  font-weight: 700;
+  transition: 0.5s ease-in-out;
+}
+
+.sold:hover::before {
+  opacity: 0;
+}
+
 .studio {
   width: 100%;
   min-height: 80vh;
