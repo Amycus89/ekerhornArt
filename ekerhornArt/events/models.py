@@ -12,7 +12,7 @@ from django.core.validators import FileExtensionValidator
 class Event(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=46)
-    background = models.ImageField(upload_to="events/images", validitors=[FileExtensionValidator(allowed_extensions=['jpg', 'webp', 'jpeg'])])
+    background = models.ImageField(upload_to="events/images", validators=[FileExtensionValidator(allowed_extensions=['jpg', 'webp', 'jpeg'])])
     tags = models.CharField(max_length=46, blank=True)
     description = models.TextField()
     date = models.DateField()

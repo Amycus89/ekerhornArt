@@ -524,8 +524,8 @@
 }
 #gallery .modal img {
   width: 100%;
-  min-width: 230px;
   height: 100%;
+  max-height: 400px;
   object-fit: cover;
 }
 #gallery .modal h5 {
@@ -537,6 +537,12 @@
 #gallery .modal p {
   color: #101b30;
 }
+
+.modal a {
+  padding: 8px;
+
+}
+
 #gallery .paintings {
   margin: 2em 0;
   width: 100%;

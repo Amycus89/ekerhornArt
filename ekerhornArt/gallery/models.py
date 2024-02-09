@@ -11,7 +11,7 @@ from django.core.validators import FileExtensionValidator
 class Painting(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=46)
-    painting = models.ImageField(upload_to="gallery/images", validitors=[FileExtensionValidator(allowed_extensions=['jpg', 'webp', 'jpeg'])])
+    painting = models.ImageField(upload_to="gallery/images", validators=[FileExtensionValidator(allowed_extensions=['jpg', 'webp', 'jpeg'])])
     poem = models.TextField()
     sold = models.BooleanField(default=False)
     width = models.DecimalField(max_digits=3, decimal_places=2, null=True, blank=True)
