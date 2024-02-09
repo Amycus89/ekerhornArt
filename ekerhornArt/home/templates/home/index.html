@@ -129,7 +129,7 @@
     {% for event in events %}
     <picture
       class="item-container blur-load vignette {% if forloop.first %}expanded{% endif %}"
-      style="background-image: url({{ event.get_resized_image_urls.img_0_url }});"
+      style="--bg-image: url({{ event.get_resized_image_urls.img_0_url }});"
     >
       <source
         type="image/webp"
@@ -196,9 +196,9 @@
       <a href="{% url 'gallery:painting' painting.id %}">Läs mer</a>
     </dialog>
     {% if painting.sold %}
-    <picture class="open-modal blur-load vignette sold" style="background-image: url({{ painting.get_resized_image_urls.img_0_url }});">
+    <picture class="open-modal blur-load vignette sold" style="--bg-image: url({{ event.get_resized_image_urls.img_0_url }});">
     {% else %}
-    <picture class="open-modal blur-load vignette" style="background-image: url({{ painting.get_resized_image_urls.img_0_url }});">
+    <picture class="open-modal blur-load vignette" style="--bg-image: url({{ event.get_resized_image_urls.img_0_url }});">
     {% endif %}
         <source type="image/webp" srcset="{{ painting.get_resized_image_urls.webp_1_url }} 500w, {{ painting.get_resized_image_urls.webp_2_url }} 1000w" />
         <img
