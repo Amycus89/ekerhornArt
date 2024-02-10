@@ -14,9 +14,9 @@
     <picture>
       <div class="box card__article">
       {% if painting.sold %}
-      <div class="vignette sold blur-load" style="background-image: url('{{ painting.get_resized_image_urls.img_0_url }}');">
+      <div class="vignette sold blur-load" style="--bg-image: url('{{ painting.get_resized_image_urls.img_0_url }}');">
       {% else %}
-      <div class="vignette blur-load" style="background-image: url('{{ painting.get_resized_image_urls.img_0_url }}');">
+      <div class="vignette blur-load" style="--bg-image: url('{{ painting.get_resized_image_urls.img_0_url }}');">
         {% endif %}
         <source
           type="image/webp"

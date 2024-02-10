@@ -96,6 +96,18 @@ body {
   }
 }
 
+@supports (
+  background-image:
+    image-set(url("{{ painting.get_resized_image_urls.webp_0_url }}") 1x)
+) {
+  .blur-load {
+    background-image: image-set(
+      var(--bg-image) 1x,
+      url("{{ painting.get_resized_image_urls.webp_0_url }}") 1x
+    );
+  }
+}
+
 #about .loaded {
   background-image: none !important;
 }
