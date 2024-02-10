@@ -5,7 +5,7 @@ h1 {
 }
 
 main {
-  background-color: var(--meutral);
+  background-color: var(--neutral);
   padding: 64px var(--main-margin);
   min-height: 100vh;
 }
@@ -101,7 +101,7 @@ main .breadcrumbs p {
 
 .background h1 {
   margin-top: 8px;
-  color: #6e7fa1;
+  color: var(--a-medium);
   font-size: clamp(1.777rem, 1.48423rem + 1.673vw, 3.157rem);
 }
 
@@ -111,22 +111,22 @@ main .breadcrumbs p {
 }
 
 .background h4 {
-  color: #e9ecf1;
+  color: var(--a-light);
 }
 
 .background h5 {
-  color: #c8a872;
+  color: var(--accent);
   text-align: center;
 }
 
 .info-box {
-  background-color: #00040d;
+  background-color: var(--dark);
   padding: 16px;
   padding-bottom: 24px;
 }
 
 .location {
-  color: #f6f7f8;
+  color: var(--neutral);
   padding-bottom: 16px;
 }
 
@@ -186,11 +186,11 @@ i {
 
 .btn:hover,
 .btn:hover i {
-  color: #00040d;
+  color: var(--dark);
 }
 
 .btn:hover {
-  background-color: #fefefe;
+  background-color: var(--neutral);
 }
 
 .background {
@@ -233,7 +233,7 @@ i {
 }
 
 .background .return {
-  color: #f6f7f8;
+  color: var(--neutral);
   position: absolute;
   inset: clamp(1rem, 0.53284rem + 1.967vw, 2.5rem);
 }

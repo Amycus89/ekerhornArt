@@ -251,7 +251,7 @@
 
 #about .text-box p {
   width: clamp(280px, 100%, 75ch);
-  color: #1c2d52;
+  color: var(--a-main);
   line-height: 1.5;
 }
 
@@ -317,7 +317,7 @@
   color: var(--a-main);
 }
 #events p {
-  color: #1c2d52;
+  color: #var(--a-main);
   line-height: 1.5;
   width: clamp(220px, 100%, 60ch);
   margin: 0 auto;
@@ -536,7 +536,7 @@
   color: var(--a-main);
 }
 #gallery .modal p {
-  color: #101b30;
+  color: var(--a-main);
   line-height: 1.5;
   padding-bottom: 16px;
 }
