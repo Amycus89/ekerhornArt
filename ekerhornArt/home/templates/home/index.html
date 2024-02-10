@@ -128,7 +128,7 @@
   <div class="accordion">
     {% for event in events %}
     <picture
-      class="item-container blur-load vignette {% if forloop.first %}expanded{% endif %}"
+      class="item-container blur-load {% if forloop.first %}expanded{% endif %}"
       style="--bg-image: url({{ event.get_resized_image_urls.img_0_url }});"
     >
       <source
