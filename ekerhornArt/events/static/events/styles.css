@@ -1,5 +1,4 @@
 h1 {
-  font-size: 22px;
   color: var(--b-main);
   padding: 0;
   margin: 0;
@@ -18,10 +17,14 @@ main {
   padding: 16px 0;
 }
 
+.breadcrumbs * {
+  font-size: clamp(0.75rem, 0.61735rem + 0.758vw, 1.375rem);
+}
+
 main .breadcrumbs a {
   color: var(--a-medium);
   text-decoration: none;
-  font-size: 22px;
+  white-space: nowrap;
 }
 
 main .breadcrumbs p,
@@ -36,7 +39,6 @@ main .breadcrumbs a:hover i {
 
 main .breadcrumbs p {
   margin: 0 0.5em;
-  font-size: 22px;
 }
 
 .events-container {
@@ -73,6 +75,7 @@ main .breadcrumbs p {
   top: 0;
   color: white;
   padding: 16px;
+  font-size: clamp(1.777rem, 1.65135rem + 0.718vw, 2.369rem);
 }
 
 .events-container div h6 {
@@ -99,6 +102,7 @@ main .breadcrumbs p {
 .background h1 {
   margin-top: 8px;
   color: #6e7fa1;
+  font-size: clamp(1.777rem, 1.48423rem + 1.673vw, 3.157rem);
 }
 
 .background h3 {
@@ -112,6 +116,7 @@ main .breadcrumbs p {
 
 .background h5 {
   color: #c8a872;
+  text-align: center;
 }
 
 .info-box {
@@ -202,7 +207,7 @@ i {
 }
 
 .background .filter {
-  background-color: hsla(0, 0%, 0%, 0.5);
+  background-color: hsla(0, 0%, 0%, 0.4);
   width: 100%;
   min-height: 80vh;
   display: flex;
@@ -219,7 +224,7 @@ i {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.55);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   -webkit-backdrop-filter: blur(10em);
   backdrop-filter: blur(4px);

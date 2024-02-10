@@ -1,5 +1,4 @@
 h1 {
-  font-size: 22px;
   color: var(--b-main);
   padding: 0;
   margin: 0;
@@ -18,10 +17,14 @@ main {
   padding: 16px 0;
 }
 
+.breadcrumbs * {
+  font-size: clamp(0.75rem, 0.61735rem + 0.758vw, 1.375rem);
+}
+
 main .breadcrumbs a {
   color: var(--a-medium);
   text-decoration: none;
-  font-size: 22px;
+  white-space: nowrap;
 }
 
 main .breadcrumbs p,
@@ -36,7 +39,6 @@ main .breadcrumbs a:hover i {
 
 main .breadcrumbs p {
   margin: 0 0.5em;
-  font-size: 22px;
 }
 
 .paintings {
