@@ -44,6 +44,12 @@
   transform: translateY(-100%);
   animation: up-reveal 1s ease 2s forwards;
 }
+
+.animated {
+  animation-duration: 0s !important;
+  animation-delay: 0s !important;
+}
+
 .header-background {
   height: 100px;
   position: absolute;

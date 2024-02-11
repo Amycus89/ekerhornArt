@@ -11,6 +11,19 @@ document.addEventListener("DOMContentLoaded", function () {
   const neutralBlack = "#00040d";
   let prevScrollPos = 0;
 
+  // Check for first time visitor
+  if (!localStorage.getItem("visited")) {
+    localStorage.setItem("visited", "true");
+  } else {
+    // Select all objects with the css class "animate"
+    const animated = document.querySelectorAll(".animate");
+    // For each, add the letter "d" to the class
+    animated.forEach((element) => {
+      element.classList.add("animated");
+    });
+  }
+
+  // BLUR LOAD
   const blurContainers = document.querySelectorAll(".blur-load");
   blurContainers.forEach((container) => {
     const img = container.querySelector("img");
