@@ -1,10 +1,15 @@
 from django.db import models
 from django.dispatch import receiver
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, pre_delete
 from PIL import Image
 import os
+import shutil
 from django.conf import settings
 from django.core.validators import FileExtensionValidator
+
+def process_name(painting_name):
+    processed_name = painting_name.lower().replace(" ", "_").replace("ö", "o").replace("ä", "a").replace("å", "a").translate(str.maketrans("", "", "/:*?!#&\"<>|"))
+    return processed_name
 
 # Create your models here.
 
@@ -30,6 +35,8 @@ class Painting(models.Model):
             painting_image_urls[f'img_{i}_url'] = f"{settings.MEDIA_URL}gallery/images/{painting_file_name}/{self.id}_{painting_file_name}_{i}.jpg"
             # Add the webp images as well
             painting_image_urls[f'webp_{i}_url'] = f"{settings.MEDIA_URL}gallery/images/{painting_file_name}/{self.id}_{painting_file_name}_{i}.webp"
+        # Add the meta image as well
+        painting_image_urls['meta_url'] = f"{settings.MEDIA_URL}gallery/images/{painting_file_name}/{self.id}_{painting_file_name}_meta.jpg"
         return painting_image_urls
 
 
@@ -37,35 +44,55 @@ class Painting(models.Model):
 #Whenever admin adds new painting
 @receiver(post_save, sender=Painting)
 def resize_uploaded_image(sender, instance, created, **kwargs):
-    # Check whether the object is created or if the painting has changed
-    if not created and instance.painting != Event.objects.get(id=instance.id).painting:
-        # Open the uploaded image
-        img = Image.open(instance.painting)
+    # Open the uploaded image
+    if instance.painting:
+        try:
+            img = Image.open(instance.painting)
 
-        # Calculate aspect ratio
-        aspect_ratio = img.width / img.height
+            # Calculate aspect ratio
+            aspect_ratio = img.width / img.height
 
-        # Define the image widths
-        image_widths = [20, 500, 960, 1800]
+            # Define the image widths
+            image_widths = [20, 500, 960, 1800]
 
-        for i, width in enumerate(image_widths):
-            # Resize the image to different resolutions
-            resized_img = img.resize((width, int(width / aspect_ratio)))
             # Define the painting file name
             painting_file_name = process_name(instance.name)
-            # Save the resized images as jpgs
-            if not os.path.exists(f"media/gallery/images/{painting_file_name}"):
-                os.makedirs(f"media/gallery/images/{painting_file_name}")
-            resized_img.save(f"media/gallery/images/{painting_file_name}/{instance.id}_{painting_file_name}_{i}.jpg", quality=80, optimize=True)
-            # Convert JPG to webp
-            webp_img = resized_img.convert("RGB").convert("P", palette=Image.ADAPTIVE)
-            # Save the webp images
-            webp_img.save(f"media/gallery/images/{painting_file_name}/{instance.id}_{painting_file_name}_{i}.webp", optimize=True)
 
-        #Delete the old image
-        os.remove(instance.painting.path)
+            for i, width in enumerate(image_widths):
+                # Resize the image to different resolutions
+                resized_img = img.resize((width, int(width / aspect_ratio)))
+                # Save the resized images as jpgs
+                if not os.path.exists(f"media/gallery/images/{painting_file_name}"):
+                    os.makedirs(f"media/gallery/images/{painting_file_name}")
+                resized_img.save(f"media/gallery/images/{painting_file_name}/{instance.id}_{painting_file_name}_{i}.jpg", quality=80, optimize=True)
+                # Convert JPG to webp
+                webp_img = resized_img.convert("RGB").convert("P", palette=Image.ADAPTIVE)
+                # Save the webp images
+                webp_img.save(f"media/gallery/images/{painting_file_name}/{instance.id}_{painting_file_name}_{i}.webp", optimize=True)
 
+            # if width of img is less than 1200px:
+            if img.width < 1200:
+                # Resize the image to have a width of 1200px while maintaining aspect ratio
+                img = img.resize((1200, int(1200 / aspect_ratio)))
+            if img.height < 630:
+                # Resize the image to have a height of 630px while maintaining aspect ratio
+                img = img.resize((int(630 * aspect_ratio), 630))
 
-def process_name(painting_name):
-    processed_name = painting_name.lower().replace(" ", "_").replace("ö", "o").replace("ä", "a").replace("å", "a").translate(str.maketrans("", "", "/:*?!#&\"<>|"))
-    return processed_name
+            #Crop the image towards the center to only be 1200px wide and 630px high
+            img = img.crop((img.width/2 - 600, img.height/2 - 315, img.width/2 + 600, img.height/2 + 315))
+
+            # Save the cropped image in the same folder
+            img.save(f"media/gallery/images/{painting_file_name}/{instance.id}_{painting_file_name}_meta.jpg", quality=80, optimize=True)
+
+            #Delete the old image
+            os.remove(instance.painting.path)
+        except FileNotFoundError:
+            pass
+
+@receiver(pre_delete, sender=Painting)
+def delete_resized_images(sender, instance, **kwargs):
+    # Delete the resized images
+    # Define the painting file name
+    folder_path = f"media/gallery/images/{process_name(instance.name)}/"
+    if os.path.exists(folder_path):
+        shutil.rmtree(folder_path)

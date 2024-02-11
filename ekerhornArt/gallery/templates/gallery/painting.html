@@ -4,7 +4,10 @@
   property="og:description"
   content="Välkommen till mitt onlinegalleri, där du hittar ett litet urval av mina målningar och dikter. Varje målning har en historia bakom sig, som jag vill dela genom mina ord."
 />
-<meta property="og:image" content="{% static 'home/images/meta.jpg' %}" />
+<meta
+  property="og:image"
+  content="{{painting.get_resized_image_urls.meta_url}}"
+/>
 <meta property="og:url" content="{{ request.build_absolute_uri }}" />
 <title>{{ painting.name }}</title>
 {% endblock %} {% block head %}
