@@ -1,7 +1,7 @@
 {% extends "home/layout.html" %} {% load static %} {% block meta %}
 <meta property="og:title" content="{{ event.name }}" />
 <meta property="og:description" content="{{ event.description }}" />
-<meta property="og:image" content="{% static 'home/images/meta.jpg' %}" />
+<meta property="og:image" content="{{event.get_resized_image_urls.meta_url}}" />
 <meta property="og:url" content="{{ request.build_absolute_uri }}" />
 <title>{{ event.name }}</title>
 {% endblock %} {% block head %}

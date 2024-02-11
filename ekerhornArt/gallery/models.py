@@ -44,9 +44,9 @@ class Painting(models.Model):
 #Whenever admin adds new painting
 @receiver(post_save, sender=Painting)
 def resize_uploaded_image(sender, instance, created, **kwargs):
-    # Open the uploaded image
     if instance.painting:
         try:
+            # Open the uploaded image
             img = Image.open(instance.painting)
 
             # Calculate aspect ratio
@@ -70,6 +70,7 @@ def resize_uploaded_image(sender, instance, created, **kwargs):
                 # Save the webp images
                 webp_img.save(f"media/gallery/images/{painting_file_name}/{instance.id}_{painting_file_name}_{i}.webp", optimize=True)
 
+            # CREATE A META IMAGE
             # if width of img is less than 1200px:
             if img.width < 1200:
                 # Resize the image to have a width of 1200px while maintaining aspect ratio
