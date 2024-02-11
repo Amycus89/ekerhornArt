@@ -5,14 +5,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:title" content="Ekerhorn Art" />
-    <meta
-      property="og:description"
-      content="Välkommen till mitt onlinegalleri, där du hittar ett litet urval av mina målningar och dikter. Varje målning har en historia bakom sig, som jag vill dela genom mina ord."
-    />
-    <meta property="og:image" content="{% static 'home/images/meta.jpg' %}" />
-    <meta property="og:url" content="www.ekerhorn.com" />
-    <title>Ekerhorn Art</title>
+    {% block meta %} {% endblock %}
     <script
       src="https://kit.fontawesome.com/a8ed3d1b14.js"
       crossorigin="anonymous"

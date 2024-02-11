@@ -1,4 +1,13 @@
-{% extends "home/layout.html" %} {% load static %} {% block head %}
+{% extends "home/layout.html" %} {% load static %} {% block meta %}
+<meta property="og:title" content="Ekerhorn Art Events" />
+<meta
+  property="og:description"
+  content="Följ med oss på kommande konstgallerier där mitt arbete står i centrum. Bli en del av en upplevelse som sträcker sig över målarduken."
+/>
+<meta property="og:image" content="{% static 'home/images/meta.jpg' %}" />
+<meta property="og:url" content="www.ekerhorn.com/events" />
+<title>Events</title>
+{% endblock %} {% block head %}
 <link href="{% static 'events/styles.css' %}" rel="stylesheet" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{% static 'events/script.js' %}"></script>

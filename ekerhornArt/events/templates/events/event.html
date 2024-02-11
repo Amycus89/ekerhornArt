@@ -1,4 +1,10 @@
-{% extends "home/layout.html" %} {% load static %} {% block head %}
+{% extends "home/layout.html" %} {% load static %} {% block meta %}
+<meta property="og:title" content="{{ event.name }}" />
+<meta property="og:description" content="{{ event.description }}" />
+<meta property="og:image" content="{% static 'home/images/meta.jpg' %}" />
+<meta property="og:url" content="{{ request.build_absolute_uri }}" />
+<title>{{ event.name }}</title>
+{% endblock %} {% block head %}
 <link href="{% static 'events/styles.css' %}" rel="stylesheet" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script

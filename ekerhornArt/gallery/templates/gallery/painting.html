@@ -1,4 +1,13 @@
-{% extends "home/layout.html" %} {% load static %} {% block head %}
+{% extends "home/layout.html" %} {% load static %} {% block meta %}
+<meta property="og:title" content="{{ painting.name }}" />
+<meta
+  property="og:description"
+  content="Välkommen till mitt onlinegalleri, där du hittar ett litet urval av mina målningar och dikter. Varje målning har en historia bakom sig, som jag vill dela genom mina ord."
+/>
+<meta property="og:image" content="{% static 'home/images/meta.jpg' %}" />
+<meta property="og:url" content="{{ request.build_absolute_uri }}" />
+<title>{{ painting.name }}</title>
+{% endblock %} {% block head %}
 <link href="{% static 'gallery/styles.css' %}" rel="stylesheet" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{% static 'gallery/script.js' %}"></script>
