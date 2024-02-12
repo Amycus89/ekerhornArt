@@ -106,7 +106,7 @@ main .breadcrumbs p {
 }
 
 .background h3 {
-  color: #c52c55;
+  color: var(--b-main);
   font-size: clamp(1rem, 0.83515rem + 0.942vw, 1.777rem);
 }
 

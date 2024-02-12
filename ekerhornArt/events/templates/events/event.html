@@ -49,14 +49,18 @@
       <div class="row social">
         <a
           href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"
+          target="_blank"
           ><i class="fa-brands fa-square-facebook"></i
         ></a>
         <a
           href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}"
+          target="_blank"
           ><i class="fa-brands fa-twitter"></i
         ></a>
-        <a href="https://www.instagram.com/ekerhorn/"
-          ><i class="fa-brands fa-square-instagram"></i
+        <a
+          href="whatsapp://send?text={{ request.build_absolute_uri }}"
+          target="_blank"
+          ><i class="fa-brands fa-square-whatsapp"></i
         ></a>
       </div>
     </div>
