@@ -186,7 +186,7 @@ article img {
 
 .painting__container {
   display: grid;
-  grid-template-areas: "C C C D D" "E E E D D";
+  grid-template-areas: "C C C D D" "C C C F F" "E E E F F";
   grid-template-columns: repeat(5, 20%);
   width: 100%;
 }
@@ -216,8 +216,6 @@ article img {
 
 .d {
   grid-area: D;
-  grid-column-start: 4;
-  grid-column-end: 6;
   color: var(--a-light);
   background-color: var(--dark);
 }
@@ -238,6 +236,83 @@ article img {
   );
   color: var(--dark);
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.contact {
+  background-color: var(--dark);
+  grid-area: F;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+.contact h3 {
+  color: var(--b-main);
+}
+
+.contact p {
+  color: var(--b-light);
+  padding-bottom: 16px;
+}
+
+input,
+button {
+  height: 2.5rem;
+}
+
+input,
+textarea,
+button {
+  width: 100%;
+  min-width: 272px;
+  border: none;
+  outline: none;
+  font-size: 1.125rem;
+  padding: 8px;
+}
+
+input,
+textarea {
+  margin-top: 16px;
+}
+
+button {
+  border: none;
+  background-color: var(--accent);
+  transition: 0.3s;
+}
+
+.input-container {
+  position: relative;
+}
+
+button:hover {
+  background-color: var(--b-main);
+  cursor: pointer;
+}
+
+.input-container label {
+  position: absolute;
+  left: 0;
+  top: 20px;
+  padding: 10px;
+  pointer-events: none;
+  font-size: 1.125rem;
+  color: var(--a-medium);
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.input-container input:valid ~ label,
+.input-container input:focus ~ label,
+.input-container textarea:valid ~ label,
+.input-container textarea:focus ~ label {
+  color: var(--a-main);
+  transform: translateX(10px) translateY(-16px);
+  font-size: 0.75rem;
+  padding: 10px 10px 0 10px;
+  background-color: white;
+  letter-spacing: 0.2em;
 }
 
 .quick-info {
@@ -264,23 +339,28 @@ article img {
 }
 
 @media (max-width: 830px) {
-  .section__container {
-    grid-template-areas: "C C C C C" "D D D D D" "E E E E E";
+  .painting__container {
+    grid-template-areas: "C C C C C" "D D D D D" "E E E E E" "F F F F F";
     grid-template-rows: min-content min-content 1fr;
   }
 
-  .c,
-  .d,
-  .e {
+  .c {
     grid-column-start: 1;
     grid-column-end: 6;
   }
 
   .d {
-    grid-row-start: 2;
+    grid-column-start: 1;
+    grid-column-end: 6;
   }
 
   .e {
-    grid-row-start: 3;
+    grid-column-start: 1;
+    grid-column-end: 6;
+  }
+
+  .contact {
+    grid-column-start: 1;
+    grid-column-end: 6;
   }
 }

@@ -57,7 +57,7 @@ def resize_uploaded_image(sender, instance, created, **kwargs):
             for i, width in enumerate(image_widths):
                 # Create a thumbnail with the specified width while maintaining the aspect ratio
                 resized_img = img.copy()
-                resized_img.resize((width, int(width / aspect_ratio)))
+                resized_img = resized_img.resize((width, int(width / aspect_ratio)))
                 #If there is no folder, create it
                 if not os.path.exists(f"media/gallery/images/{painting_file_name}"):
                     os.makedirs(f"media/gallery/images/{painting_file_name}")
