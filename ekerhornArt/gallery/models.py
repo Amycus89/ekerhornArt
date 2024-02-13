@@ -48,43 +48,46 @@ def resize_uploaded_image(sender, instance, created, **kwargs):
         try:
             # Open the uploaded image
             img = Image.open(instance.painting)
-
             # Calculate aspect ratio
             aspect_ratio = img.width / img.height
-
             # Define the image widths
             image_widths = [20, 500, 960, 1800]
-
             # Define the painting file name
             painting_file_name = process_name(instance.name)
-
             for i, width in enumerate(image_widths):
-                # Resize the image to different resolutions
-                resized_img = img.resize((width, int(width / aspect_ratio)))
-                # Save the resized images as jpgs
+                # Create a thumbnail with the specified width while maintaining the aspect ratio
+                resized_img = img.copy()
+                resized_img.resize((width, int(width / aspect_ratio)))
+                #If there is no folder, create it
                 if not os.path.exists(f"media/gallery/images/{painting_file_name}"):
                     os.makedirs(f"media/gallery/images/{painting_file_name}")
+                # Save the resized images as jpgs
                 resized_img.save(f"media/gallery/images/{painting_file_name}/{instance.id}_{painting_file_name}_{i}.jpg", quality=80, optimize=True)
                 # Convert JPG to webp
                 webp_img = resized_img.convert("RGB").convert("P", palette=Image.ADAPTIVE)
                 # Save the webp images
                 webp_img.save(f"media/gallery/images/{painting_file_name}/{instance.id}_{painting_file_name}_{i}.webp", optimize=True)
 
-            # CREATE A META IMAGE
-            # if width of img is less than 1200px:
-            if img.width < 1200:
-                # Resize the image to have a width of 1200px while maintaining aspect ratio
-                img = img.resize((1200, int(1200 / aspect_ratio)))
-            if img.height < 630:
-                # Resize the image to have a height of 630px while maintaining aspect ratio
-                img = img.resize((int(630 * aspect_ratio), 630))
+            # CREATE A META THUMBNAIL
+            meta_width = 1200
+            meta_height = 630
+            # Check if the image dimensions are smaller than the target dimensions
+            # Resize the image to have a width of 1200px while maintaining aspect ratio
+            if img.width < meta_width:
+                img = img.resize((meta_width, int(meta_width / aspect_ratio)))
+            # Resize the image to have a height of 630px while maintaining aspect ratio
+            if img.height < meta_height:
+                img = img.resize((int(meta_height * aspect_ratio), meta_height))
 
-            #Crop the image towards the center to only be 1200px wide and 630px high
-            img = img.crop((img.width/2 - 600, img.height/2 - 315, img.width/2 + 600, img.height/2 + 315))
-
-            # Save the cropped image in the same folder
+            # Calculate the dimensions for cropping the resized image to the exact target size
+            left = (img.width - meta_width) / 2
+            top = (img.height - meta_height) / 2
+            right = (img.width + meta_width) / 2
+            bottom = (img.height + meta_height) / 2
+            # Crop the resized image to the exact target size
+            img = img.crop((left, top, right, bottom))
+            # Save the thumbnail in the same folder
             img.save(f"media/gallery/images/{painting_file_name}/{instance.id}_{painting_file_name}_meta.jpg", quality=80, optimize=True)
-
             #Delete the old image
             os.remove(instance.painting.path)
         except FileNotFoundError:
@@ -92,8 +95,8 @@ def resize_uploaded_image(sender, instance, created, **kwargs):
 
 @receiver(pre_delete, sender=Painting)
 def delete_resized_images(sender, instance, **kwargs):
-    # Delete the resized images
-    # Define the painting file name
+    # DELETE THE RESIZED IMAGES
+    # Define the folder location
     folder_path = f"media/gallery/images/{process_name(instance.name)}/"
     if os.path.exists(folder_path):
         shutil.rmtree(folder_path)

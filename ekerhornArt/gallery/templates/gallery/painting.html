@@ -79,6 +79,19 @@
         </div>
         {% endif %}
       </div>
+      <form
+        action="{% url 'gallery:painting' painting.id %}"
+        method="post"
+        id="painting-form"
+      >
+        {% csrf_token %} {% for field in form %}
+        <div class="input-container">{{ field }} {{ field.label_tag }}</div>
+        {% endfor %}
+        <button type="submit" class="contact-form-btn">Skicka</button>
+      </form>
+      {% if request.GET.success %}
+      <p>Your message was sent successfully!</p>
+      {% endif %}
     </div>
     <p class="e">{{ painting.poem|linebreaksbr }}</p>
   </div>
