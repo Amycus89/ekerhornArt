@@ -376,16 +376,17 @@ footer div ul {
   justify-content: center;
   align-items: center;
 }
+
 footer div ul:first-of-type {
   gap: 1rem;
 }
 footer div ul:first-of-type li i {
   color: var(--a-light);
-  font-size: 1rem;
+  font-size: 32px;
   cursor: pointer;
   transition-duration: 0.3s;
   background-color: var(--a-medium);
-  padding: 15px;
+  padding: 12px;
   border-radius: 50px;
 }
 footer div ul:first-of-type li i:hover {
