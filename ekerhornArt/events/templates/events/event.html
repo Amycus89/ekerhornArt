@@ -48,17 +48,17 @@
       </div>
       <div class="row social">
         <a
-          href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"
+          href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}&title={{ event.name }}&description={{ event.description }}&image={{event.get_resized_image_urls.meta_url}}"
           target="_blank"
           ><i class="fa-brands fa-square-facebook"></i
         ></a>
         <a
-          href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}"
+          href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text={{ event.name }}&description={{ event.description }}&image={{event.get_resized_image_urls.meta_url}}"
           target="_blank"
           ><i class="fa-brands fa-twitter"></i
         ></a>
         <a
-          href="whatsapp://send?text={{ request.build_absolute_uri }}"
+          href="whatsapp://send?text={{ request.build_absolute_uri }} {{ event.name }} - {{ event.description }}"
           target="_blank"
           ><i class="fa-brands fa-square-whatsapp"></i
         ></a>

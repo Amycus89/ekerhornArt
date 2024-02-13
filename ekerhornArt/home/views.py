@@ -30,8 +30,8 @@ def index(request):
             message = form.cleaned_data["message"]
 
             #Send email EMAIL_HOST
-            subject = f"{name} har kontaktat dig ang Ekerhorn Art"
-            body = f"Email: {email}\n\n{message}"
+            subject = f"{name} skriver till Ekerhorn Art"
+            body = f"Från:\n{name}\n{email}\n\n{message}"
             recipient = f"Ekerhorn Art <{env('myEmail')}>"
             sender = f"{name} <{email}>"
 

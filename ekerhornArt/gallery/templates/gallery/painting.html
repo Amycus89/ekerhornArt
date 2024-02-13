@@ -16,7 +16,7 @@
 <script src="{% static 'gallery/script.js' %}"></script>
 {% endblock %} {% block content %}
 
-<section class="test">
+<section>
   <div class="breadcrumbs">
     <a href="{% url 'home:index' %}"><i class="fa-solid fa-house"></i>Home</a>
     <p>/</p>
@@ -70,15 +70,16 @@
         {% if painting.width and painting.height %}
         <div class="keypair">
           <h6>Bredd:</h6>
-          <p>{{ painting.width }}</p>
+          <p>{{ painting.width }} cm</p>
         </div>
 
         <div class="keypair">
           <h6>Höjd:</h6>
-          <p>{{ painting.height }}</p>
+          <p>{{ painting.height }} cm</p>
         </div>
         {% endif %}
       </div>
+      <hr />
     </div>
 
     <div class="contact">
